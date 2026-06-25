@@ -1,0 +1,23 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 900 620" role="img" aria-label="Aqua Care knowledge image">
+  <defs>
+    <linearGradient id="bg" x1="0" x2="1" y1="0" y2="1">
+      <stop offset="0" stop-color="#06283b"/>
+      <stop offset=".52" stop-color="#0fa9cf"/>
+      <stop offset="1" stop-color="#e9fbff"/>
+    </linearGradient>
+  </defs>
+  <rect width="900" height="620" fill="url(#bg)"/>
+  <circle cx="720" cy="120" r="90" fill="#fff" opacity=".16"/>
+  <path d="M0 462c95-48 170 25 285-15 122-43 204-70 350-20 105 36 171 18 265-22v215H0z" fill="#052638" opacity=".38"/>
+  <g fill="#fff" opacity=".28">
+    <circle cx="120" cy="130" r="8"/><circle cx="170" cy="180" r="5"/><circle cx="650" cy="270" r="7"/><circle cx="735" cy="215" r="4"/>
+  </g>
+  <g transform="translate(260 220)">
+    <path d="M0 76c75-66 204-70 292 0-86 78-218 82-292 0z" fill="#ff9140"/>
+    <path d="M292 76l86-48v96z" fill="#ffd26b"/>
+    <circle cx="62" cy="62" r="10" fill="#0a2030"/>
+    <path d="M120 35c40 18 70 22 106 0-8 50-42 70-82 62-28-5-46-25-24-62z" fill="#fff" opacity=".88"/>
+  </g>
+  <text x="450" y="120" text-anchor="middle" fill="#fff" font-family="Arial, sans-serif" font-size="54" font-weight="800">AQUA CARE</text>
+  <text x="450" y="165" text-anchor="middle" fill="#d7fbff" font-family="Arial, sans-serif" font-size="25" font-weight="700">Kiến thức cá cảnh</text>
+</svg>

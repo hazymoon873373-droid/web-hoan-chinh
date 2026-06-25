@@ -1,0 +1,213 @@
+﻿<!DOCTYPE html>
+<html lang="vi">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Kiến thức - Aqua Care</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,500;0,600;0,700;1,600;1,700&family=Dancing+Script:wght@600;700&family=Be+Vietnam+Pro:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet">
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.css">
+  <link rel="stylesheet" href="css/style.css?v=20260625f">
+  
+  <link rel="stylesheet" href="css/kien-thuc.css?v=20260625f">
+</head>
+<body>
+
+    <nav class="navbar navbar-expand-lg fixed-top" id="mainNav">
+    <div class="container">
+      <a class="navbar-brand" href="index.html">
+        <img src="assets/images/branding/logo.png" alt="Aqua Care" class="navbar-logo-img">
+      </a>
+      <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navMenu">
+        <span class="navbar-toggler-icon"></span>
+      </button>
+      <div class="collapse navbar-collapse" id="navMenu">
+        <ul class="navbar-nav mx-auto mb-3 mb-lg-0">
+          <li class="nav-item"><a class="nav-link" href="index.html">Trang chủ</a></li>
+          <li class="nav-item dropdown">
+            <a class="nav-link dropdown-toggle" href="san-pham.html" role="button" data-bs-toggle="dropdown">Sản phẩm</a>
+            <ul class="dropdown-menu">
+              <li><a class="dropdown-item" href="index.html#san-pham"><i class="bi bi-house-door me-1"></i>Trang chủ</a></li>
+              <li><hr class="dropdown-divider"></li>
+              <li><a class="dropdown-item" href="san-pham.html?category=he-thong-loc">Hệ thống lọc</a></li>
+              <li><a class="dropdown-item" href="san-pham.html?category=thuc-an">Thức ăn & dinh dưỡng</a></li>
+              <li><a class="dropdown-item" href="san-pham.html?category=thuoc-vi-sinh">Thuốc & vi sinh</a></li>
+              <li><a class="dropdown-item" href="san-pham.html?category=vat-lieu-loc">Vật liệu lọc</a></li>
+              <li><a class="dropdown-item" href="san-pham.html?category=cay-thuy-sinh">Cây thủy sinh</a></li>
+              <li><a class="dropdown-item" href="san-pham.html?category=thiet-bi">Thiết bị & phụ kiện</a></li>
+            </ul>
+          </li>
+          <li class="nav-item"><a class="nav-link active" href="kien-thuc.html">Kiến thức</a></li>
+          <li class="nav-item"><a class="nav-link" href="du-an.html">Dự án</a></li>
+          <li class="nav-item"><a class="nav-link" href="lien-he.html">Liên hệ</a></li>
+        </ul>
+        <div class="navbar-icons d-flex align-items-center gap-2">
+          <button class="icon-btn" type="button"><i class="bi bi-search"></i></button>
+          <button class="icon-btn" type="button"><i class="bi bi-person"></i></button>
+          <button class="icon-btn cart-btn position-relative" type="button">
+            <i class="bi bi-cart3"></i><span class="cart-badge">0</span>
+          </button>
+        </div>
+      </div>
+    </div>
+  </nav>
+
+    <section class="kt-hero">
+    <div class="container kt-hero-content">
+      <div class="row">
+        <div class="col-lg-7">
+          <p style="color:#8fd6f0;font-size:0.78rem;font-weight:700;text-transform:uppercase;letter-spacing:1.2px;margin-bottom:10px;">THƯ VIỆN KIẾN THỨC</p>
+          <h1>Nuôi cá đúng cách,<br>hồ luôn khỏe mạnh 🐟</h1>
+          <p>Tổng hợp kiến thức chuyên sâu về cá Koi, hồ thủy sinh, xử lý nước, dinh dưỡng và phòng trị bệnh — được đội ngũ chuyên gia Aqua Care biên soạn và kiểm duyệt.</p>
+          <div class="kt-search-wrap">
+            <input type="text" placeholder="Tìm kiếm bài viết, chủ đề..." id="ktSearch" maxlength="80" pattern="^[A-Za-zÀ-ỹ0-9\s&+/#.,-]{0,80}$">
+            <button onclick="doSearch()"><i class="bi bi-search"></i></button>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+    <div class="kt-tabs-section">
+    <div class="container">
+      <div class="kt-tabs" id="ktTabs">
+        <button class="kt-tab active" data-cat="all">Tất cả</button>
+        <button class="kt-tab" data-cat="koi">🐟 Cá Koi</button>
+        <button class="kt-tab" data-cat="thuy-sinh">🌿 Hồ thủy sinh</button>
+        <button class="kt-tab" data-cat="nuoc">💧 Xử lý nước</button>
+        <button class="kt-tab" data-cat="dinh-duong">🍽️ Dinh dưỡng</button>
+        <button class="kt-tab" data-cat="benh">💊 Phòng trị bệnh</button>
+      </div>
+    </div>
+  </div>
+
+    <section class="kt-section">
+    <div class="container">
+      <div class="row g-4">
+        <!-- Articles -->
+        <div class="col-lg-9">
+          <!-- List view -->
+          <div id="ktListView">
+            <!-- Featured -->
+            <div class="row g-4 mb-4" id="ktFeatured"></div>
+            <!-- Grid -->
+            <div class="row g-4" id="ktGrid"></div>
+          </div>
+          <!-- Detail view -->
+          <div id="ktDetailView" class="kt-article-detail">
+            <button class="back-btn" onclick="goBackKt()"><i class="bi bi-arrow-left"></i> Quay lại danh sách</button>
+            <div id="ktDetailContent"></div>
+          </div>
+        </div>
+
+        <!-- Sidebar -->
+        <div class="col-lg-3 d-none d-lg-block">
+          <div class="kt-sidebar">
+            <div class="kt-sidebar-box">
+              <h6><i class="bi bi-fire me-2" style="color:#f5952e;"></i>Bài viết nổi bật</h6>
+              <ul class="popular-list">
+                <li><div class="popular-num">1</div><a href="#" onclick="openArticle(0);return false;">Cách chọn hệ thống lọc phù hợp với thể tích hồ</a></li>
+                <li><div class="popular-num">2</div><a href="#" onclick="openArticle(1);return false;">10 loại cây thủy sinh dễ trồng nhất cho người mới</a></li>
+                <li><div class="popular-num">3</div><a href="#" onclick="openArticle(2);return false;">Cách xử lý nước hồ cá bị vàng, đục sau mưa</a></li>
+                <li><div class="popular-num">4</div><a href="#" onclick="openArticle(3);return false;">Dinh dưỡng cho cá Koi: Protein, Astaxanthin và khoáng</a></li>
+                <li><div class="popular-num">5</div><a href="#" onclick="openArticle(4);return false;">Nhận biết và điều trị bệnh nấm ở cá cảnh</a></li>
+              </ul>
+            </div>
+            <div class="kt-sidebar-box">
+              <h6><i class="bi bi-tags me-2" style="color:var(--color-primary);"></i>Chủ đề</h6>
+              <div class="tag-cloud">
+                <a href="#">Cá Koi</a><a href="#">Thủy sinh</a><a href="#">Lọc nước</a>
+                <a href="#">Vi sinh</a><a href="#">Bệnh cá</a><a href="#">Đèn LED</a>
+                <a href="#">Thức ăn</a><a href="#">pH nước</a><a href="#">Màu sắc</a>
+                <a href="#">Thiết kế hồ</a><a href="#">Bơm nước</a>
+              </div>
+            </div>
+            <div class="kt-sidebar-box" style="background:linear-gradient(135deg,#0a2540,#14516b);border:none;">
+              <p style="color:#8fd6f0;font-size:0.72rem;font-weight:700;text-transform:uppercase;letter-spacing:1px;margin-bottom:6px;">TƯ VẤN MIỄN PHÍ</p>
+              <p style="color:rgba(255,255,255,0.75);font-size:0.82rem;margin-bottom:16px;">Có câu hỏi về hồ cá? Gặp chuyên gia Aqua Care ngay hôm nay!</p>
+              <a href="lien-he.html" class="btn btn-primary-gradient w-100" style="font-size:0.82rem;">Liên hệ tư vấn →</a>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+    <section class="kt-newsletter">
+    <div class="container">
+      <div class="row justify-content-center">
+        <div class="col-lg-7">
+          <div class="newsletter-box">
+            <h3>Nhận kiến thức mới mỗi tuần 📬</h3>
+            <p>Đăng ký nhận bản tin Aqua Care để không bỏ lỡ các bài viết chuyên sâu về nuôi cá, thiết kế hồ và chăm sóc thủy sinh.</p>
+            <form class="newsletter-form" id="newsletterForm" novalidate>
+              <input type="email" id="newsletterEmail" placeholder="ten@gmail.com" autocomplete="email" required maxlength="100" pattern="^[A-Za-z0-9._%+-]+@gmail\.com$">
+              <button type="submit">Đăng ký ngay</button>
+            </form>
+            <p class="newsletter-message" id="newsletterMessage" role="alert"></p>
+            <p style="font-size:0.72rem;color:rgba(255,255,255,0.45);margin-top:12px;">Không spam. Hủy đăng ký bất cứ lúc nào.</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+    <footer class="site-footer">
+    <div class="container">
+      <div class="row gy-3 align-items-center">
+        <div class="col-lg-6">
+          <img src="assets/images/branding/logo-splash-transparent.png" alt="Aqua Care" class="footer-logo-img">
+          <p class="footer-desc mt-2">Kiến tạo những khoảng thiên nhiên dưới mặt nước.</p>
+        </div>
+        <div class="col-lg-6 text-lg-end">
+          <div class="footer-socials mb-2">
+            <a href="#"><i class="bi bi-facebook"></i></a>
+            <a href="#"><i class="bi bi-instagram"></i></a>
+            <a href="#"><i class="bi bi-youtube"></i></a>
+            <a href="#"><i class="bi bi-tiktok"></i></a>
+          </div>
+          <p class="footer-copy">&copy; 2026 Aqua Care. All rights reserved.</p>
+        </div>
+      </div>
+    </div>
+  </footer>
+
+  <button class="back-to-top" id="backToTop" type="button"><i class="bi bi-arrow-up"></i></button>
+
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
+  <script src="js/main.js?v=20260625f"></script>
+  
+
+    
+  <div class="chat-widget">
+    <div class="chat-box" id="chatBoxKt">
+      <div class="chat-header">
+        <div class="chat-avatar"><i class="bi bi-robot"></i></div>
+        <div class="chat-header-info"><strong>Aqua Care Hỗ Trợ</strong><span>🟢 Trực tuyến</span></div>
+        <button class="chat-close" onclick="document.getElementById('chatBoxKt').classList.remove('open')"><i class="bi bi-x-lg"></i></button>
+      </div>
+      <div class="chat-messages" id="chatMsgsKt">
+        <div class="chat-msg bot"><div class="chat-bot-avatar"><i class="bi bi-robot"></i></div><div class="chat-bubble">Chào bạn! 👋 Bạn cần tư vấn về kiến thức nuôi cá hay sản phẩm Aqua Care không?</div></div>
+      </div>
+      <div class="chat-quick">
+        <button class="chat-quick-btn" onclick="ktChat('Tư vấn hồ Koi')">🐟 Hồ Koi</button>
+        <button class="chat-quick-btn" onclick="ktChat('Xử lý nước')">💧 Xử lý nước</button>
+        <button class="chat-quick-btn" onclick="ktChat('Mua sản phẩm')">🛒 Mua sản phẩm</button>
+        <button class="chat-quick-btn" onclick="ktChat('Phòng trị bệnh')">💊 Bệnh cá</button>
+      </div>
+      <div class="chat-input-row">
+        <input type="text" class="chat-input" id="chatInpKt" placeholder="Nhập câu hỏi..." onkeydown="if(event.key==='Enter')ktSend()">
+        <button class="chat-send" onclick="ktSend()"><i class="bi bi-send-fill"></i></button>
+      </div>
+    </div>
+    <button class="chat-toggle" onclick="document.getElementById('chatBoxKt').classList.toggle('open')"><i class="bi bi-chat-dots-fill"></i><span class="chat-badge-dot"></span></button>
+  </div>
+  
+  <script src="js/kien-thuc.js?v=20260625f"></script>
+</body>
+</html>
+
+
+

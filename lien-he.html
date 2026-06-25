@@ -1,0 +1,385 @@
+﻿<!DOCTYPE html>
+<html lang="vi">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Liên hệ - Aqua Care</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,500;0,600;0,700;1,600;1,700&family=Dancing+Script:wght@600;700&family=Be+Vietnam+Pro:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet">
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.css">
+  <link rel="stylesheet" href="css/style.css?v=20260625f">
+  
+  <link rel="stylesheet" href="css/lien-he.css?v=20260625f">
+</head>
+<body>
+
+    <nav class="navbar navbar-expand-lg fixed-top" id="mainNav">
+    <div class="container">
+      <a class="navbar-brand" href="index.html">
+        <img src="assets/images/branding/logo.png" alt="Aqua Care" class="navbar-logo-img">
+      </a>
+      <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navMenu">
+        <span class="navbar-toggler-icon"></span>
+      </button>
+      <div class="collapse navbar-collapse" id="navMenu">
+        <ul class="navbar-nav mx-auto mb-3 mb-lg-0">
+          <li class="nav-item"><a class="nav-link" href="index.html">Trang chủ</a></li>
+          <li class="nav-item dropdown">
+            <a class="nav-link dropdown-toggle" href="san-pham.html" role="button" data-bs-toggle="dropdown">Sản phẩm</a>
+            <ul class="dropdown-menu">
+              <li><a class="dropdown-item" href="index.html#san-pham"><i class="bi bi-house-door me-1"></i>Trang chủ</a></li>
+              <li><hr class="dropdown-divider"></li>
+              <li><a class="dropdown-item" href="san-pham.html?category=he-thong-loc">Hệ thống lọc</a></li>
+              <li><a class="dropdown-item" href="san-pham.html?category=thuc-an">Thức ăn & dinh dưỡng</a></li>
+              <li><a class="dropdown-item" href="san-pham.html?category=thuoc-vi-sinh">Thuốc & vi sinh</a></li>
+              <li><a class="dropdown-item" href="san-pham.html?category=vat-lieu-loc">Vật liệu lọc</a></li>
+              <li><a class="dropdown-item" href="san-pham.html?category=cay-thuy-sinh">Cây thủy sinh</a></li>
+              <li><a class="dropdown-item" href="san-pham.html?category=thiet-bi">Thiết bị & phụ kiện</a></li>
+            </ul>
+          </li>
+          <li class="nav-item"><a class="nav-link" href="kien-thuc.html">Kiến thức</a></li>
+          <li class="nav-item"><a class="nav-link" href="du-an.html">Dự án</a></li>
+          <li class="nav-item"><a class="nav-link active" href="lien-he.html">Liên hệ</a></li>
+        </ul>
+        <div class="navbar-icons d-flex align-items-center gap-2">
+          <button class="icon-btn" type="button"><i class="bi bi-search"></i></button>
+          <button class="icon-btn" type="button"><i class="bi bi-person"></i></button>
+          <button class="icon-btn cart-btn position-relative" type="button">
+            <i class="bi bi-cart3"></i>
+            <span class="cart-badge">0</span>
+          </button>
+        </div>
+      </div>
+    </div>
+  </nav>
+
+    <section class="lh-hero">
+    <div class="container lh-hero-content">
+      <div class="row align-items-center gy-4">
+        <div class="col-lg-7">
+          <p style="color:#8fd6f0;font-size:0.78rem;font-weight:700;text-transform:uppercase;letter-spacing:1.2px;margin-bottom:10px;">LIÊN HỆ AQUA CARE</p>
+          <h1>Tư vấn rõ ràng trước khi<br>bạn bắt đầu một hồ cá mới</h1>
+          <p>Gửi ảnh vị trí, diện tích, kiểu hồ yêu thích và mức ngân sách. Đội ngũ Aqua Care sẽ phản hồi theo hướng dễ hiểu: nên chọn kiểu hồ nào, thiết bị gì và chăm sóc ra sao.</p>
+          <div class="lh-hero-btns">
+            <a href="#form-lien-he" class="btn btn-primary-gradient">Gửi yêu cầu tư vấn <i class="bi bi-arrow-down"></i></a>
+            <a href="tel:19001234" class="btn btn-outline-light-custom"><i class="bi bi-telephone-fill"></i> Gọi 1900 1234</a>
+          </div>
+        </div>
+        <div class="col-lg-5">
+          <div class="row g-3">
+            <div class="col-6"><div class="lh-stat-card"><strong>12h</strong><span>Phản hồi yêu cầu thiết kế</span></div></div>
+            <div class="col-6"><div class="lh-stat-card"><strong>500+</strong><span>Dự án đã thực hiện</span></div></div>
+            <div class="col-6"><div class="lh-stat-card"><strong>98%</strong><span>Khách hàng hài lòng</span></div></div>
+            <div class="col-6"><div class="lh-stat-card"><strong>24/7</strong><span>Hỗ trợ kỹ thuật</span></div></div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+    <section class="contact-section">
+    <div class="container">
+      <p class="text-center" style="color:var(--color-primary);font-size:0.78rem;font-weight:700;text-transform:uppercase;letter-spacing:1.2px;margin-bottom:6px;">KÊNH LIÊN HỆ</p>
+      <h2 class="section-title text-center mb-5">Chúng tôi luôn sẵn sàng hỗ trợ bạn 🐠</h2>
+      <div class="row g-4">
+        <div class="col-sm-6 col-lg-3">
+          <div class="contact-card">
+            <div class="contact-icon"><i class="bi bi-telephone-fill"></i></div>
+            <h5>Hotline</h5>
+            <p>Gọi trực tiếp để được tư vấn ngay lập tức</p>
+            <a href="tel:19001234" class="contact-value">1900 1234</a>
+            <span class="open-time"><i class="bi bi-clock me-1"></i>7:00 – 21:00 mỗi ngày</span>
+          </div>
+        </div>
+        <div class="col-sm-6 col-lg-3">
+          <div class="contact-card">
+            <div class="contact-icon"><i class="bi bi-envelope-fill"></i></div>
+            <h5>Email</h5>
+            <p>Gửi câu hỏi, ảnh hồ cá hoặc yêu cầu báo giá</p>
+            <a href="mailto:contact@aquacare.vn" class="contact-value" style="font-size:0.92rem;">contact@aquacare.vn</a>
+            <span class="open-time"><i class="bi bi-clock me-1"></i>Phản hồi trong 12 giờ</span>
+          </div>
+        </div>
+        <div class="col-sm-6 col-lg-3">
+          <div class="contact-card">
+            <div class="contact-icon"><i class="bi bi-chat-dots-fill"></i></div>
+            <h5>Zalo / Messenger</h5>
+            <p>Chat trực tiếp, gửi ảnh và video hồ cá</p>
+            <a href="#" class="contact-value">0901 234 567</a>
+            <span class="open-time"><i class="bi bi-clock me-1"></i>8:00 – 22:00 mỗi ngày</span>
+          </div>
+        </div>
+        <div class="col-sm-6 col-lg-3">
+          <div class="contact-card">
+            <div class="contact-icon"><i class="bi bi-geo-alt-fill"></i></div>
+            <h5>Cửa hàng</h5>
+            <p>Đến trực tiếp để xem sản phẩm và tư vấn tại chỗ</p>
+            <a href="#ban-do" class="contact-value" style="font-size:0.82rem;">123 Đường Xanh, Q. Bình Tân, TP.HCM</a>
+            <span class="open-time"><i class="bi bi-clock me-1"></i>8:00 – 20:00 T2 – CN</span>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+    <section class="form-section" id="form-lien-he">
+    <div class="container">
+      <div class="form-card">
+        <div class="row g-0">
+          <div class="col-lg-5">
+            <div class="form-left">
+              <div class="script-sub">Aqua Care tư vấn 🌊</div>
+              <h3>Bắt đầu hành trình<br>hồ cá của bạn</h3>
+              <p>Điền thông tin bên phải, chúng tôi sẽ liên hệ trong vòng 12 giờ với tư vấn chi tiết về thiết bị, chi phí và cách chăm sóc phù hợp nhất với không gian của bạn.</p>
+              <ul class="form-info-list">
+                <li>
+                  <i class="bi bi-telephone-fill"></i>
+                  <span><strong>Hotline 24/7</strong><br>1900 1234</span>
+                </li>
+                <li>
+                  <i class="bi bi-envelope-fill"></i>
+                  <span><strong>Email hỗ trợ</strong><br>contact@aquacare.vn</span>
+                </li>
+                <li>
+                  <i class="bi bi-geo-alt-fill"></i>
+                  <span><strong>Cửa hàng</strong><br>123 Đường Xanh, Q. Bình Tân, TP.HCM</span>
+                </li>
+                <li>
+                  <i class="bi bi-clock-fill"></i>
+                  <span><strong>Giờ mở cửa</strong><br>Thứ 2 – Chủ nhật: 8:00 – 20:00</span>
+                </li>
+              </ul>
+              <div class="mt-4 d-flex gap-3">
+                <a href="#" style="color:#8fd6f0;font-size:1.3rem;"><i class="bi bi-facebook"></i></a>
+                <a href="#" style="color:#8fd6f0;font-size:1.3rem;"><i class="bi bi-instagram"></i></a>
+                <a href="#" style="color:#8fd6f0;font-size:1.3rem;"><i class="bi bi-youtube"></i></a>
+                <a href="#" style="color:#8fd6f0;font-size:1.3rem;"><i class="bi bi-tiktok"></i></a>
+              </div>
+            </div>
+          </div>
+          <div class="col-lg-7">
+            <div class="form-right">
+              <h4>Gửi yêu cầu tư vấn</h4>
+              <form id="contactForm" novalidate>
+                <div class="row g-3">
+                  <div class="col-sm-6">
+                    <div class="form-group-custom">
+                      <label>Họ và tên <span>*</span></label>
+                      <input type="text" class="form-control-custom" id="fName" placeholder="Nguyễn Văn A" autocomplete="name" required minlength="2" maxlength="60" pattern="^[A-Za-zÀ-ỹ\s'.-]{2,60}$">
+                      <div class="field-error" id="fNameError"></div>
+                    </div>
+                  </div>
+                  <div class="col-sm-6">
+                    <div class="form-group-custom">
+                      <label>Số điện thoại <span>*</span></label>
+                      <input type="tel" class="form-control-custom" id="fPhone" placeholder="0901 234 567" autocomplete="tel" required pattern="^(0|\+84)[0-9\s.-]{9,14}$">
+                      <div class="field-error" id="fPhoneError"></div>
+                    </div>
+                  </div>
+                  <div class="col-12">
+                    <div class="form-group-custom">
+                      <label>Email</label>
+                      <input type="email" class="form-control-custom" id="fEmail" placeholder="ten@gmail.com" autocomplete="email" maxlength="100" pattern="^[A-Za-z0-9._%+-]+@gmail\.com$">
+                      <div class="field-error" id="fEmailError"></div>
+                    </div>
+                  </div>
+                  <div class="col-12">
+                    <div class="form-group-custom">
+                      <label>Bạn quan tâm đến <span>*</span></label>
+                      <div class="form-radio-group" id="fInterestGroup">
+                        <label class="radio-option"><input type="radio" name="interest" value="ho-ca-koi" required> 🐟 Hồ cá Koi</label>
+                        <label class="radio-option"><input type="radio" name="interest" value="ho-thuy-sinh"> 🌿 Hồ thủy sinh</label>
+                        <label class="radio-option"><input type="radio" name="interest" value="mua-san-pham"> 🛒 Mua sản phẩm</label>
+                        <label class="radio-option"><input type="radio" name="interest" value="bao-tri"> 🔧 Bảo trì hồ</label>
+                      </div>
+                      <div class="field-error" id="fInterestError"></div>
+                    </div>
+                  </div>
+                  <div class="col-sm-6">
+                    <div class="form-group-custom">
+                      <label>Diện tích hồ dự kiến</label>
+                      <select class="form-control-custom" id="fArea">
+                        <option value="">Chọn diện tích</option>
+                        <option>Nhỏ (< 500L)</option>
+                        <option>Vừa (500L – 3.000L)</option>
+                        <option>Lớn (3.000L – 10.000L)</option>
+                        <option>Rất lớn (> 10.000L)</option>
+                        <option>Chưa xác định</option>
+                      </select>
+                    </div>
+                  </div>
+                  <div class="col-sm-6">
+                    <div class="form-group-custom">
+                      <label>Ngân sách dự kiến</label>
+                      <select class="form-control-custom" id="fBudget">
+                        <option value="">Chọn ngân sách</option>
+                        <option>Dưới 5 triệu</option>
+                        <option>5 – 15 triệu</option>
+                        <option>15 – 50 triệu</option>
+                        <option>50 – 150 triệu</option>
+                        <option>Trên 150 triệu</option>
+                      </select>
+                    </div>
+                  </div>
+                  <div class="col-12">
+                    <div class="form-group-custom">
+                      <label>Mô tả yêu cầu</label>
+                      <textarea class="form-control-custom" id="fMessage" placeholder="Mô tả vị trí đặt hồ, phong cách yêu thích, câu hỏi cụ thể..." minlength="10" maxlength="500"></textarea>
+                      <div class="field-error" id="fMessageError"></div>
+                    </div>
+                  </div>
+                  <div class="col-12">
+                    <p class="form-status-message" id="contactFormError" role="alert"></p>
+                    <button class="btn-submit" type="submit">
+                      <i class="bi bi-send-fill"></i> Gửi yêu cầu tư vấn
+                    </button>
+                    <p style="font-size:0.75rem;color:var(--color-text-muted);text-align:center;margin-top:10px;">
+                      <i class="bi bi-lock-fill me-1" style="color:var(--color-primary);"></i>Thông tin của bạn được bảo mật tuyệt đối
+                    </p>
+                  </div>
+                </div>
+              </form>
+              <!-- Success state -->
+              <div class="form-success" id="formSuccess">
+                <div class="success-icon"><i class="bi bi-check-lg"></i></div>
+                <h5 style="font-family:var(--font-display);margin-bottom:8px;">Gửi thành công!</h5>
+                <p style="color:var(--color-text-muted);font-size:0.88rem;">Cảm ơn bạn đã liên hệ. Đội ngũ Aqua Care sẽ phản hồi trong vòng 12 giờ.</p>
+                <button type="button" onclick="resetForm()" class="btn btn-primary-gradient mt-3">Gửi yêu cầu khác</button>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+    <section class="store-section" id="ban-do">
+    <div class="container">
+      <p class="text-center" style="color:var(--color-primary);font-size:0.78rem;font-weight:700;text-transform:uppercase;letter-spacing:1.2px;margin-bottom:6px;">ĐỊA ĐIỂM CỬA HÀNG</p>
+      <h2 class="section-title text-center mb-5">Ghé thăm showroom của chúng tôi 📍</h2>
+      <div class="row g-4 align-items-stretch">
+        <div class="col-lg-7">
+          <div class="map-embed">
+            <iframe
+              src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3919.6!2d106.6297!3d10.7769!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x0%3A0x0!2zMTDCsDA0JzM2LjgiTiAxMDbCsDM3JzQ2LjkiRQ!5e0!3m2!1svi!2svn!4v1620000000000"
+              allowfullscreen=""
+              loading="lazy"
+              referrerpolicy="no-referrer-when-downgrade"
+              title="Bản đồ Aqua Care">
+            </iframe>
+          </div>
+        </div>
+        <div class="col-lg-5">
+          <div class="store-info-card">
+            <h5><i class="bi bi-shop me-2" style="color:var(--color-primary);"></i>Aqua Care — Showroom</h5>
+            <div class="store-detail-row">
+              <i class="bi bi-geo-alt-fill"></i>
+              <div>
+                <strong>Địa chỉ</strong>
+                <span>123 Đường Xanh, Phường An Lạc, Quận Bình Tân, TP. Hồ Chí Minh</span>
+              </div>
+            </div>
+            <div class="store-detail-row">
+              <i class="bi bi-clock-fill"></i>
+              <div>
+                <strong>Giờ mở cửa</strong>
+                <span>Thứ 2 – Thứ 6: 8:00 – 20:00<br>Thứ 7 – Chủ nhật: 8:00 – 21:00</span>
+              </div>
+            </div>
+            <div class="store-detail-row">
+              <i class="bi bi-telephone-fill"></i>
+              <div>
+                <strong>Điện thoại</strong>
+                <span>1900 1234 (nhánh 1)<br>0901 234 567 (Zalo)</span>
+              </div>
+            </div>
+            <div class="store-detail-row">
+              <i class="bi bi-envelope-fill"></i>
+              <div>
+                <strong>Email</strong>
+                <span>contact@aquacare.vn</span>
+              </div>
+            </div>
+            <div class="store-detail-row">
+              <i class="bi bi-bus-front-fill"></i>
+              <div>
+                <strong>Phương tiện</strong>
+                <span>Bus tuyến 57, 91 dừng trước cửa<br>Bãi đỗ xe rộng, có mái che</span>
+              </div>
+            </div>
+            <a href="https://maps.google.com" target="_blank" class="btn btn-primary-gradient mt-4 w-100">
+              <i class="bi bi-map me-1"></i> Chỉ đường đến cửa hàng
+            </a>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+    <section class="faq-section">
+    <div class="container">
+      <div class="row justify-content-center">
+        <div class="col-lg-8">
+          <p class="text-center" style="color:var(--color-primary);font-size:0.78rem;font-weight:700;text-transform:uppercase;letter-spacing:1.2px;margin-bottom:6px;">CÂU HỎI THƯỜNG GẶP</p>
+          <h2 class="section-title text-center mb-5">Những điều bạn hay hỏi 💬</h2>
+          <div id="faqList">
+            <div class="faq-item">
+              <div class="faq-question" onclick="toggleFaq(this)">Aqua Care có tư vấn thiết kế hồ tại nhà không? <i class="bi bi-chevron-down"></i></div>
+              <div class="faq-answer"><div class="faq-answer-inner">Có. Chúng tôi có dịch vụ khảo sát và tư vấn thiết kế hồ tại nhà hoàn toàn miễn phí cho khu vực TP.HCM và các tỉnh lân cận. Đặt lịch qua form liên hệ hoặc gọi hotline 1900 1234.</div></div>
+            </div>
+            <div class="faq-item">
+              <div class="faq-question" onclick="toggleFaq(this)">Thời gian giao hàng là bao lâu? <i class="bi bi-chevron-down"></i></div>
+              <div class="faq-answer"><div class="faq-answer-inner">TP.HCM: 1-2 ngày làm việc. Các tỉnh thành khác: 2-5 ngày làm việc. Đơn hàng đặt trước 12h trưa được giao trong ngày hoặc ngày hôm sau tại TP.HCM (áp dụng với đơn hàng thông thường, không bao gồm sản phẩm cần lắp đặt).</div></div>
+            </div>
+            <div class="faq-item">
+              <div class="faq-question" onclick="toggleFaq(this)">Có thể đổi trả sản phẩm nếu không vừa ý không? <i class="bi bi-chevron-down"></i></div>
+              <div class="faq-answer"><div class="faq-answer-inner">Chúng tôi hỗ trợ đổi trả trong vòng 7 ngày kể từ ngày nhận hàng với điều kiện sản phẩm còn nguyên hộp, chưa qua sử dụng. Một số sản phẩm sinh vật (cây thủy sinh) không áp dụng chính sách đổi trả sau khi đã mở hàng.</div></div>
+            </div>
+            <div class="faq-item">
+              <div class="faq-question" onclick="toggleFaq(this)">Aqua Care có lắp đặt hệ thống lọc tại nhà không? <i class="bi bi-chevron-down"></i></div>
+              <div class="faq-answer"><div class="faq-answer-inner">Có. Đội ngũ kỹ thuật Aqua Care nhận lắp đặt hệ thống lọc, đèn LED, và toàn bộ thiết bị điện trong hồ cá tại khu vực TP.HCM. Phí lắp đặt tùy theo quy mô và phức tạp của dự án. Liên hệ để được báo giá.</div></div>
+            </div>
+            <div class="faq-item">
+              <div class="faq-question" onclick="toggleFaq(this)">Có nhận bảo trì và vệ sinh hồ cá định kỳ không? <i class="bi bi-chevron-down"></i></div>
+              <div class="faq-answer"><div class="faq-answer-inner">Có. Dịch vụ bảo trì định kỳ hàng tháng bao gồm: vệ sinh hồ, kiểm tra thiết bị lọc, đo chỉ số nước, xử lý rêu tảo và tư vấn dinh dưỡng cho cá. Đăng ký gói bảo trì tiết kiệm hơn so với yêu cầu theo lần.</div></div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+    <footer class="site-footer">
+    <div class="container">
+      <div class="row gy-3 align-items-center">
+        <div class="col-lg-6">
+          <img src="assets/images/branding/logo-splash-transparent.png" alt="Aqua Care" class="footer-logo-img">
+          <p class="footer-desc mt-2">Kiến tạo những khoảng thiên nhiên dưới mặt nước.</p>
+        </div>
+        <div class="col-lg-6 text-lg-end">
+          <div class="footer-socials mb-2">
+            <a href="#"><i class="bi bi-facebook"></i></a>
+            <a href="#"><i class="bi bi-instagram"></i></a>
+            <a href="#"><i class="bi bi-youtube"></i></a>
+            <a href="#"><i class="bi bi-tiktok"></i></a>
+          </div>
+          <p class="footer-copy">&copy; 2026 Aqua Care. All rights reserved.</p>
+        </div>
+      </div>
+    </div>
+  </footer>
+
+  <button class="back-to-top" id="backToTop" type="button"><i class="bi bi-arrow-up"></i></button>
+  <div class="toast-custom" id="toastNotif"></div>
+
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
+  <script src="js/main.js?v=20260625f"></script>
+  
+  <script src="js/lien-he.js?v=20260625f"></script>
+</body>
+</html>
+
+
+

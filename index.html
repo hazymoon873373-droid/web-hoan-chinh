@@ -1,0 +1,1242 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Aqua Care - Vật tư & Chăm sóc cá cảnh</title>
+
+  <!-- Google Fonts -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,500;0,600;0,700;1,600;1,700&family=Dancing+Script:wght@600;700&family=Be+Vietnam+Pro:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+
+  <!-- Bootstrap 5 -->
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet">
+  <!-- Bootstrap Icons -->
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.css">
+
+  <!-- Custom CSS -->
+  <link rel="stylesheet" href="css/style.css?v=20260625f">
+
+  
+  <link rel="stylesheet" href="css/index.css?v=20260625f">
+</head>
+<body>
+
+    <div class="page-intro" id="pageIntro" aria-hidden="true">
+    <div class="intro-logo">
+      <img src="assets/images/branding/logo-splash-transparent.png" alt="Aqua Care">
+    </div>
+    <div class="intro-ripple r1"></div>
+    <div class="intro-ripple r2"></div>
+    <div class="intro-ripple r3"></div>
+    <div class="intro-tagline">Kiến tạo · Cân bằng · Thư giãn</div>
+  </div>
+
+    <nav class="navbar navbar-expand-lg fixed-top" id="mainNav">
+    <div class="container">
+      <a class="navbar-brand" href="index.html">
+        <img src="assets/images/branding/logo.png" alt="Aqua Care" class="navbar-logo-img">
+      </a>
+
+      <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navMenu" aria-controls="navMenu" aria-expanded="false" aria-label="Mở menu">
+        <span class="navbar-toggler-icon"></span>
+      </button>
+
+      <div class="collapse navbar-collapse" id="navMenu">
+        <ul class="navbar-nav mx-auto mb-3 mb-lg-0">
+          <li class="nav-item"><a class="nav-link active" href="index.html">Trang chủ</a></li>
+          <li class="nav-item dropdown">
+            <a class="nav-link dropdown-toggle" href="san-pham.html" id="productsDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">Sản phẩm</a>
+            <ul class="dropdown-menu" aria-labelledby="productsDropdown">
+              <li><a class="dropdown-item" href="san-pham.html?category=he-thong-loc">Hệ thống lọc</a></li>
+              <li><a class="dropdown-item" href="san-pham.html?category=thuc-an">Thức ăn & dinh dưỡng</a></li>
+              <li><a class="dropdown-item" href="san-pham.html?category=thuoc-vi-sinh">Thuốc & vi sinh</a></li>
+              <li><a class="dropdown-item" href="san-pham.html?category=vat-lieu-loc">Vật liệu lọc</a></li>
+              <li><a class="dropdown-item" href="san-pham.html?category=cay-thuy-sinh">Cây thủy sinh</a></li>
+              <li><a class="dropdown-item" href="san-pham.html?category=thiet-bi">Thiết bị & phụ kiện</a></li>
+            </ul>
+          </li>
+          <li class="nav-item"><a class="nav-link" href="kien-thuc.html">Kiến thức</a></li>
+          <li class="nav-item"><a class="nav-link" href="du-an.html">Dự án</a></li>
+          <li class="nav-item"><a class="nav-link" href="lien-he.html">Liên hệ</a></li>
+        </ul>
+
+        <div class="navbar-icons d-flex align-items-center gap-2">
+          <button class="icon-btn" type="button" aria-label="Tìm kiếm"><i class="bi bi-search"></i></button>
+          <button class="icon-btn" type="button" aria-label="Tài khoản"><i class="bi bi-person"></i></button>
+          <button class="icon-btn cart-btn position-relative" type="button" aria-label="Giỏ hàng" id="cartBtn">
+            <i class="bi bi-cart3"></i>
+            <span class="cart-badge" id="cartBadge">0</span>
+          </button>
+        </div>
+      </div>
+    </div>
+  </nav>
+
+    <section class="hero" id="home">
+    <div class="hero-bg" id="heroBg">
+      <img src="assets/images/backgrounds/hero-bg.png" alt="" aria-hidden="true">
+    </div>
+    <div class="hero-overlay"></div>
+
+    <div class="hero-bubbles" aria-hidden="true">
+      <span class="bubble"></span><span class="bubble"></span>
+      <span class="bubble"></span><span class="bubble"></span>
+      <span class="bubble"></span><span class="bubble"></span>
+      <span class="bubble"></span><span class="bubble"></span>
+      <span class="bubble"></span><span class="bubble"></span>
+    </div>
+
+    <div class="container hero-content">
+      <div class="row align-items-center">
+        <div class="col-lg-8">
+          <p class="eyebrow-script"> Kiến tạo &middot; Cân bằng &middot; Thư giãn</p>
+          <h1 class="hero-title">
+            Thổi hồn thiên nhiên<br>
+            vào <span class="script-accent">từng khoảnh khắc</span><br>
+            dưới mặt nước
+          </h1>
+          <div class="section-divider">
+            <span class="divider-line"></span>
+          </div>
+          <p class="hero-desc">
+            Aqua Care đồng hành cùng người yêu cá cảnh với những sản phẩm chọn lọc kỹ lưỡng,
+            giải pháp tối ưu và kiến thức chuyên sâu, để mỗi hồ cá không chỉ trong xanh khỏe mạnh
+            mà còn là nơi nuôi dưỡng cảm hứng và bình yên.
+          </p>
+          <div class="hero-buttons">
+            <a href="#categories" class="btn btn-primary-gradient">
+              Khám phá sản phẩm <i class="bi bi-arrow-right"></i>
+            </a>
+            <a href="#about" class="btn btn-outline-light-custom">
+              <i class="bi bi-play-circle-fill"></i> Khám phá hành trình
+            </a>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div class="hero-trust">
+      <div class="trust-item">
+        <div class="trust-icon"><i class="bi bi-shield-check"></i></div>
+        <div>
+          <strong>Sản phẩm chính hãng</strong>
+          <span>100% đảm bảo chất lượng</span>
+        </div>
+      </div>
+      <div class="trust-item">
+        <div class="trust-icon"><i class="bi bi-flower1"></i></div>
+        <div>
+          <strong>An toàn cho cá</strong>
+          <span>Hiệu quả &amp; lành tính</span>
+        </div>
+      </div>
+      <div class="trust-item">
+        <div class="trust-icon"><i class="bi bi-headset"></i></div>
+        <div>
+          <strong>Tư vấn tận tâm</strong>
+          <span>Hỗ trợ chuyên môn 24/7</span>
+        </div>
+      </div>
+    </div>
+
+    <div class="wave-divider wave-light" aria-hidden="true">
+      <svg viewBox="0 0 1440 120" preserveAspectRatio="none" xmlns="http://www.w3.org/2000/svg">
+        <path d="M0,64 C240,120 480,10 720,46 C960,82 1200,30 1440,58 L1440,120 L0,120 Z" fill="currentColor"/>
+      </svg>
+    </div>
+  </section>
+
+    <section class="about section-bg-wave" id="about">
+    <div class="container">
+      <div class="row gy-5 align-items-start">
+
+        <div class="col-lg-6" data-reveal="slide-right">
+          <p class="eyebrow">CHÚNG TÔI LÀ AI</p>
+          <h2 class="section-title">
+            Kiến tạo những khoảng thiên nhiên<br>
+            dưới <span class="script-accent">mặt nước</span>
+          </h2>
+
+          <div class="about-block">
+            <div class="about-icon"><i class="bi bi-journal-bookmark"></i></div>
+            <div>
+              <h5>Câu chuyện thương hiệu</h5>
+              <p>
+                Aqua Care được hình thành từ niềm yêu thích vẻ đẹp tĩnh lặng của những hồ cá
+                và mong muốn mang thiên nhiên đến gần hơn với cuộc sống hiện đại. Chúng tôi
+                tin rằng mỗi hồ cá không chỉ là một thú chơi, mà còn là nơi giúp con người
+                tìm thấy sự cân bằng và cảm hứng.
+              </p>
+            </div>
+          </div>
+
+          <hr class="about-divider">
+
+          <div class="about-block">
+            <div class="about-icon"><i class="bi bi-compass"></i></div>
+            <div>
+              <h5>Sứ mệnh</h5>
+              <p>
+                Mang đến những sản phẩm và kiến thức chuyên sâu giúp mọi người dễ dàng xây
+                dựng một hồ cá khỏe mạnh, trong xanh và bền vững; đồng thời lan tỏa tình yêu
+                thiên nhiên thông qua nghệ thuật <strong>nuôi cá cảnh và thủy sinh</strong>.
+              </p>
+            </div>
+          </div>
+        </div>
+
+        <div class="col-lg-6" data-reveal="slide-left">
+          <p class="eyebrow text-lg-end">Giá trị cốt lõi</p>
+          <div class="core-values">
+            <div class="core-value"><div class="cv-icon cv-icon-teal"><i class="bi bi-heart"></i></div><span>Tận tâm</span></div>
+            <div class="core-value"><div class="cv-icon cv-icon-blue"><i class="bi bi-shield-check"></i></div><span>Chất lượng</span></div>
+            <div class="core-value"><div class="cv-icon cv-icon-green"><i class="bi bi-mortarboard"></i></div><span>Chuyên môn</span></div>
+            <div class="core-value"><div class="cv-icon cv-icon-green"><i class="bi bi-tree"></i></div><span>Thiên nhiên</span></div>
+            <div class="core-value"><div class="cv-icon cv-icon-blue"><i class="bi bi-people"></i></div><span>Đồng hành</span></div>
+          </div>
+
+          <div class="about-video">
+            <img src="assets/images/media/aqua-care-showcase.gif" alt="Khoảnh khắc thực tế tại Aqua Care" class="video-thumb">
+            <div class="about-video-badge">
+              <i class="bi bi-stars"></i>
+              <span>Khoảnh khắc thực tế từ hồ cá Aqua Care</span>
+            </div>
+          </div>
+        </div>
+
+      </div>
+    </div>
+  </section>
+
+    <section class="categories" id="categories">
+    <div class="wave-divider wave-light wave-divider-top" aria-hidden="true">
+      <svg viewBox="0 0 1440 120" preserveAspectRatio="none" xmlns="http://www.w3.org/2000/svg">
+        <path d="M0,60 C240,10 480,110 720,64 C960,18 1200,90 1440,50 L1440,0 L0,0 Z" fill="currentColor"/>
+      </svg>
+    </div>
+
+    <div class="container">
+      <div data-reveal="fade-up">
+        <h2 class="section-title text-center text-white">
+          <i class="bi bi-flower1 fish-deco fish-left"></i>
+          Danh mục sản phẩm nổi bật
+          <i class="bi bi-flower1 fish-deco fish-right"></i>
+        </h2>
+        <div class="title-underline mx-auto"></div>
+        <p class="categories-poem">
+          Mỗi sản phẩm là một nốt nhạc trong bản giao hưởng <em>của thiên nhiên thu nhỏ</em>.
+        </p>
+      </div>
+
+      <!-- Marquee tự động di chuyển ngang -->
+      <div class="cat-marquee-wrap" aria-label="Danh mục sản phẩm">
+        <div class="cat-marquee" id="catMarquee">
+          <!-- set 1 -->
+          <div class="cat-slide">
+            <div class="category-card">
+              <div class="category-img-wrap"><img src="assets/images/categories/thuc-an.png" alt="Thức ăn cho cá"></div>
+              <h6>Thức ăn</h6>
+              <p class="cat-desc">Dưỡng chất tinh tuý, nâng sắc màu cho từng loài cá</p>
+              <a href="san-pham.html?category=thuc-an" class="category-arrow" aria-label="Xem Thức ăn"><i class="bi bi-arrow-right"></i></a>
+            </div>
+          </div>
+          <div class="cat-slide">
+            <div class="category-card">
+              <div class="category-img-wrap"><img src="assets/images/categories/thuoc-vi-sinh.png" alt="Thuốc & vi sinh vật"></div>
+              <h6>Thuốc &amp; vi sinh vật</h6>
+              <p class="cat-desc">Thầy thuốc vô hình, canh giữ sức khoẻ dưới đáy hồ</p>
+              <a href="san-pham.html?category=thuoc-vi-sinh" class="category-arrow" aria-label="Xem Thuốc"><i class="bi bi-arrow-right"></i></a>
+            </div>
+          </div>
+          <div class="cat-slide">
+            <div class="category-card">
+              <div class="category-img-wrap"><img src="assets/images/categories/vat-lieu-loc.png" alt="Vật liệu lọc"></div>
+              <h6>Vật liệu lọc</h6>
+              <p class="cat-desc">Lọc sạch mọi vẩn đục, trả lại làn nước trong như pha lê</p>
+              <a href="san-pham.html?category=vat-lieu-loc" class="category-arrow" aria-label="Xem Vật liệu lọc"><i class="bi bi-arrow-right"></i></a>
+            </div>
+          </div>
+          <div class="cat-slide">
+            <div class="category-card">
+              <div class="category-img-wrap"><img src="assets/images/categories/nguyen-lieu.png" alt="Nguyên liệu"></div>
+              <h6>Nguyên liệu</h6>
+              <p class="cat-desc">Nền tảng thiên nhiên cho mỗi hồ thuỷ sinh tươi xanh</p>
+              <a href="san-pham.html?category=cay-thuy-sinh" class="category-arrow" aria-label="Xem Nguyên liệu"><i class="bi bi-arrow-right"></i></a>
+            </div>
+          </div>
+          <div class="cat-slide">
+            <div class="category-card">
+              <div class="category-img-wrap"><img src="assets/images/categories/thiet-bi.png" alt="Thiết bị"></div>
+              <h6>Thiết bị</h6>
+              <p class="cat-desc">Công nghệ phục vụ thiên nhiên, vận hành hồ cá hoàn hảo</p>
+              <a href="san-pham.html?category=thiet-bi" class="category-arrow" aria-label="Xem Thiết bị"><i class="bi bi-arrow-right"></i></a>
+            </div>
+          </div>
+          <div class="cat-slide">
+            <div class="category-card">
+              <div class="category-img-wrap"><img src="assets/images/categories/phu-kien.png" alt="Phụ kiện"></div>
+              <h6>Phụ kiện</h6>
+              <p class="cat-desc">Chạm khắc vẻ đẹp, hoàn thiện không gian sống cho cá</p>
+              <a href="san-pham.html?category=thiet-bi" class="category-arrow" aria-label="Xem Phụ kiện"><i class="bi bi-arrow-right"></i></a>
+            </div>
+          </div>
+          <!-- set 2 — bản sao để marquee liền mạch -->
+          <div class="cat-slide" aria-hidden="true">
+            <div class="category-card">
+              <div class="category-img-wrap"><img src="assets/images/categories/thuc-an.png" alt=""></div>
+              <h6>Thức ăn</h6>
+              <p class="cat-desc">Dưỡng chất tinh tuý, nâng sắc màu cho từng loài cá</p>
+              <a href="san-pham.html?category=thuc-an" class="category-arrow" tabindex="-1"><i class="bi bi-arrow-right"></i></a>
+            </div>
+          </div>
+          <div class="cat-slide" aria-hidden="true">
+            <div class="category-card">
+              <div class="category-img-wrap"><img src="assets/images/categories/thuoc-vi-sinh.png" alt=""></div>
+              <h6>Thuốc &amp; vi sinh vật</h6>
+              <p class="cat-desc">Thầy thuốc vô hình, canh giữ sức khoẻ dưới đáy hồ</p>
+              <a href="san-pham.html?category=thuoc-vi-sinh" class="category-arrow" tabindex="-1"><i class="bi bi-arrow-right"></i></a>
+            </div>
+          </div>
+          <div class="cat-slide" aria-hidden="true">
+            <div class="category-card">
+              <div class="category-img-wrap"><img src="assets/images/categories/vat-lieu-loc.png" alt=""></div>
+              <h6>Vật liệu lọc</h6>
+              <p class="cat-desc">Lọc sạch mọi vẩn đục, trả lại làn nước trong như pha lê</p>
+              <a href="san-pham.html?category=vat-lieu-loc" class="category-arrow" tabindex="-1"><i class="bi bi-arrow-right"></i></a>
+            </div>
+          </div>
+          <div class="cat-slide" aria-hidden="true">
+            <div class="category-card">
+              <div class="category-img-wrap"><img src="assets/images/categories/nguyen-lieu.png" alt=""></div>
+              <h6>Nguyên liệu</h6>
+              <p class="cat-desc">Nền tảng thiên nhiên cho mỗi hồ thuỷ sinh tươi xanh</p>
+              <a href="san-pham.html?category=cay-thuy-sinh" class="category-arrow" tabindex="-1"><i class="bi bi-arrow-right"></i></a>
+            </div>
+          </div>
+          <div class="cat-slide" aria-hidden="true">
+            <div class="category-card">
+              <div class="category-img-wrap"><img src="assets/images/categories/thiet-bi.png" alt=""></div>
+              <h6>Thiết bị</h6>
+              <p class="cat-desc">Công nghệ phục vụ thiên nhiên, vận hành hồ cá hoàn hảo</p>
+              <a href="san-pham.html?category=thiet-bi" class="category-arrow" tabindex="-1"><i class="bi bi-arrow-right"></i></a>
+            </div>
+          </div>
+          <div class="cat-slide" aria-hidden="true">
+            <div class="category-card">
+              <div class="category-img-wrap"><img src="assets/images/categories/thuc-an-koi.png" alt=""></div>
+              <h6>Phụ kiện</h6>
+              <p class="cat-desc">Chạm khắc vẻ đẹp, hoàn thiện không gian sống cho cá</p>
+              <a href="san-pham.html?category=thiet-bi" class="category-arrow" tabindex="-1"><i class="bi bi-arrow-right"></i></a>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div class="text-center mt-4 mt-lg-5" data-reveal="fade-up">
+        <a href="san-pham.html" class="btn btn-outline-light-custom">Xem tất cả sản phẩm <i class="bi bi-arrow-right"></i></a>
+      </div>
+    </div>
+
+    <div class="wave-divider wave-light" aria-hidden="true">
+      <svg viewBox="0 0 1440 120" preserveAspectRatio="none" xmlns="http://www.w3.org/2000/svg">
+        <path d="M0,64 C240,120 480,10 720,46 C960,82 1200,30 1440,58 L1440,120 L0,120 Z" fill="currentColor"/>
+      </svg>
+    </div>
+  </section>
+
+    <section class="why-us section-bg-vi-sao">
+    <div class="container">
+      <h2 class="section-title text-center" data-reveal="fade-up">Vì sao chọn chúng tôi</h2>
+      <div class="title-underline mx-auto" data-reveal="fade-up"></div>
+
+      <div class="row g-4">
+        <div class="col-md-6 col-lg-3" data-reveal="flip-up" data-reveal-delay="0">
+          <div class="why-card">
+            <div class="why-icon why-icon-blue"><i class="bi bi-patch-check-fill"></i></div>
+            <h5>Hàng chính hãng</h5>
+            <p>Cam kết 100% sản phẩm chính hãng, nguồn gốc rõ ràng.</p>
+          </div>
+        </div>
+        <div class="col-md-6 col-lg-3" data-reveal="flip-up" data-reveal-delay="150">
+          <div class="why-card">
+            <div class="why-icon why-icon-green"><i class="bi bi-person-check-fill"></i></div>
+            <h5>Tư vấn chuyên môn</h5>
+            <p>Đội ngũ giàu kinh nghiệm, tư vấn đúng nhu cầu, hiệu quả.</p>
+          </div>
+        </div>
+        <div class="col-md-6 col-lg-3" data-reveal="flip-up" data-reveal-delay="300">
+          <div class="why-card">
+            <div class="why-icon why-icon-green"><i class="bi bi-truck"></i></div>
+            <h5>Giao hàng toàn quốc</h5>
+            <p>Giao hàng nhanh chóng, đóng gói cẩn thận, an toàn.</p>
+          </div>
+        </div>
+        <div class="col-md-6 col-lg-3" data-reveal="flip-up" data-reveal-delay="450">
+          <div class="why-card">
+            <div class="why-icon why-icon-blue"><i class="bi bi-headset"></i></div>
+            <h5>Hỗ trợ kỹ thuật</h5>
+            <p>Hỗ trợ 24/7, đồng hành cùng bạn trong suốt quá trình sử dụng.</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+    <section class="inspiration section-bg-insp" id="inspiration">
+    <div class="container">
+      <h2 class="section-title text-center" data-reveal="fade-up">Không gian truyền cảm hứng</h2>
+      <div class="title-underline mx-auto" data-reveal="fade-up"></div>
+
+      <div class="row g-4">
+        <div class="col-md-4" data-reveal="curtain-up" data-reveal-delay="0">
+          <div class="inspiration-card">
+            <img src="assets/images/projects/du-an-ho-ca.png" alt="Dự án hồ cá">
+            <div class="inspiration-overlay">
+              <span>Dự án hồ cá</span>
+              <a href="du-an.html" class="circle-arrow" aria-label="Xem dự án hồ cá"><i class="bi bi-arrow-right"></i></a>
+            </div>
+          </div>
+        </div>
+        <div class="col-md-4" data-reveal="curtain-up" data-reveal-delay="120">
+          <div class="inspiration-card">
+            <img src="assets/images/galleries/hinh-anh-khach-hang.png" alt="Hình ảnh khách hàng">
+            <div class="inspiration-overlay">
+              <span>Hình ảnh khách hàng</span>
+              <a href="hinh-anh-khach-hang.html" class="circle-arrow" aria-label="Xem hình ảnh khách hàng"><i class="bi bi-arrow-right"></i></a>
+            </div>
+          </div>
+        </div>
+        <div class="col-md-4" data-reveal="curtain-up" data-reveal-delay="240">
+          <div class="inspiration-card">
+            <img src="assets/images/galleries/bo-suu-tap-ho-dep.png" alt="Bộ sưu tập hồ đẹp">
+            <div class="inspiration-overlay">
+              <span>Bộ sưu tập hồ đẹp</span>
+              <a href="bo-suu-tap.html" class="circle-arrow" aria-label="Xem bộ sưu tập hồ đẹp"><i class="bi bi-arrow-right"></i></a>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+    <section class="knowledge section-bg-insp" id="knowledge">
+    <div class="container">
+      <h2 class="section-title text-center" data-reveal="fade-up">Kiến thức cá cảnh</h2>
+      <div class="title-underline mx-auto" data-reveal="fade-up"></div>
+
+      <div class="row g-4">
+        <div class="col-md-6 col-lg-3" data-reveal="water-rise" data-reveal-delay="0">
+          <article class="article-card">
+            <div class="article-img-wrap">
+              <img src="assets/images/content/y-tuong-nuoi-ca.png" alt="Bí quyết nuôi cá khỏe, lên màu đẹp">
+              <span class="article-tag tag-green">Chăm sóc cá</span>
+            </div>
+            <h6>Bí quyết nuôi cá khỏe, lên màu đẹp</h6>
+            <a href="kien-thuc.html" class="article-link">Xem chi tiết <i class="bi bi-arrow-right"></i></a>
+          </article>
+        </div>
+        <div class="col-md-6 col-lg-3" data-reveal="water-rise" data-reveal-delay="100">
+          <article class="article-card">
+            <div class="article-img-wrap">
+              <img src="assets/images/content/lam-nuoc-sach.png" alt="Cách xử lý nước mới an toàn cho cá">
+              <span class="article-tag tag-blue">Xử lý nước</span>
+            </div>
+            <h6>Cách xử lý nước mới an toàn cho cá</h6>
+            <a href="kien-thuc.html" class="article-link">Xem chi tiết <i class="bi bi-arrow-right"></i></a>
+          </article>
+        </div>
+        <div class="col-md-6 col-lg-3" data-reveal="water-rise" data-reveal-delay="200">
+          <article class="article-card">
+            <div class="article-img-wrap">
+              <img src="assets/images/categories/thuc-an-koi.png" alt="Hướng dẫn chọn cám phù hợp cho từng loại cá">
+              <span class="article-tag tag-amber">Dinh dưỡng</span>
+            </div>
+            <h6>Hướng dẫn chọn cám phù hợp cho từng loại cá</h6>
+            <a href="kien-thuc.html" class="article-link">Xem chi tiết <i class="bi bi-arrow-right"></i></a>
+          </article>
+        </div>
+        <div class="col-md-6 col-lg-3" data-reveal="water-rise" data-reveal-delay="300">
+          <article class="article-card">
+            <div class="article-img-wrap">
+              <img src="assets/images/knowledge/phong-tri-benh-moi.png" alt="Nhận biết và xử lý bệnh thường gặp ở cá">
+              <span class="article-tag tag-rose">Trị bệnh</span>
+            </div>
+            <h6>Nhận biết và xử lý bệnh thường gặp ở cá</h6>
+            <a href="kien-thuc.html" class="article-link">Xem chi tiết <i class="bi bi-arrow-right"></i></a>
+          </article>
+        </div>
+      </div>
+
+      <div class="article-cta" data-reveal="fade-up">
+        <p>Xem thêm nhiều bài viết hữu ích trong kho kiến thức của chúng tôi</p>
+        <a href="kien-thuc.html" class="btn btn-primary-gradient">Khám phá ngay <i class="bi bi-arrow-right"></i></a>
+      </div>
+    </div>
+  </section>
+
+    <section class="contact" id="contact">
+    <div class="wave-divider wave-light wave-divider-top" aria-hidden="true">
+      <svg viewBox="0 0 1440 120" preserveAspectRatio="none" xmlns="http://www.w3.org/2000/svg">
+        <path d="M0,60 C240,10 480,110 720,64 C960,18 1200,90 1440,50 L1440,0 L0,0 Z" fill="currentColor"/>
+      </svg>
+    </div>
+
+    <div class="container">
+      <h2 class="section-title text-center text-white" data-reveal="fade-up">Liên hệ nhanh</h2>
+      <div class="title-underline mx-auto" data-reveal="fade-up"></div>
+
+      <div class="row g-4">
+        <div class="col-md-6 col-lg-3" data-reveal="slide-right" data-reveal-delay="0">
+          <div class="contact-card">
+            <div class="contact-icon"><i class="bi bi-telephone-fill"></i></div>
+            <div>
+              <h6>Hotline</h6>
+              <p class="contact-value">1900 1234</p>
+              <p class="contact-desc">Hỗ trợ tư vấn 24/7 mọi thắc mắc của bạn</p>
+            </div>
+          </div>
+        </div>
+        <div class="col-md-6 col-lg-3" data-reveal="slide-right" data-reveal-delay="100">
+          <div class="contact-card">
+            <div class="contact-icon"><i class="bi bi-chat-dots-fill"></i></div>
+            <div>
+              <h6>Zalo</h6>
+              <p class="contact-value">0988 123 456</p>
+              <p class="contact-desc">Nhắn tin nhanh chóng, tư vấn tận tâm</p>
+            </div>
+          </div>
+        </div>
+        <div class="col-md-6 col-lg-3" data-reveal="slide-right" data-reveal-delay="200">
+          <div class="contact-card">
+            <div class="contact-icon"><i class="bi bi-facebook"></i></div>
+            <div>
+              <h6>Facebook</h6>
+              <p class="contact-value">Aqua Care</p>
+              <p class="contact-desc">Theo dõi để cập nhật ưu đãi và kiến thức hữu ích</p>
+            </div>
+          </div>
+        </div>
+        <div class="col-md-6 col-lg-3" data-reveal="slide-right" data-reveal-delay="300">
+          <div class="contact-card">
+            <div class="contact-icon"><i class="bi bi-geo-alt-fill"></i></div>
+            <div>
+              <h6>Địa chỉ</h6>
+              <p class="contact-value">Aqua Care</p>
+              <p class="contact-desc">123 Đường Xanh, P. An Lạc, Q. Bình Tân, TP. Hồ Chí Minh</p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+    <section class="products-section" id="san-pham">
+    <div class="container">
+      <p class="products-section__eyebrow text-center" style="font-family:var(--font-script);font-size:1.1rem;color:var(--color-primary);">Sản phẩm chất lượng</p>
+      <div class="section-product-header">
+        <div>
+          <h2 class="section-title" style="margin-bottom:4px;">
+            Chăm sóc toàn diện<br>
+            cho hồ cá khỏe mạnh
+          </h2>
+          <p style="color:var(--color-text-muted);font-size:0.88rem;max-width:380px;">Aqua Care cung cấp đầy đủ giải pháp và sản phẩm giúp bạn dễ dàng kiến tạo một hệ sinh thái bền vững và cân bằng.</p>
+        </div>
+        <div>
+          <div class="row g-2">
+            <div class="col-6 col-sm-3">
+              <div style="background:#f0f8fc;border-radius:10px;padding:10px 12px;text-align:center;">
+                <div style="font-size:0.8rem;color:var(--color-primary);font-weight:600;"><i class="bi bi-shield-check me-1"></i>An toàn</div>
+                <div style="font-size:0.7rem;color:var(--color-text-muted);">cho cá & cây</div>
+              </div>
+            </div>
+            <div class="col-6 col-sm-3">
+              <div style="background:#f0f8fc;border-radius:10px;padding:10px 12px;text-align:center;">
+                <div style="font-size:0.8rem;color:var(--color-primary);font-weight:600;"><i class="bi bi-lightning-charge me-1"></i>Hiệu quả</div>
+                <div style="font-size:0.7rem;color:var(--color-text-muted);">nhanh chóng</div>
+              </div>
+            </div>
+            <div class="col-6 col-sm-3">
+              <div style="background:#f0f8fc;border-radius:10px;padding:10px 12px;text-align:center;">
+                <div style="font-size:0.8rem;color:var(--color-primary);font-weight:600;"><i class="bi bi-person-check me-1"></i>Dễ sử dụng</div>
+                <div style="font-size:0.7rem;color:var(--color-text-muted);">cho mọi người</div>
+              </div>
+            </div>
+            <div class="col-6 col-sm-3">
+              <div style="background:#f0f8fc;border-radius:10px;padding:10px 12px;text-align:center;">
+                <div style="font-size:0.8rem;color:var(--color-primary);font-weight:600;"><i class="bi bi-piggy-bank me-1"></i>Tiết kiệm</div>
+                <div style="font-size:0.7rem;color:var(--color-text-muted);">chi phí lâu dài</div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- SẢN PHẨM BÁN CHẠY header -->
+      <div class="d-flex align-items-center justify-content-between mb-3 mt-4">
+        <h5 style="font-family:var(--font-display);color:var(--color-text-dark);display:flex;align-items:center;gap:8px;">
+          <span style="background:#fff4e0;color:#f5952e;padding:3px 10px;border-radius:6px;font-size:0.8rem;font-weight:700;">SẢN PHẨM BÁN CHẠY</span>
+          🔥
+        </h5>
+        <a href="san-pham.html" class="see-all" style="font-size:0.85rem;color:var(--color-primary);font-weight:600;display:flex;align-items:center;gap:4px;">Xem tất cả <i class="bi bi-arrow-right"></i></a>
+      </div>
+
+      <!-- Filter tabs -->
+      <div class="product-filter-tabs" id="productFilterTabs">
+        <button class="filter-tab active" data-cat="all">Tất cả sản phẩm</button>
+        <button class="filter-tab" data-cat="he-thong-loc"><i class="bi bi-funnel me-1"></i>Hệ thống lọc</button>
+        <button class="filter-tab" data-cat="thuc-an"><i class="bi bi-bag-heart me-1"></i>Thức ăn & dinh dưỡng</button>
+        <button class="filter-tab" data-cat="thuoc-vi-sinh"><i class="bi bi-droplet me-1"></i>Thuốc & vi sinh</button>
+        <button class="filter-tab" data-cat="vat-lieu-loc"><i class="bi bi-layers me-1"></i>Vật liệu lọc</button>
+        <button class="filter-tab" data-cat="cay-thuy-sinh"><i class="bi bi-tree me-1"></i>Cây thủy sinh</button>
+        <button class="filter-tab" data-cat="thiet-bi"><i class="bi bi-tools me-1"></i>Thiết bị & phụ kiện</button>
+      </div>
+
+      <!-- Product grid - sẽ render bằng JS -->
+      <div class="row g-3" id="productGrid"></div>
+
+      <!-- Slider dots giả -->
+      <div class="text-center mt-4" id="sliderDots" style="display:flex;justify-content:center;gap:6px;">
+        <span style="width:22px;height:8px;border-radius:4px;background:var(--color-primary);display:inline-block;"></span>
+        <span style="width:8px;height:8px;border-radius:50%;background:#cde;display:inline-block;"></span>
+        <span style="width:8px;height:8px;border-radius:50%;background:#cde;display:inline-block;"></span>
+        <span style="width:8px;height:8px;border-radius:50%;background:#cde;display:inline-block;"></span>
+        <span style="width:8px;height:8px;border-radius:50%;background:#cde;display:inline-block;"></span>
+      </div>
+    </div>
+  </section>
+
+    <section class="how-section" id="congdung">
+    <div class="container">
+      <p class="text-center" style="color:var(--color-primary);font-size:0.8rem;font-weight:700;text-transform:uppercase;letter-spacing:1.2px;">CÔNG DỤNG SẢN PHẨM</p>
+      <h2 class="section-title text-center" style="margin-bottom:8px;">
+        Vì một hệ sinh thái<br>cân bằng & bền vững 🌿
+      </h2>
+      <p class="text-center mb-5" style="color:var(--color-text-muted);max-width:520px;margin:0 auto 40px;">
+        Mỗi sản phẩm đều được nghiên cứu và kiểm định kỹ lưỡng, mang lại hiệu quả tối ưu cho môi trường sống của cá và cây thủy sinh.
+      </p>
+
+      <div class="row g-4 align-items-center">
+        <div class="col-md-4">
+          <div class="row g-3">
+            <div class="col-12">
+              <div class="how-card">
+                <div class="how-icon"><i class="bi bi-water"></i></div>
+                <h6>Làm sạch nước hiệu quả</h6>
+                <p>Loại bỏ cặn bẩn, duy trì độ trong và ổn định hệ sinh thái.</p>
+              </div>
+            </div>
+            <div class="col-12">
+              <div class="how-card">
+                <div class="how-icon"><i class="bi bi-heart-pulse"></i></div>
+                <h6>Tăng cường sức khỏe cá</h6>
+                <p>Cung cấp dưỡng chất thiết yếu giúp cá khỏe mạnh, lên màu đẹp.</p>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="col-md-4 text-center">
+          <div class="central-image-container">
+            <div style="border-radius:50%;overflow:hidden;width:100%;height:100%;box-shadow:0 10px 30px rgba(10,37,64,0.15);position:relative;z-index:2;">
+              <img src="assets/images/content/y-tuong-nuoi-ca.png" alt="Hồ cá" style="width:100%;height:100%;object-fit:cover;">
+            </div>
+          </div>
+        </div>
+        <div class="col-md-4">
+          <div class="row g-3">
+            <div class="col-12">
+              <div class="how-card">
+                <div class="how-icon"><i class="bi bi-shield-check"></i></div>
+                <h6>Hỗ trợ lọc sinh học</h6>
+                <p>Cân bằng vi sinh, giảm độc tố, hạn chế rêu tảo phát triển.</p>
+              </div>
+            </div>
+            <div class="col-12">
+              <div class="how-card">
+                <div class="how-icon"><i class="bi bi-tree-fill"></i></div>
+                <h6>Thúc đẩy cây thủy sinh phát triển</h6>
+                <p>Dinh dưỡng chuyên biệt cho cây xanh tốt, phát triển mạnh mẽ.</p>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div class="text-center mt-4">
+        <a href="#san-pham" class="btn btn-primary-gradient">Khám phá công dụng chi tiết <i class="bi bi-arrow-right"></i></a>
+      </div>
+    </div>
+  </section>
+
+    <section style="padding: 0 0 60px; background:#f4fbff;">
+    <div class="container">
+      <div class="featured-product-banner">
+        <div class="featured-img">
+          <img src="assets/images/products/thiet-bi/loc-thung-sunsun-xiaoli-xwa-600.webp" alt="AquaPro X1200" onerror="this.src='assets/images/backgrounds/nen-vi-sao.png'">
+        </div>
+        <div class="featured-content">
+          <div style="color:#8fd6f0;font-size:0.78rem;font-weight:700;text-transform:uppercase;letter-spacing:1px;margin-bottom:6px;">SẢN PHẨM NỔI BẬT</div>
+          <h3>AquaPro X1200</h3>
+          <p style="color:rgba(255,255,255,0.75);font-size:0.85rem;margin-bottom:14px;">Vì sao khách hàng lựa chọn?</p>
+          <ul class="check-list">
+            <li>Lưu lượng mạnh mẽ 12.000 L/h</li>
+            <li>Hệ thống 5 ngăn lọc tối ưu</li>
+            <li>Tiết kiệm điện năng đến 40%</li>
+            <li>Hoạt động êm ái, bền bỉ</li>
+            <li>Bảo hành chính hãng 24 tháng</li>
+          </ul>
+          <div class="featured-actions">
+            <a class="btn-tu-van" href="lien-he.html#contactForm"><i class="bi bi-headset me-1"></i>Nhận tư vấn</a>
+            <button class="btn-mua-ngay" style="max-width:140px;" onclick="addToCart({name:'AquaPro X1200',price:'2.890.000đ',image:'assets/images/products/thiet-bi/loc-thung-sunsun-xiaoli-xwa-600.webp'})"><i class="bi bi-cart-plus me-1"></i>Mua ngay</button>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+    <div class="stats-bar">
+    <div class="container">
+      <div class="row g-3">
+        <div class="col-6 col-md-3">
+          <div class="stat-item">
+            <span class="stat-num">10.000+</span>
+            <span class="stat-label">Đơn hàng</span>
+          </div>
+        </div>
+        <div class="col-6 col-md-3">
+          <div class="stat-item">
+            <span class="stat-num">98%</span>
+            <span class="stat-label">Đánh giá tích cực</span>
+          </div>
+        </div>
+        <div class="col-6 col-md-3">
+          <div class="stat-item">
+            <span class="stat-num">5 Sao</span>
+            <span class="stat-label">Chất lượng sản phẩm</span>
+          </div>
+        </div>
+        <div class="col-6 col-md-3">
+          <div class="stat-item">
+            <span class="stat-num">24/7</span>
+            <span class="stat-label">Hỗ trợ khách hàng</span>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+    <section class="cat-section-cards">
+    <div class="container">
+      <p class="text-center" style="color:var(--color-primary);font-size:0.8rem;font-weight:700;text-transform:uppercase;letter-spacing:1.2px;margin-bottom:6px;">KHÁM PHÁ THÊM</p>
+      <h2 class="section-title text-center" style="margin-bottom:8px;">Đa dạng sản phẩm<br>cho mọi nhu cầu 🌊</h2>
+      <div class="title-underline mx-auto mb-4"></div>
+
+      <div class="row g-3">
+        <div class="col-6 col-md-4 col-lg-2-4">
+          <a href="san-pham.html?category=he-thong-loc" class="text-decoration-none">
+            <div class="cat-card-new">
+              <img src="assets/images/categories/vat-lieu-loc.png" alt="Hệ thống lọc">
+              <div class="cat-overlay">
+                <div class="cat-arrow"><i class="bi bi-arrow-right"></i></div>
+                <p class="cat-name">Hệ thống lọc</p>
+                <p class="cat-desc">Lọc sạch vượt trội, nước trong hoàn hảo</p>
+              </div>
+            </div>
+          </a>
+          <div class="text-center mt-2">
+            <a href="san-pham.html?category=he-thong-loc" class="btn btn-sm btn-outline-primary" style="font-size:0.78rem;border-radius:6px;">Xem ngay →</a>
+          </div>
+        </div>
+        <div class="col-6 col-md-4 col-lg-2-4">
+          <a href="san-pham.html?category=thuc-an" class="text-decoration-none">
+            <div class="cat-card-new">
+              <img src="assets/images/categories/thuc-an.png" alt="Thức ăn">
+              <div class="cat-overlay">
+                <div class="cat-arrow"><i class="bi bi-arrow-right"></i></div>
+                <p class="cat-name">Thức ăn & dinh dưỡng</p>
+                <p class="cat-desc">Dinh dưỡng đầy đủ, cá khỏe lên màu đẹp</p>
+              </div>
+            </div>
+          </a>
+          <div class="text-center mt-2">
+            <a href="san-pham.html?category=thuc-an" class="btn btn-sm btn-outline-primary" style="font-size:0.78rem;border-radius:6px;">Xem ngay →</a>
+          </div>
+        </div>
+        <div class="col-6 col-md-4 col-lg-2-4">
+          <a href="san-pham.html?category=thuoc-vi-sinh" class="text-decoration-none">
+            <div class="cat-card-new">
+              <img src="assets/images/categories/thuoc-vi-sinh.png" alt="Thuốc vi sinh">
+              <div class="cat-overlay">
+                <div class="cat-arrow"><i class="bi bi-arrow-right"></i></div>
+                <p class="cat-name">Thuốc & vi sinh</p>
+                <p class="cat-desc">Xử lý nước hiệu quả, ngăn ngừa bệnh tật</p>
+              </div>
+            </div>
+          </a>
+          <div class="text-center mt-2">
+            <a href="san-pham.html?category=thuoc-vi-sinh" class="btn btn-sm btn-outline-primary" style="font-size:0.78rem;border-radius:6px;">Xem ngay →</a>
+          </div>
+        </div>
+        <div class="col-6 col-md-4 col-lg-2-4">
+          <a href="san-pham.html?category=cay-thuy-sinh" class="text-decoration-none">
+            <div class="cat-card-new">
+              <img src="assets/images/categories/nguyen-lieu.png" alt="Cây thủy sinh">
+              <div class="cat-overlay">
+                <div class="cat-arrow"><i class="bi bi-arrow-right"></i></div>
+                <p class="cat-name">Cây thủy sinh</p>
+                <p class="cat-desc">Cảnh quan tự nhiên, thanh lọc nước</p>
+              </div>
+            </div>
+          </a>
+          <div class="text-center mt-2">
+            <a href="san-pham.html?category=cay-thuy-sinh" class="btn btn-sm btn-outline-primary" style="font-size:0.78rem;border-radius:6px;">Xem ngay →</a>
+          </div>
+        </div>
+        <div class="col-6 col-md-4 col-lg-2-4">
+          <a href="san-pham.html?category=thiet-bi" class="text-decoration-none">
+            <div class="cat-card-new">
+              <img src="assets/images/categories/thiet-bi.png" alt="Thiết bị">
+              <div class="cat-overlay">
+                <div class="cat-arrow"><i class="bi bi-arrow-right"></i></div>
+                <p class="cat-name">Thiết bị & phụ kiện</p>
+                <p class="cat-desc">Hiện đại, tiện ích, tiết kiệm năng lượng</p>
+              </div>
+            </div>
+          </a>
+          <div class="text-center mt-2">
+            <a href="san-pham.html?category=thiet-bi" class="btn btn-sm btn-outline-primary" style="font-size:0.78rem;border-radius:6px;">Xem ngay →</a>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+    <div class="cta-ocean-banner">
+    <img class="cta-bg" src="assets/images/backgrounds/nen-danh-muc.png" alt="">
+    <div class="cta-content">
+      <h2>Sẵn sàng nâng tầm hồ cá của bạn?</h2>
+      <p>Khám phá ngay các sản phẩm chất lượng từ Aqua Care.</p>
+      <a href="lien-he.html" class="btn btn-primary-gradient btn-lg">liên hệ ngay</a>
+    </div>
+  </div>
+
+    <section style="padding: 60px 0; background: #f4fbff;">
+    <div class="container">
+      <p class="text-center" style="color:var(--color-primary);font-size:0.8rem;font-weight:700;text-transform:uppercase;letter-spacing:1.2px;margin-bottom:6px;">KHÁCH HÀNG NÓI GÌ VỀ AQUA CARE?</p>
+      <h2 class="section-title text-center mb-5">Đánh giá từ người dùng 🌟</h2>
+      <div class="row g-3">
+        <div class="col-md-4">
+          <div class="testimonial-card">
+            <div class="stars">★★★★★</div>
+            <p>"Hệ thống lọc AquaPro X1200 vận hành êm, nước trong và cá khỏe màu sắc đẹp hơn rất nhiều. Rất đáng tiền!"</p>
+            <div class="reviewer">
+              <div class="reviewer-avatar">MT</div>
+              <div>
+                <div class="reviewer-name">Anh Minh Tuấn</div>
+                <div class="reviewer-loc">Thủ Đức, TP.HCM</div>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="col-md-4">
+          <div class="testimonial-card">
+            <div class="stars">★★★★★</div>
+            <p>"Đội ngũ tư vấn chuyên nghiệp, hướng dẫn lắp đặt chi tiết. Tôi hoàn toàn yên tâm khi chọn Aqua Care."</p>
+            <div class="reviewer">
+              <div class="reviewer-avatar">TH</div>
+              <div>
+                <div class="reviewer-name">Chị Thanh Hương</div>
+                <div class="reviewer-loc">Quận 7, TP.HCM</div>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="col-md-4">
+          <div class="testimonial-card">
+            <div class="stars">★★★★★</div>
+            <p>"Sản phẩm chất lượng, bảo hành uy tín. Sẽ tiếp tục ủng hộ tất cả các sản phẩm khác của Aqua Care."</p>
+            <div class="reviewer">
+              <div class="reviewer-avatar">QB</div>
+              <div>
+                <div class="reviewer-name">Anh Quốc Bảo</div>
+                <div class="reviewer-loc">Bình Dương</div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+    <div class="trust-bar-footer">
+    <div class="container">
+      <div class="row g-2">
+        <div class="col-6 col-md"><div class="trust-item-ft"><div class="trust-icon-ft"><i class="bi bi-truck"></i></div><div class="trust-text-ft"><strong>Giao hàng toàn quốc</strong><span>Nhanh chóng - An toàn</span></div></div></div>
+        <div class="col-6 col-md"><div class="trust-item-ft"><div class="trust-icon-ft"><i class="bi bi-arrow-return-left"></i></div><div class="trust-text-ft"><strong>Đổi trả dễ dàng</strong><span>Trong 7 ngày</span></div></div></div>
+        <div class="col-6 col-md"><div class="trust-item-ft"><div class="trust-icon-ft"><i class="bi bi-lock-fill"></i></div><div class="trust-text-ft"><strong>Thanh toán an toàn</strong><span>Bảo mật tuyệt đối</span></div></div></div>
+        <div class="col-6 col-md"><div class="trust-item-ft"><div class="trust-icon-ft"><i class="bi bi-patch-check-fill"></i></div><div class="trust-text-ft"><strong>Cam kết chính hãng</strong><span>100% chất lượng</span></div></div></div>
+        <div class="col-6 col-md"><div class="trust-item-ft"><div class="trust-icon-ft"><i class="bi bi-headset"></i></div><div class="trust-text-ft"><strong>Hỗ trợ 24/7</strong><span>Tư vấn chuyên sâu</span></div></div></div>
+      </div>
+    </div>
+  </div>
+
+    <footer class="site-footer">
+    <div class="container">
+      <div class="row gy-4">
+        <div class="col-lg-4">
+          <img src="assets/images/branding/logo-splash-transparent.png" alt="Aqua Care" class="footer-logo-img mb-3">
+          <p class="footer-desc">Kiến tạo những khoảng thiên nhiên dưới mặt nước — đồng hành cùng người yêu cá cảnh.</p>
+          <div class="footer-socials mt-3">
+            <a href="#" aria-label="Facebook"><i class="bi bi-facebook"></i></a>
+            <a href="#" aria-label="Instagram"><i class="bi bi-instagram"></i></a>
+            <a href="#" aria-label="Youtube"><i class="bi bi-youtube"></i></a>
+            <a href="#" aria-label="Tiktok"><i class="bi bi-tiktok"></i></a>
+          </div>
+        </div>
+        <div class="col-6 col-lg-2">
+          <h6 style="font-family:var(--font-display);font-size:0.95rem;margin-bottom:14px;color:white;">Sản phẩm</h6>
+          <ul style="list-style:none;padding:0;display:grid;gap:8px;">
+            <li><a href="san-pham.html" style="color:rgba(255,255,255,0.65);font-size:0.83rem;">Hệ thống lọc</a></li>
+            <li><a href="san-pham.html" style="color:rgba(255,255,255,0.65);font-size:0.83rem;">Thức ăn & dinh dưỡng</a></li>
+            <li><a href="san-pham.html" style="color:rgba(255,255,255,0.65);font-size:0.83rem;">Thuốc & vi sinh</a></li>
+            <li><a href="san-pham.html" style="color:rgba(255,255,255,0.65);font-size:0.83rem;">Cây thủy sinh</a></li>
+            <li><a href="san-pham.html" style="color:rgba(255,255,255,0.65);font-size:0.83rem;">Thiết bị & phụ kiện</a></li>
+          </ul>
+        </div>
+        <div class="col-6 col-lg-2">
+          <h6 style="font-family:var(--font-display);font-size:0.95rem;margin-bottom:14px;color:white;">Khám phá</h6>
+          <ul style="list-style:none;padding:0;display:grid;gap:8px;">
+            <li><a href="kien-thuc.html" style="color:rgba(255,255,255,0.65);font-size:0.83rem;">Kiến thức cá cảnh</a></li>
+            <li><a href="du-an.html" style="color:rgba(255,255,255,0.65);font-size:0.83rem;">Dự án hồ cá</a></li>
+            <li><a href="hinh-anh-khach-hang.html" style="color:rgba(255,255,255,0.65);font-size:0.83rem;">Hình ảnh khách hàng</a></li>
+            <li><a href="bo-suu-tap.html" style="color:rgba(255,255,255,0.65);font-size:0.83rem;">Bộ sưu tập hồ đẹp</a></li>
+          </ul>
+        </div>
+        <div class="col-6 col-lg-2">
+          <h6 style="font-family:var(--font-display);font-size:0.95rem;margin-bottom:14px;color:white;">Hỗ trợ</h6>
+          <ul style="list-style:none;padding:0;display:grid;gap:8px;">
+            <li><a href="lien-he.html" style="color:rgba(255,255,255,0.65);font-size:0.83rem;">Liên hệ tư vấn</a></li>
+            <li><a href="#" style="color:rgba(255,255,255,0.65);font-size:0.83rem;">Chính sách đổi trả</a></li>
+            <li><a href="#" style="color:rgba(255,255,255,0.65);font-size:0.83rem;">Hướng dẫn mua hàng</a></li>
+            <li><a href="#" style="color:rgba(255,255,255,0.65);font-size:0.83rem;">FAQ</a></li>
+          </ul>
+        </div>
+        <div class="col-6 col-lg-2">
+          <h6 style="font-family:var(--font-display);font-size:0.95rem;margin-bottom:14px;color:white;">Liên hệ</h6>
+          <ul style="list-style:none;padding:0;display:grid;gap:8px;">
+            <li style="color:rgba(255,255,255,0.65);font-size:0.83rem;"><i class="bi bi-telephone-fill me-1" style="color:#2bb6e8;"></i>1900 1234</li>
+            <li style="color:rgba(255,255,255,0.65);font-size:0.83rem;"><i class="bi bi-envelope-fill me-1" style="color:#2bb6e8;"></i>contact@aquacare.vn</li>
+            <li style="color:rgba(255,255,255,0.65);font-size:0.83rem;"><i class="bi bi-geo-alt-fill me-1" style="color:#2bb6e8;"></i>123 Đường Xanh, Q. Bình Tân, TP.HCM</li>
+          </ul>
+        </div>
+      </div>
+      <hr style="border-color:rgba(255,255,255,0.1);margin:28px 0 16px;">
+      <div class="d-flex justify-content-between align-items-center flex-wrap gap-2">
+        <p class="footer-copy" style="margin:0;">&copy; 2026 Aqua Care. All rights reserved.</p>
+        <p style="color:rgba(255,255,255,0.4);font-size:0.72rem;margin:0;">Vật tư & Chăm sóc cá cảnh</p>
+      </div>
+    </div>
+  </footer>
+
+  <button class="back-to-top" id="backToTop" type="button" aria-label="Lên đầu trang">
+    <i class="bi bi-arrow-up"></i>
+  </button>
+
+  <!-- Toast notification -->
+  <div class="toast-custom" id="toastNotif"></div>
+
+    <div class="modal fade" id="productModal" tabindex="-1" aria-hidden="true">
+    <div class="modal-dialog modal-lg modal-dialog-centered">
+      <div class="modal-content" style="border-radius:16px;border:none;overflow:hidden;">
+        <div class="modal-header" style="border:none;padding:20px 24px 0;">
+          <h5 class="modal-title" id="modalProductName" style="font-family:var(--font-display);font-size:1.3rem;"></h5>
+          <button type="button" class="btn-close" data-bs-dismiss="modal"></button>
+        </div>
+        <div class="modal-body p-4">
+          <div class="row g-4">
+            <div class="col-md-5">
+              <img src="assets/images/categories/phu-kien.png" alt="Ảnh sản phẩm" id="modalProductImg" class="product-modal-img">
+              <div class="d-flex gap-2 mt-2" id="modalImgThumbs"></div>
+            </div>
+            <div class="col-md-7">
+              <span id="modalBadge" class="product-badge" style="position:static;display:inline-block;margin-bottom:10px;"></span>
+              <div class="product-stars mb-2">
+                <span class="stars" id="modalStars"></span>
+                <span class="review-count" id="modalReviews"></span>
+              </div>
+              <div class="product-price-row mb-3">
+                <span class="modal-product-price" id="modalPrice"></span>
+              </div>
+              <p id="modalDesc" style="color:var(--color-text-muted);font-size:0.88rem;margin-bottom:16px;"></p>
+              <p style="font-size:0.82rem;color:var(--color-text-muted);margin-bottom:4px;"><strong>Quy cách:</strong> <span id="modalMeta"></span></p>
+              <hr style="margin:16px 0;">
+              <div class="d-flex gap-2">
+                <button class="btn-mua-ngay flex-fill" id="modalBuyBtn"><i class="bi bi-cart3 me-1"></i>Mua ngay</button>
+              </div>
+              <div class="mt-3 d-flex gap-3">
+                <small style="color:var(--color-text-muted);"><i class="bi bi-truck me-1" style="color:var(--color-primary);"></i>Giao toàn quốc</small>
+                <small style="color:var(--color-text-muted);"><i class="bi bi-shield-check me-1" style="color:var(--color-primary);"></i>Chính hãng</small>
+                <small style="color:var(--color-text-muted);"><i class="bi bi-arrow-return-left me-1" style="color:var(--color-primary);"></i>Đổi trả 7 ngày</small>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- Bể cá ảo chân trang -->
+  <div class="aquarium-ambient" id="aquariumAmbient">
+    <!-- Rong biển bên trái -->
+    <svg class="seaweed seaweed-left" viewBox="0 0 100 200" preserveAspectRatio="none">
+      <path d="M 50 200 Q 30 150 50 100 T 50 0 Q 70 50 50 100 T 50 200" fill="#2d7a4d" />
+      <path d="M 40 200 Q 20 160 40 120 T 40 30 Q 60 70 40 120 T 40 200" fill="#1e5e3a" opacity="0.8" />
+    </svg>
+    
+    <!-- Rong biển bên phải -->
+    <svg class="seaweed seaweed-right" viewBox="0 0 100 200" preserveAspectRatio="none">
+      <path d="M 50 200 Q 70 150 50 100 T 50 0 Q 30 50 50 100 T 50 200" fill="#2d7a4d" />
+      <path d="M 60 200 Q 80 160 60 120 T 60 30 Q 40 70 60 120 T 60 200" fill="#1e5e3a" opacity="0.8" />
+    </svg>
+
+    <!-- Cá bơi từ trái sang phải -->
+    <div class="aquarium-fish fish-lr-1">
+      <svg viewBox="0 0 60 30" width="100%" height="100%">
+        <!-- Thân cá -->
+        <path d="M 10 15 C 20 5, 45 5, 50 15 C 45 25, 20 25, 10 15 Z" fill="#ff6b6b" />
+        <!-- Đuôi cá hoạt ảnh -->
+        <g class="fish-tail-anim">
+          <path d="M 10 15 L 0 5 L 3 15 L 0 25 Z" fill="#ff6b6b" />
+        </g>
+        <!-- Vây cá -->
+        <path d="M 30 7 Q 25 2 20 7 Z" fill="#ff8787" />
+        <path d="M 30 23 Q 25 28 20 23 Z" fill="#ff8787" />
+        <!-- Mắt cá -->
+        <circle cx="43" cy="12" r="2.5" fill="#fff" />
+        <circle cx="44" cy="12" r="1" fill="#000" />
+      </svg>
+    </div>
+
+    <!-- Cá bơi từ phải sang trái -->
+    <div class="aquarium-fish fish-rl-1">
+      <svg viewBox="0 0 60 30" width="100%" height="100%" style="transform: scaleX(-1);">
+        <!-- Thân cá -->
+        <path d="M 10 15 C 20 5, 45 5, 50 15 C 45 25, 20 25, 10 15 Z" fill="#ff9f43" />
+        <!-- Đuôi cá hoạt ảnh -->
+        <g class="fish-tail-anim">
+          <path d="M 10 15 L 0 5 L 3 15 L 0 25 Z" fill="#ff9f43" />
+        </g>
+        <!-- Vây cá -->
+        <path d="M 30 7 Q 25 2 20 7 Z" fill="#ffb061" />
+        <path d="M 30 23 Q 25 28 20 23 Z" fill="#ffb061" />
+        <!-- Mắt cá -->
+        <circle cx="43" cy="12" r="2.5" fill="#fff" />
+        <circle cx="44" cy="12" r="1" fill="#000" />
+      </svg>
+    </div>
+
+    <!-- Cá bơi từ trái sang phải (nhỏ) -->
+    <div class="aquarium-fish fish-lr-2">
+      <svg viewBox="0 0 60 30" width="100%" height="100%">
+        <!-- Thân cá -->
+        <path d="M 10 15 C 20 5, 45 5, 50 15 C 45 25, 20 25, 10 15 Z" fill="#ff9ff3" />
+        <!-- Đuôi cá hoạt ảnh -->
+        <g class="fish-tail-anim">
+          <path d="M 10 15 L 0 5 L 3 15 L 0 25 Z" fill="#ff9ff3" />
+        </g>
+        <!-- Vây cá -->
+        <path d="M 30 7 Q 25 2 20 7 Z" fill="#feca57" />
+        <path d="M 30 23 Q 25 28 20 23 Z" fill="#feca57" />
+        <!-- Mắt cá -->
+        <circle cx="43" cy="12" r="2.5" fill="#fff" />
+        <circle cx="44" cy="12" r="1" fill="#000" />
+      </svg>
+    </div>
+  </div>
+
+  <!-- Modal Đặt Hàng Nhanh (Buy Modal) cho Trang Chủ -->
+  <div class="modal fade" id="buyModal" tabindex="-1" aria-hidden="true">
+    <div class="modal-dialog modal-lg modal-dialog-centered">
+      <div class="modal-content" style="border-radius:16px;border:none;overflow:hidden;">
+        <div class="modal-header" style="border:none;padding:20px 24px 0;background:#f4fbff;">
+          <div>
+            <p style="font-size:0.75rem;color:var(--color-primary);font-weight:700;text-transform:uppercase;letter-spacing:0.8px;margin:0 0 4px;">ĐẶT HÀNG NHANH</p>
+            <h5 class="modal-title" id="buyModalName" style="font-family:var(--font-display);font-size:1.2rem;color:var(--color-text-dark);"></h5>
+          </div>
+          <button type="button" class="btn-close" data-bs-dismiss="modal"></button>
+        </div>
+        <div class="modal-body p-0">
+          <div class="row g-0">
+            <!-- Left: product image + info -->
+            <div class="col-md-5" style="background:#eaf6fc;padding:24px;">
+              <img src="assets/images/categories/phu-kien.png" alt="Ảnh sản phẩm" id="buyModalImg" style="width:100%;border-radius:12px;max-height:240px;object-fit:cover;margin-bottom:16px;">
+              <div id="buyModalSpecsWrap">
+                <p style="font-size:0.78rem;font-weight:700;color:var(--color-primary);text-transform:uppercase;letter-spacing:0.5px;margin-bottom:10px;">THÔNG TIN CHI TIẾT</p>
+                <div id="buyModalDesc" style="font-size:0.78rem;color:var(--color-text-muted);line-height:1.5;"></div>
+              </div>
+            </div>
+            <!-- Right: buy form -->
+            <div class="col-md-7" style="padding:24px;">
+              <div style="display:flex;align-items:center;gap:10px;margin-bottom:16px;padding-bottom:16px;border-bottom:1px solid #e8f4fc;">
+                <div>
+                  <span class="product-badge ban-chay" id="buyModalBadge" style="position:static;display:inline-block;margin-bottom:6px;">Mới</span>
+                  <div style="display:flex;align-items:baseline;gap:8px;flex-wrap:wrap;">
+                    <span id="buyModalPrice" style="font-size:1.8rem;font-weight:800;color:var(--color-primary-dark);font-family:var(--font-body);"></span>
+                  </div>
+                </div>
+              </div>
+
+              <!-- Qty -->
+              <div style="display:flex;align-items:center;gap:16px;margin-bottom:18px;">
+                <label style="font-size:0.85rem;font-weight:600;min-width:80px;">Số lượng:</label>
+                <div class="qty-control" style="display:inline-flex;align-items:center;border:1px solid #d0e8f5;border-radius:8px;overflow:hidden;background:white;">
+                  <button onclick="changeBuyQty(-1)" style="border:none;background:none;width:32px;height:38px;font-weight:bold;outline:none;">−</button>
+                  <input type="number" value="1" min="1" max="99" id="buyQtyInput" style="width:52px;height:38px;border:none;text-align:center;font-weight:600;outline:none;" oninput="updateBuyTotal()">
+                  <button onclick="changeBuyQty(1)" style="border:none;background:none;width:32px;height:38px;font-weight:bold;outline:none;">+</button>
+                </div>
+                <span id="buyModalTotal" style="font-size:0.88rem;color:var(--color-text-muted);"></span>
+              </div>
+
+              <!-- Customer info -->
+              <div class="row g-2" style="margin-bottom:14px;">
+                <div class="col-sm-6">
+                  <label style="font-size:0.78rem;font-weight:700;margin-bottom:5px;">Họ tên *</label>
+                  <input id="buyCustomerName" type="text" placeholder="Nguyễn Văn A" autocomplete="name" required minlength="2" maxlength="60" style="width:100%;border:1.5px solid #d0e8f5;border-radius:10px;padding:9px 12px;font-size:0.84rem;outline:none;">
+                </div>
+                <div class="col-sm-6">
+                  <label style="font-size:0.78rem;font-weight:700;margin-bottom:5px;">Số điện thoại *</label>
+                  <input id="buyCustomerPhone" type="tel" placeholder="09xxxxxxxx" autocomplete="tel" required pattern="^(0|\+84)[0-9\s.-]{9,14}$" style="width:100%;border:1.5px solid #d0e8f5;border-radius:10px;padding:9px 12px;font-size:0.84rem;outline:none;">
+                </div>
+                <div class="col-sm-6">
+                  <label style="font-size:0.78rem;font-weight:700;margin-bottom:5px;">Email *</label>
+                  <input id="buyCustomerEmail" type="email" placeholder="ten@gmail.com" autocomplete="email" required maxlength="100" pattern="^[A-Za-z0-9._%+-]+@gmail\.com$" style="width:100%;border:1.5px solid #d0e8f5;border-radius:10px;padding:9px 12px;font-size:0.84rem;outline:none;">
+                </div>
+                <div class="col-sm-6">
+                  <label style="font-size:0.78rem;font-weight:700;margin-bottom:5px;">Địa chỉ *</label>
+                  <input id="buyCustomerAddress" type="text" placeholder="Số nhà, phường/xã, tỉnh/thành" autocomplete="street-address" required minlength="8" maxlength="160" style="width:100%;border:1.5px solid #d0e8f5;border-radius:10px;padding:9px 12px;font-size:0.84rem;outline:none;">
+                </div>
+              </div>
+
+              <!-- Payment Methods -->
+              <div style="margin-bottom:18px;">
+                <label style="font-size:0.78rem;font-weight:700;margin-bottom:6px;display:block;">Phương thức thanh toán *</label>
+                <div style="display:grid;grid-template-columns:repeat(2, 1fr);gap:10px;margin-bottom:10px;">
+                  <label class="pay-method-label" style="border:1.5px solid #d0e8f5;border-radius:10px;padding:8px 10px;cursor:pointer;display:flex;align-items:center;gap:8px;font-size:0.78rem;font-weight:600;background:white;margin:0;">
+                    <input type="radio" name="buyPayMethod" value="cod" checked onchange="togglePayDetails('buy', this.value)" style="margin:0;">
+                    <i class="bi bi-cash-stack" style="font-size:1.1rem;color:#2e7d32;"></i>
+                    <span>COD (Tiền mặt)</span>
+                  </label>
+                  <label class="pay-method-label" style="border:1.5px solid #d0e8f5;border-radius:10px;padding:8px 10px;cursor:pointer;display:flex;align-items:center;gap:8px;font-size:0.78rem;font-weight:600;background:white;margin:0;">
+                    <input type="radio" name="buyPayMethod" value="vietqr" onchange="togglePayDetails('buy', this.value)" style="margin:0;">
+                    <i class="bi bi-qr-code-scan" style="font-size:1.1rem;color:#1565c0;"></i>
+                    <span>Chuyển khoản VietQR</span>
+                  </label>
+                  <label class="pay-method-label" style="border:1.5px solid #d0e8f5;border-radius:10px;padding:8px 10px;cursor:pointer;display:flex;align-items:center;gap:8px;font-size:0.78rem;font-weight:600;background:white;margin:0;">
+                    <input type="radio" name="buyPayMethod" value="momo" onchange="togglePayDetails('buy', this.value)" style="margin:0;">
+                    <i class="bi bi-wallet2" style="font-size:1.1rem;color:#a30062;"></i>
+                    <span>Ví MoMo QR</span>
+                  </label>
+                  <label class="pay-method-label" style="border:1.5px solid #d0e8f5;border-radius:10px;padding:8px 10px;cursor:pointer;display:flex;align-items:center;gap:8px;font-size:0.78rem;font-weight:600;background:white;margin:0;">
+                    <input type="radio" name="buyPayMethod" value="visa" onchange="togglePayDetails('buy', this.value)" style="margin:0;">
+                    <i class="bi bi-credit-card-2-front" style="font-size:1.1rem;color:#f57c00;"></i>
+                    <span>Thẻ Visa/Master</span>
+                  </label>
+                </div>
+                <!-- Payment details placeholder -->
+                <div id="buyPayDetails" style="margin-top:12px;display:none;transition:all 0.3s ease;"></div>
+                <div id="buyFormError" style="display:none;color:#d32f2f;font-size:0.78rem;margin-top:6px;font-weight:600;"></div>
+              </div>
+
+              <!-- Buttons -->
+              <div style="display:flex;gap:10px;margin-bottom:14px;">
+                <button class="btn btn-primary" onclick="confirmBuyNow()" style="flex:1;border-radius:10px;padding:10px;font-weight:600;background:var(--color-primary);border:none;color:white;"><i class="bi bi-bag-check-fill me-2"></i>Xác nhận đặt hàng</button>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- Modal Trạng Thái Đơn Hàng (Order Status Modal) cho Trang Chủ -->
+  <div class="modal fade" id="orderStatusModal" tabindex="-1" aria-hidden="true" data-bs-backdrop="static">
+    <div class="modal-dialog modal-dialog-centered">
+      <div class="modal-content" style="border-radius: 16px; border: none; overflow: hidden; box-shadow: 0 15px 35px rgba(0,0,0,0.15);">
+        <div class="modal-header" style="background: #f4fbff; border: none; padding: 20px 24px;">
+          <div>
+            <p style="font-size: 0.75rem; color: var(--color-primary); font-weight: 700; text-transform: uppercase; letter-spacing: 0.8px; margin: 0 0 4px;">HÀNH TRÌNH ĐƠN HÀNG</p>
+            <h5 class="modal-title" style="font-family: var(--font-display); font-size: 1.25rem; color: var(--color-text-dark); font-weight: 700;">Theo dõi đơn hàng của bạn</h5>
+          </div>
+          <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close" id="osCloseBtn"></button>
+        </div>
+        <div class="modal-body" style="padding: 24px;">
+          <div style="display: flex; justify-content: space-between; align-items: center; background: #eaf6fc; border-radius: 12px; padding: 12px 16px; margin-bottom: 20px; flex-wrap: wrap; gap: 8px;">
+            <div>
+              <span style="font-size: 0.72rem; color: var(--color-text-muted);">Mã đơn hàng:</span>
+              <strong id="osOrderId" style="display: block; color: var(--color-primary-dark); font-size: 1.05rem;">#AQ-10948</strong>
+            </div>
+            <div>
+              <span style="font-size: 0.72rem; color: var(--color-text-muted);">Thanh toán:</span>
+              <strong id="osPayMethodText" style="display: block; color: var(--color-text-dark); font-size: 0.82rem; font-weight: 700;">COD (Tiền mặt)</strong>
+            </div>
+            <div style="text-align: right;">
+              <span style="font-size: 0.72rem; color: var(--color-text-muted);">Trạng thái:</span>
+              <span class="badge" id="osCurrentStatusBadge" style="display: block; background: #1a9dd0; color: white; font-size: 0.75rem; margin-top: 4px; padding: 5px 10px; border-radius: 6px; font-weight: 700;">Đã tiếp nhận</span>
+            </div>
+          </div>
+
+          <!-- Thanh tiến trình ngang -->
+          <div class="horizontal-steps" style="display:flex;justify-content:space-between;position:relative;margin-bottom:24px;padding:0 15px;">
+            <div class="steps-line" style="position:absolute;top:16px;left:40px;right:40px;height:4px;background:#e2e8f0;z-index:1;"></div>
+            <div class="steps-line-active" id="osProgressLine" style="position:absolute;top:16px;left:40px;width:0%;height:4px;background:#1a9dd0;z-index:2;transition:width 0.5s ease;"></div>
+            
+            <div class="step-item active" id="stepNode1" style="position:relative;z-index:3;text-align:center;width:60px;display:flex;flex-direction:column;align-items:center;">
+              <div class="step-icon" style="width:32px;height:32px;border-radius:50%;background:#e2e8f0;color:#94a3b8;display:flex;align-items:center;justify-content:center;font-size:0.85rem;font-weight:700;border:3px solid white;box-shadow:0 0 0 2px #e2e8f0;transition:all 0.3s;"><i class="bi bi-receipt"></i></div>
+              <span style="font-size:0.7rem;font-weight:700;margin-top:6px;color:#0a2540;">Tiếp nhận</span>
+            </div>
+            <div class="step-item" id="stepNode2" style="position:relative;z-index:3;text-align:center;width:60px;display:flex;flex-direction:column;align-items:center;">
+              <div class="step-icon" style="width:32px;height:32px;border-radius:50%;background:#e2e8f0;color:#94a3b8;display:flex;align-items:center;justify-content:center;font-size:0.85rem;font-weight:700;border:3px solid white;box-shadow:0 0 0 2px #e2e8f0;transition:all 0.3s;"><i class="bi bi-box-seam"></i></div>
+              <span style="font-size:0.7rem;font-weight:600;margin-top:6px;color:#94a3b8;">Đóng gói</span>
+            </div>
+            <div class="step-item" id="stepNode3" style="position:relative;z-index:3;text-align:center;width:60px;display:flex;flex-direction:column;align-items:center;">
+              <div class="step-icon" style="width:32px;height:32px;border-radius:50%;background:#e2e8f0;color:#94a3b8;display:flex;align-items:center;justify-content:center;font-size:0.85rem;font-weight:700;border:3px solid white;box-shadow:0 0 0 2px #e2e8f0;transition:all 0.3s;"><i class="bi bi-truck"></i></div>
+              <span style="font-size:0.7rem;font-weight:600;margin-top:6px;color:#94a3b8;">Vận chuyển</span>
+            </div>
+            <div class="step-item" id="stepNode4" style="position:relative;z-index:3;text-align:center;width:60px;display:flex;flex-direction:column;align-items:center;">
+              <div class="step-icon" style="width:32px;height:32px;border-radius:50%;background:#e2e8f0;color:#94a3b8;display:flex;align-items:center;justify-content:center;font-size:0.85rem;font-weight:700;border:3px solid white;box-shadow:0 0 0 2px #e2e8f0;transition:all 0.3s;"><i class="bi bi-house-heart"></i></div>
+              <span style="font-size:0.7rem;font-weight:600;margin-top:6px;color:#94a3b8;">Đã giao</span>
+            </div>
+          </div>
+
+          <!-- Hoạt ảnh trung tâm -->
+          <div id="osAnimContainer" style="height:140px;background:linear-gradient(to bottom, #f4fbff, #eaf6fc);border-radius:16px;display:flex;align-items:center;justify-content:center;position:relative;overflow:hidden;margin-bottom:20px;border:1px solid #d0e8f5;">
+            <!-- Rendered dynamically -->
+          </div>
+
+          <!-- Lịch sử hành trình -->
+          <div style="background:#fafafa;border-radius:12px;padding:12px 16px;max-height:160px;overflow-y:auto;margin-bottom:20px;border:1px solid #eee;">
+            <p style="font-size:0.72rem;font-weight:700;color:var(--color-text-muted);text-transform:uppercase;letter-spacing:0.5px;margin-bottom:8px;border-bottom:1px solid #eee;padding-bottom:4px;">NHẬT KÝ HÀNH TRÌNH CHI TIẾT</p>
+            <div id="osHistoryLog" style="display:flex;flex-direction:column;gap:8px;"></div>
+          </div>
+
+          <div style="display:flex;gap:12px;">
+            <button class="btn btn-outline-primary" id="osSimulateBtn" onclick="startOrderSimulation()" style="flex:1;border-radius:10px;padding:10px;font-weight:600;font-size:0.85rem;border-color:#1a9dd0;color:#1a9dd0;"><i class="bi bi-play-circle-fill me-1"></i>Mô phỏng hành trình</button>
+            <button class="btn btn-primary" data-bs-dismiss="modal" id="osFinishBtn" style="flex:1;border-radius:10px;padding:10px;font-weight:600;font-size:0.85rem;background:var(--color-primary);border:none;color:white;">Đóng &amp; Mua sắm tiếp</button>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
+  <script src="js/main.js?v=20260625f"></script>
+
+  
+  <script src="js/index.js?v=20260625f"></script>
+</body>
+</html>
+
+
+
+

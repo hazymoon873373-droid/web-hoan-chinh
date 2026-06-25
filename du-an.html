@@ -1,0 +1,513 @@
+﻿<!DOCTYPE html>
+<html lang="vi">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Dự án - Aqua Care</title>
+
+  <!-- Google Fonts -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,600;0,700;1,700&family=Dancing+Script:wght@600;700&family=Be+Vietnam+Pro:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+
+  <!-- Bootstrap 5 -->
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet">
+  <!-- Bootstrap Icons -->
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.css">
+
+  <link rel="stylesheet" href="css/style.css?v=20260625f">
+  <link rel="stylesheet" href="css/du-an.css?v=20260625f">
+</head>
+<body class="page-du-an">
+
+    <nav class="navbar navbar-expand-lg fixed-top" id="mainNav">
+    <div class="container">
+      <a class="navbar-brand" href="index.html">
+        <img src="assets/images/branding/logo.png" alt="Aqua Care" class="navbar-logo-img">
+      </a>
+      <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navMenu" aria-controls="navMenu" aria-expanded="false" aria-label="Mở menu">
+        <span class="navbar-toggler-icon"></span>
+      </button>
+      <div class="collapse navbar-collapse" id="navMenu">
+        <ul class="navbar-nav mx-auto mb-3 mb-lg-0">
+          <li class="nav-item"><a class="nav-link" href="index.html">Trang chủ</a></li>
+          <li class="nav-item dropdown">
+            <a class="nav-link dropdown-toggle" href="san-pham.html" id="productsDropdown" role="button" data-bs-toggle="dropdown">Sản phẩm</a>
+            <ul class="dropdown-menu">
+              <li><a class="dropdown-item" href="index.html#san-pham"><i class="bi bi-house-door me-1"></i>Trang chủ</a></li>
+              <li><hr class="dropdown-divider"></li>
+              <li><a class="dropdown-item" href="san-pham.html?category=he-thong-loc">Hệ thống lọc</a></li>
+              <li><a class="dropdown-item" href="san-pham.html?category=thuc-an">Thức ăn & dinh dưỡng</a></li>
+              <li><a class="dropdown-item" href="san-pham.html?category=thuoc-vi-sinh">Thuốc & vi sinh</a></li>
+              <li><a class="dropdown-item" href="san-pham.html?category=vat-lieu-loc">Vật liệu lọc</a></li>
+              <li><a class="dropdown-item" href="san-pham.html?category=cay-thuy-sinh">Cây thủy sinh</a></li>
+              <li><a class="dropdown-item" href="san-pham.html?category=thiet-bi">Thiết bị & phụ kiện</a></li>
+            </ul>
+          </li>
+          <li class="nav-item"><a class="nav-link" href="kien-thuc.html">Kiến thức</a></li>
+          <li class="nav-item"><a class="nav-link active" href="du-an.html">Dự án</a></li>
+          <li class="nav-item"><a class="nav-link" href="lien-he.html">Liên hệ</a></li>
+        </ul>
+        <div class="navbar-icons d-flex align-items-center gap-2">
+          <button class="icon-btn" type="button" aria-label="Tìm kiếm"><i class="bi bi-search"></i></button>
+          <button class="icon-btn" type="button" aria-label="Tài khoản"><i class="bi bi-person"></i></button>
+          <button class="icon-btn cart-btn" type="button" aria-label="Giỏ hàng">
+            <i class="bi bi-cart3"></i>
+            <span class="cart-badge">3</span>
+          </button>
+        </div>
+      </div>
+    </div>
+  </nav>
+
+    <section class="da-hero">
+    <div class="da-hero-bg">
+      <!-- TODO: thay bằng ảnh hồ cá dự án thật -->
+      <img src="assets/images/projects/du-an-ho-ca.png" alt="" aria-hidden="true">
+    </div>
+    <div class="da-hero-overlay"></div>
+
+    <div class="container da-hero-content">
+      <div class="row align-items-center gy-4">
+
+        <!-- Left: tiêu đề -->
+        <div class="col-lg-5">
+          <p class="da-eyebrow">DỰ ÁN</p>
+          <h1 class="da-title">
+            Dự án
+            <span class="da-title-leaf"><i class="bi bi-flower1"></i></span>
+          </h1>
+          <p class="da-subtitle-script">Những công trình mang thiên nhiên<br>đến gần hơn với cuộc sống</p>
+          <div class="da-title-line"></div>
+        </div>
+
+        <!-- Right: mô tả + stats -->
+        <div class="col-lg-6 offset-lg-1">
+          <div class="da-intro-box">
+            <div class="da-intro-icon"><i class="bi bi-flower1"></i></div>
+            <p class="da-intro-text">
+              Aqua Care đồng hành cùng khách hàng từ khâu tư vấn, thiết kế
+              đến thi công và chăm sóc hồ cá. Mỗi dự án được cá nhân hóa
+              nhằm tạo nên không gian thư giãn, hài hòa và bền vững.
+            </p>
+          </div>
+        </div>
+
+      </div>
+    </div>
+  </section>
+
+    <section class="da-projects section-bg-wave" id="du-an-noi-bat">
+    <div class="container">
+
+      <!-- Section header + điều hướng -->
+      <div class="da-section-head">
+        <div>
+          <p class="da-section-eyebrow">DỰ ÁN NỔI BẬT <i class="bi bi-flower1"></i></p>
+        </div>
+        <div class="da-nav-arrows">
+          <button class="da-arrow-btn" id="prevBtn" type="button" aria-label="Trang trước">
+            <i class="bi bi-chevron-left"></i>
+          </button>
+          <button class="da-arrow-btn da-arrow-active" id="nextBtn" type="button" aria-label="Trang tiếp">
+            <i class="bi bi-chevron-right"></i>
+          </button>
+        </div>
+      </div>
+
+      <!-- Grid dự án -->
+      <div class="row g-4" id="projectsGrid">
+
+        <!-- Dự án 1 -->
+        <div class="col-md-6 col-lg-4 project-item">
+          <div class="da-card">
+            <div class="da-card-img-wrap">
+              <!-- TODO: thay bằng ảnh dự án thật -->
+              <img src="assets/images/projects/da1.png" alt="Hồ Koi Sân Vườn Biệt Thự">
+              <button class="da-card-zoom" type="button" aria-label="Xem ảnh"><i class="bi bi-camera"></i></button>
+            </div>
+            <div class="da-card-body">
+              <h3 class="da-card-title">Hồ Koi Sân Vườn Biệt Thự</h3>
+              <p class="da-card-location"><i class="bi bi-geo-alt-fill"></i> Thủ Đức, TP. Hồ Chí Minh</p>
+              <ul class="da-card-specs">
+                <li><i class="bi bi-rulers"></i> Diện tích: 35m²</li>
+                <li><i class="bi bi-funnel-fill"></i> Hệ thống lọc 5 ngăn tiêu chuẩn Nhật Bản</li>
+                <li><i class="bi bi-fish"></i> Hơn 40 cá Koi nhập khẩu</li>
+                <li><i class="bi bi-calendar-check"></i> Thời gian thi công: 30 ngày</li>
+              </ul>
+              <div class="da-card-highlight">
+                <strong>Điểm nhấn:</strong>
+                <p>Thiết kế kết hợp thác nước tự nhiên, đá cảnh và cây thủy sinh tạo nên không gian thư giãn ngay trong khuôn viên nhà.</p>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- Dự án 2 -->
+        <div class="col-md-6 col-lg-4 project-item">
+          <div class="da-card">
+            <div class="da-card-img-wrap">
+              <img src="assets/images/projects/da2.png" alt="Hồ Cá Trong Nhà Hiện Đại">
+              <button class="da-card-zoom" type="button" aria-label="Xem ảnh"><i class="bi bi-camera"></i></button>
+            </div>
+            <div class="da-card-body">
+              <h3 class="da-card-title">Hồ Cá Trong Nhà Hiện Đại</h3>
+              <p class="da-card-location"><i class="bi bi-geo-alt-fill"></i> Quận 7, TP. Hồ Chí Minh</p>
+              <ul class="da-card-specs">
+                <li><i class="bi bi-rulers"></i> Kích thước: 2,5m × 0,8m × 1m</li>
+                <li><i class="bi bi-gem"></i> Kính siêu trong cao cấp</li>
+                <li><i class="bi bi-lightbulb-fill"></i> Hệ thống đèn LED thủy sinh</li>
+                <li><i class="bi bi-phone"></i> Điều khiển thiết bị từ xa</li>
+              </ul>
+              <div class="da-card-highlight">
+                <strong>Điểm nhấn:</strong>
+                <p>Biến phòng khách thành một không gian sống động với cảnh quan thủy sinh tinh tế và hiện đại.</p>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- Dự án 3 -->
+        <div class="col-md-6 col-lg-4 project-item">
+          <div class="da-card">
+            <div class="da-card-img-wrap">
+              <img src="assets/images/projects/da3.png" alt="Hồ Cá Cảnh Quán Cafe">
+              <button class="da-card-zoom" type="button" aria-label="Xem ảnh"><i class="bi bi-camera"></i></button>
+            </div>
+            <div class="da-card-body">
+              <h3 class="da-card-title">Hồ Cá Cảnh Quán Cafe</h3>
+              <p class="da-card-location"><i class="bi bi-geo-alt-fill"></i> Bình Dương</p>
+              <ul class="da-card-specs">
+                <li><i class="bi bi-tree-fill"></i> Thiết kế theo phong cách thiên nhiên</li>
+                <li><i class="bi bi-funnel-fill"></i> Hệ thống lọc tuần hoàn tiết kiệm điện</li>
+                <li><i class="bi bi-flower2"></i> Kết hợp cây xanh và tiểu cảnh đá</li>
+              </ul>
+              <div class="da-card-highlight">
+                <strong>Điểm nhấn:</strong>
+                <p>Tạo trải nghiệm thư giãn cho khách hàng và tăng giá trị thẩm mỹ cho không gian kinh doanh.</p>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- Dự án 4 -->
+        <div class="col-md-6 col-lg-4 project-item">
+          <div class="da-card">
+            <div class="da-card-img-wrap">
+              <img src="assets/images/projects/da4.png" alt="Hồ Cá Sân Thượng">
+              <button class="da-card-zoom" type="button" aria-label="Xem ảnh"><i class="bi bi-camera"></i></button>
+            </div>
+            <div class="da-card-body">
+              <h3 class="da-card-title">Hồ Cá Sân Thượng</h3>
+              <p class="da-card-location"><i class="bi bi-geo-alt-fill"></i> Tân Bình, TP. Hồ Chí Minh</p>
+              <ul class="da-card-specs">
+                <li><i class="bi bi-rulers"></i> Diện tích: 20m²</li>
+                <li><i class="bi bi-funnel-fill"></i> Hệ thống lọc trần dưới đáy</li>
+                <li><i class="bi bi-flower2"></i> Kết hợp tiểu cảnh và đèn trang trí</li>
+                <li><i class="bi bi-shield-check"></i> Chống thấm, chống nóng tối ưu</li>
+              </ul>
+              <div class="da-card-highlight">
+                <strong>Điểm nhấn:</strong>
+                <p>Biến sân thượng thành không gian thư giãn xanh mát, ngắm cá và cảnh quan thành phố lung linh về đêm.</p>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- Dự án 5 -->
+        <div class="col-md-6 col-lg-4 project-item">
+          <div class="da-card">
+            <div class="da-card-img-wrap">
+              <img src="assets/images/projects/da5.png" alt="Hồ Koi Phong Cách Suối Tự Nhiên">
+              <button class="da-card-zoom" type="button" aria-label="Xem ảnh"><i class="bi bi-camera"></i></button>
+            </div>
+            <div class="da-card-body">
+              <h3 class="da-card-title">Hồ Koi Phong Cách Suối Tự Nhiên</h3>
+              <p class="da-card-location"><i class="bi bi-geo-alt-fill"></i> Long Thành, Đồng Nai</p>
+              <ul class="da-card-specs">
+                <li><i class="bi bi-rulers"></i> Diện tích: 45m²</li>
+                <li><i class="bi bi-funnel-fill"></i> Hệ thống lọc 6 ngăn chuyên dụng</li>
+                <li><i class="bi bi-droplet-fill"></i> Suối chảy tuần hoàn và oxy tự nhiên</li>
+                <li><i class="bi bi-fish"></i> Hơn 80 cá Koi nhập khẩu</li>
+              </ul>
+              <div class="da-card-highlight">
+                <strong>Điểm nhấn:</strong>
+                <p>Thiết kế dòng suối tự nhiên với thác, đá lớn và cây xanh tạo cảm giác gần gũi thiên nhiên.</p>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- Dự án 6 -->
+        <div class="col-md-6 col-lg-4 project-item">
+          <div class="da-card">
+            <div class="da-card-img-wrap">
+              <img src="assets/images/projects/da6.png" alt="Hồ Cá Koi Khu Nghỉ Dưỡng">
+              <button class="da-card-zoom" type="button" aria-label="Xem ảnh"><i class="bi bi-camera"></i></button>
+            </div>
+            <div class="da-card-body">
+              <h3 class="da-card-title">Hồ Cá Koi Khu Nghỉ Dưỡng</h3>
+              <p class="da-card-location"><i class="bi bi-geo-alt-fill"></i> Vũng Tàu</p>
+              <ul class="da-card-specs">
+                <li><i class="bi bi-rulers"></i> Diện tích: 60m²</li>
+                <li><i class="bi bi-funnel-fill"></i> Hệ thống lọc hiện đại, vận hành êm ái</li>
+                <li><i class="bi bi-tree-fill"></i> Kết hợp hồ cá và non bộ</li>
+                <li><i class="bi bi-star-fill"></i> Tối ưu cho không gian nghỉ dưỡng cao cấp</li>
+              </ul>
+              <div class="da-card-highlight">
+                <strong>Điểm nhấn:</strong>
+                <p>Tạo điểm nhấn sang trọng, mang lại cảm giác thư giãn và đẳng cấp cho khu nghỉ dưỡng.</p>
+              </div>
+            </div>
+          </div>
+        </div>
+
+      </div><!-- /row -->
+
+      <!-- Nút xem thêm -->
+      <div class="text-center mt-5">
+        <a href="#" class="btn btn-outline-dark-custom">
+          Xem thêm dự án <i class="bi bi-arrow-down"></i>
+        </a>
+      </div>
+
+    </div>
+  </section>
+
+    <section class="da-stats">
+    <div class="container">
+      <div class="da-stats-inner">
+
+        <div class="da-stat-item">
+          <div class="da-stat-icon"><i class="bi bi-file-earmark-check-fill"></i></div>
+          <div>
+            <div class="da-stat-number">50+</div>
+            <div class="da-stat-label">Dự án hoàn thành</div>
+          </div>
+        </div>
+
+        <div class="da-stat-divider"></div>
+
+        <div class="da-stat-item">
+          <div class="da-stat-icon"><i class="bi bi-people-fill"></i></div>
+          <div>
+            <div class="da-stat-number">98%</div>
+            <div class="da-stat-label">Khách hàng hài lòng</div>
+          </div>
+        </div>
+
+        <div class="da-stat-divider"></div>
+
+        <div class="da-stat-item">
+          <div class="da-stat-icon"><i class="bi bi-shield-fill-check"></i></div>
+          <div>
+            <div class="da-stat-number">5 năm</div>
+            <div class="da-stat-label">Kinh nghiệm thi công</div>
+          </div>
+        </div>
+
+        <div class="da-stat-divider"></div>
+
+        <div class="da-stat-item">
+          <div class="da-stat-icon"><i class="bi bi-headset"></i></div>
+          <div>
+            <div class="da-stat-number">24/7</div>
+            <div class="da-stat-label">Hỗ trợ kỹ thuật</div>
+          </div>
+        </div>
+
+        <div class="da-stat-divider da-stat-divider-hide"></div>
+
+        <!-- CTA buttons -->
+        <div class="da-stat-ctas">
+          <!-- TODO: thay href bằng link trang dự án đầy đủ hoặc popup -->
+          <a href="#" class="btn-cta-primary">
+            Khám phá dự án <i class="bi bi-arrow-right"></i>
+            <span class="btn-cta-sub">Xem công trình thực tế</span>
+          </a>
+          <!-- Mở modal tư vấn -->
+          <button type="button" class="btn-cta-outline" data-bs-toggle="modal" data-bs-target="#tuvanModal">
+            Nhận tư vấn thiết kế miễn phí <i class="bi bi-arrow-right"></i>
+            <span class="btn-cta-sub">Liên hệ ngay</span>
+          </button>
+        </div>
+
+      </div>
+    </div>
+  </section>
+
+    <div class="modal fade" id="tuvanModal" tabindex="-1" aria-labelledby="tuvanModalLabel" aria-hidden="true">
+    <div class="modal-dialog modal-lg modal-dialog-centered">
+      <div class="modal-content tuvan-modal">
+
+        <button type="button" class="tuvan-close" data-bs-dismiss="modal" aria-label="Đóng">
+          <i class="bi bi-x-lg"></i>
+        </button>
+
+        <div class="row g-0">
+          <!-- Left: hình minh họa -->
+          <div class="col-lg-5 tuvan-left">
+            <div class="tuvan-bg-img">
+              <img src="assets/images/projects/du-an-ho-ca.png" alt="Tư vấn thiết kế hồ cá">
+            </div>
+            <div class="tuvan-left-overlay">
+              <div class="tuvan-brand">
+                <img src="assets/images/branding/logo.png" alt="Aqua Care" class="tuvan-logo">
+              </div>
+              <div class="tuvan-promise">
+                <div class="tuvan-promise-item"><i class="bi bi-check-circle-fill"></i> Tư vấn 1-1 với chuyên gia</div>
+                <div class="tuvan-promise-item"><i class="bi bi-check-circle-fill"></i> Báo giá minh bạch, chi tiết</div>
+                <div class="tuvan-promise-item"><i class="bi bi-check-circle-fill"></i> Phác thảo thiết kế miễn phí</div>
+                <div class="tuvan-promise-item"><i class="bi bi-check-circle-fill"></i> Hỗ trợ sau thi công trọn đời</div>
+              </div>
+            </div>
+          </div>
+
+          <!-- Right: form -->
+          <div class="col-lg-7 tuvan-right">
+            <div class="tuvan-form-wrap">
+              <p class="tuvan-eyebrow">HOÀN TOÀN MIỄN PHÍ</p>
+              <h2 class="tuvan-title" id="tuvanModalLabel">
+                Nhận tư vấn<br>
+                <span class="tuvan-title-accent">thiết kế hồ cá</span>
+              </h2>
+              <p class="tuvan-desc">Điền thông tin để chuyên gia Aqua Care liên hệ tư vấn và phác thảo ý tưởng miễn phí cho bạn.</p>
+
+                <div class="tuvan-form">
+                  <div class="tuvan-field">
+                    <label for="tv-name">Họ và tên <span class="required">*</span></label>
+                  <input type="text" id="tv-name" placeholder="Nguyễn Văn A" autocomplete="name" required minlength="2" maxlength="60" pattern="^[A-Za-zÀ-ỹ\s'.-]{2,60}$">
+                  <div class="tuvan-field-error" id="tv-name-error"></div>
+                </div>
+                <div class="row g-3">
+                  <div class="col-sm-6">
+                    <div class="tuvan-field">
+                      <label for="tv-phone">Số điện thoại <span class="required">*</span></label>
+                      <input type="tel" id="tv-phone" placeholder="0901 234 567" autocomplete="tel" required pattern="^(0|\+84)[0-9\s.-]{9,14}$">
+                      <div class="tuvan-field-error" id="tv-phone-error"></div>
+                    </div>
+                  </div>
+                  <div class="col-sm-6">
+                    <div class="tuvan-field">
+                      <label for="tv-email">Email</label>
+                      <input type="email" id="tv-email" placeholder="ten@gmail.com" autocomplete="email" maxlength="100" pattern="^[A-Za-z0-9._%+-]+@gmail\.com$">
+                      <div class="tuvan-field-error" id="tv-email-error"></div>
+                    </div>
+                  </div>
+                </div>
+                <div class="tuvan-field">
+                  <label for="tv-type">Loại hồ cá quan tâm</label>
+                  <select id="tv-type">
+                    <option value="">-- Chọn loại hồ --</option>
+                    <option>Hồ Koi sân vườn</option>
+                    <option>Hồ cá trong nhà</option>
+                    <option>Hồ thủy sinh</option>
+                    <option>Hồ cá thương mại (cafe, resort...)</option>
+                    <option>Hồ sân thượng</option>
+                    <option>Khác</option>
+                  </select>
+                </div>
+                <div class="row g-3">
+                  <div class="col-sm-6">
+                    <div class="tuvan-field">
+                      <label for="tv-area">Diện tích dự kiến</label>
+                      <select id="tv-area">
+                        <option value="">-- Chọn diện tích --</option>
+                        <option>Dưới 10m²</option>
+                        <option>10 – 30m²</option>
+                        <option>30 – 60m²</option>
+                        <option>Trên 60m²</option>
+                      </select>
+                    </div>
+                  </div>
+                  <div class="col-sm-6">
+                    <div class="tuvan-field">
+                      <label for="tv-budget">Ngân sách dự kiến</label>
+                      <select id="tv-budget">
+                        <option value="">-- Chọn mức ngân sách --</option>
+                        <option>Dưới 20 triệu</option>
+                        <option>20 – 50 triệu</option>
+                        <option>50 – 100 triệu</option>
+                        <option>Trên 100 triệu</option>
+                      </select>
+                    </div>
+                  </div>
+                </div>
+                <div class="tuvan-field">
+                  <label for="tv-note">Mô tả thêm yêu cầu</label>
+                  <textarea id="tv-note" rows="3" placeholder="Ví dụ: Tôi muốn hồ koi kết hợp thác nước, diện tích 30m², tại sân vườn nhà..." minlength="10" maxlength="500"></textarea>
+                  <div class="tuvan-field-error" id="tv-note-error"></div>
+                </div>
+
+                <p class="tuvan-form-error" id="tv-form-error" role="alert"></p>
+                <button type="button" class="tuvan-submit" onclick="submitTuvan()">
+                  <i class="bi bi-send-fill"></i> Gửi yêu cầu tư vấn
+                </button>
+
+                <p class="tuvan-privacy">
+                  <i class="bi bi-lock-fill"></i>
+                  Thông tin của bạn được bảo mật tuyệt đối và chỉ dùng để liên hệ tư vấn.
+                </p>
+              </div>
+            </div>
+          </div>
+        </div>
+
+      </div>
+    </div>
+  </div>
+
+  <!-- Toast thành công -->
+  <div class="position-fixed bottom-0 end-0 p-3" style="z-index: 9999">
+    <div id="successToast" class="toast align-items-center text-bg-success border-0" role="alert" aria-live="assertive" aria-atomic="true">
+      <div class="d-flex">
+        <div class="toast-body">
+          <i class="bi bi-check-circle-fill me-2"></i>
+          Gửi yêu cầu thành công! Chúng tôi sẽ liên hệ bạn trong 24 giờ.
+        </div>
+        <button type="button" class="btn-close btn-close-white me-2 m-auto" data-bs-dismiss="toast" aria-label="Đóng"></button>
+      </div>
+    </div>
+  </div>
+
+    <footer class="site-footer">
+    <div class="container">
+      <div class="row gy-3 align-items-center">
+        <div class="col-lg-6">
+          <a class="navbar-brand d-inline-block mb-2" href="index.html">
+            <img src="assets/images/branding/logo-splash-transparent.png" alt="Aqua Care" class="footer-logo-img">
+          </a>
+          <p class="footer-desc">Kiến tạo những khoảng thiên nhiên dưới mặt nước — đồng hành cùng người yêu cá cảnh.</p>
+        </div>
+        <div class="col-lg-6 text-lg-end">
+          <div class="footer-socials mb-3">
+            <a href="#" aria-label="Facebook"><i class="bi bi-facebook"></i></a>
+            <a href="#" aria-label="Instagram"><i class="bi bi-instagram"></i></a>
+            <a href="#" aria-label="Youtube"><i class="bi bi-youtube"></i></a>
+            <a href="#" aria-label="Tiktok"><i class="bi bi-tiktok"></i></a>
+          </div>
+          <p class="footer-tagline">
+            <i class="bi bi-flower1"></i>
+            AQUA CARE – KIẾN TẠO KHÔNG GIAN SỐNG CÙNG THIÊN NHIÊN
+            <i class="bi bi-flower1"></i>
+          </p>
+          <p class="footer-copy">&copy; 2026 Aqua Care. All rights reserved.</p>
+        </div>
+      </div>
+    </div>
+  </footer>
+
+  <button class="back-to-top" id="backToTop" type="button" aria-label="Lên đầu trang">
+    <i class="bi bi-arrow-up"></i>
+  </button>
+
+  <!-- Bootstrap JS -->
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
+  <script src="js/main.js?v=20260625f"></script>
+  
+  <script src="js/du-an.js?v=20260625f"></script>
+</body>
+</html>
+
+
+
