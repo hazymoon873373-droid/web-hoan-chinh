@@ -41,7 +41,6 @@
           </li>
           <li class="nav-item"><a class="nav-link active" href="kien-thuc.html">Kiến thức</a></li>
           <li class="nav-item"><a class="nav-link" href="du-an.html">Dự án</a></li>
-                    <li class="nav-item"><a class="nav-link" href="cong-cu.html">Aqua Lab</a></li>
         <li class="nav-item"><a class="nav-link" href="lien-he.html">Liên hệ</a></li>
         </ul>
         <div class="navbar-icons d-flex align-items-center gap-2">
@@ -97,84 +96,69 @@
             </div>
             
             <div class="row align-items-center">
-              <!-- SVG Interactive Koi Fish -->
+              <!-- Real Koi Fish Image with absolute hotspots -->
               <div class="col-md-6 text-center mb-3 mb-md-0 position-relative">
-                <div style="max-width:320px; margin:0 auto; position:relative;">
-                  <svg viewBox="0 0 300 150" width="100%" height="auto" style="overflow:visible;">
-                    <!-- Nền ao cá bóng bẩy -->
-                    <ellipse cx="150" cy="75" rx="140" ry="65" fill="#e0f7fa" opacity="0.3" stroke="#b2ebf2" stroke-width="1.5"/>
-                    
-                    <!-- Chú cá Koi dễ thương -->
-                    <!-- Đuôi vẫy nhẹ -->
-                    <path d="M 60 75 Q 40 45, 20 50 Q 30 75, 20 100 Q 40 105, 60 75 Z" fill="#ff5722"/>
-                    <path d="M 40 65 Q 25 55, 15 60 Q 25 70, 15 80" fill="none" stroke="#ffffff" stroke-width="1.5"/>
-                    
-                    <!-- Vây ngực cá -->
-                    <path d="M 170 105 Q 150 135, 130 115 Z" fill="#ffffff" opacity="0.9"/>
-                    <path d="M 170 45 Q 150 15, 130 35 Z" fill="#ffffff" opacity="0.9"/>
-                    
-                    <!-- Thân cá chép trắng với đốm đỏ (Kohaku) -->
-                    <path d="M 60 75 C 90 40, 200 40, 230 75 C 200 110, 90 110, 60 75 Z" fill="#ffffff" stroke="#ffcc80" stroke-width="1"/>
-                    <!-- Đuôi đốm đỏ nghệ thuật (Hi spots) -->
-                    <path d="M 180 60 C 195 50, 210 65, 200 75 C 190 85, 175 75, 180 60 Z" fill="#d84315"/>
-                    <path d="M 110 65 C 130 50, 150 65, 140 78 C 120 90, 100 80, 110 65 Z" fill="#d84315"/>
-                    <path d="M 80 72 C 85 68, 95 72, 90 78 C 85 82, 78 78, 80 72 Z" fill="#d84315"/>
-                    
-                    <!-- Đầu cá Koi -->
-                    <path d="M 230 75 C 240 75, 255 70, 255 75 C 255 80, 240 75, 230 75 Z" fill="#ffffff"/>
-                    <circle cx="242" cy="65" r="3" fill="#000000"/>
-                    <circle cx="242" cy="85" r="3" fill="#000000"/>
-                    
-                    <!-- Râu cá chép dễ thương -->
-                    <path d="M 252 70 Q 258 68, 260 72" fill="none" stroke="#ffffff" stroke-width="1.5"/>
-                    <path d="M 252 80 Q 258 82, 260 78" fill="none" stroke="#ffffff" stroke-width="1.5"/>
-                    
-                    <!-- Hotspots nhấp nháy phát sáng -->
-                    <!-- Hotspot 1: Đầu / Mang (235, 75) -->
-                    <g class="koi-hotspot" style="cursor:pointer;" onclick="selectDiseaseHotspot('head')">
-                      <circle cx="235" cy="75" r="14" fill="#ff9100" opacity="0.25" class="pulse-ring"/>
-                      <circle cx="235" cy="75" r="7" fill="#ff9100"/>
-                    </g>
-                    
-                    <!-- Hotspot 2: Thân / Vảy (140, 75) -->
-                    <g class="koi-hotspot" style="cursor:pointer;" onclick="selectDiseaseHotspot('body')">
-                      <circle cx="140" cy="75" r="14" fill="#ff3d00" opacity="0.25" class="pulse-ring"/>
-                      <circle cx="140" cy="75" r="7" fill="#ff3d00"/>
-                    </g>
-                    
-                    <!-- Hotspot 3: Đuôi / Vây (50, 75) -->
-                    <g class="koi-hotspot" style="cursor:pointer;" onclick="selectDiseaseHotspot('tail')">
-                      <circle cx="50" cy="75" r="14" fill="#2979ff" opacity="0.25" class="pulse-ring"/>
-                      <circle cx="50" cy="75" r="7" fill="#2979ff"/>
-                    </g>
-                  </svg>
+                <div style="position: relative; display: inline-block; max-width: 320px; width: 100%; border-radius: 12px; overflow: hidden; box-shadow: 0 4px 10px rgba(0,0,0,0.1);">
+                  <!-- Real Koi Fish Image -->
+                  <img src="assets/images/knowledge/ca-koi-dep.png" style="width: 100%; height: auto; display: block;" alt="Cá Koi chẩn đoán bệnh">
                   
-                  <style>
-                    @keyframes hotspotPulse {
-                      0% { transform: scale(0.9); opacity: 0.8; }
-                      50% { transform: scale(1.5); opacity: 0.1; }
-                      100% { transform: scale(0.9); opacity: 0.8; }
-                    }
-                    .pulse-ring {
-                      transform-origin: center;
-                      animation: hotspotPulse 2s infinite ease-in-out;
-                    }
-                    .koi-hotspot:hover circle:first-child {
-                      fill: #4caf50;
-                      opacity: 0.5;
-                    }
-                    .koi-hotspot:hover circle:last-child {
-                      fill: #4caf50;
-                    }
-                  </style>
+                  <!-- Hotspot 1: Đầu / Mang (Gills/Head) -->
+                  <div class="koi-hotspot-circle" style="position: absolute; top: 35%; left: 72%; transform: translate(-50%, -50%); cursor: pointer; width: 28px; height: 28px; z-index: 10;" onclick="selectDiseaseHotspot('head')">
+                    <div class="pulse-ring-element"></div>
+                    <div class="center-dot" style="background: #ff9100;"></div>
+                  </div>
+                  
+                  <!-- Hotspot 2: Thân / Vảy (Body/Scales) -->
+                  <div class="koi-hotspot-circle" style="position: absolute; top: 48%; left: 45%; transform: translate(-50%, -50%); cursor: pointer; width: 28px; height: 28px; z-index: 10;" onclick="selectDiseaseHotspot('body')">
+                    <div class="pulse-ring-element"></div>
+                    <div class="center-dot" style="background: #ff3d00;"></div>
+                  </div>
+                  
+                  <!-- Hotspot 3: Đuôi / Vây (Tail/Fins) -->
+                  <div class="koi-hotspot-circle" style="position: absolute; top: 52%; left: 16%; transform: translate(-50%, -50%); cursor: pointer; width: 28px; height: 28px; z-index: 10;" onclick="selectDiseaseHotspot('tail')">
+                    <div class="pulse-ring-element"></div>
+                    <div class="center-dot" style="background: #2979ff;"></div>
+                  </div>
                 </div>
+                
+                <!-- CSS styles for absolute hotspots -->
+                <style>
+                  .koi-hotspot-circle {
+                    display: flex;
+                    align-items: center;
+                    justify-content: center;
+                  }
+                  .pulse-ring-element {
+                    position: absolute;
+                    width: 100%;
+                    height: 100%;
+                    border-radius: 50%;
+                    background: rgba(255, 87, 34, 0.4);
+                    animation: hotspot-glow 2s infinite ease-in-out;
+                  }
+                  .center-dot {
+                    width: 10px;
+                    height: 10px;
+                    border-radius: 50%;
+                    border: 1.5px solid white;
+                    z-index: 2;
+                  }
+                  @keyframes hotspot-glow {
+                    0% { transform: scale(0.6); opacity: 0.9; }
+                    50% { transform: scale(1.4); opacity: 0.15; }
+                    100% { transform: scale(0.6); opacity: 0.9; }
+                  }
+                  .koi-hotspot-circle:hover .pulse-ring-element {
+                    background: rgba(76, 175, 80, 0.6);
+                  }
+                </style>
               </div>
               
               <!-- Info Display -->
               <div class="col-md-6">
                 <div id="disease-info-default" class="text-center py-4 text-muted">
                   <i class="bi bi-hand-index-thumb" style="font-size:2.2rem; color:#ffb74d;"></i>
-                  <p class="m-0 mt-2" style="font-size:0.78rem; font-weight:600;">Vui lòng nhấn vào một nút tròn nhấp nháy trên chú cá Koi để xem chẩn đoán bệnh lý nhanh và cách xử lý tương ứng.</p>
+                  <p class="m-0 mt-2" style="font-size:0.78rem; font-weight:600;">Vui lòng chạm vào một điểm màu nhấp nháy trên chú cá Koi để xem chẩn đoán bệnh lý nhanh và cách xử lý tương ứng.</p>
                 </div>
                 
                 <div id="disease-info-display" class="d-none">
