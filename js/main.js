@@ -1,3 +1,18 @@
+// Check login status and redirect to homepage if not logged in
+(function() {
+  const sessionKey = 'aquaCareSessionV1';
+  const profileKey = 'aquaCareProfileV1';
+  const session = localStorage.getItem(sessionKey);
+  const profile = localStorage.getItem(profileKey);
+  const signedIn = !!(session && profile);
+  
+  const currentPage = window.location.pathname.split('/').pop();
+  const isHomepage = !currentPage || currentPage === 'index.html' || currentPage === 'trang%20ch%E1%BB%A7.html' || currentPage === 'trang chủ.html';
+  
+  if (!signedIn && !isHomepage) {
+    window.location.href = 'index.html';
+  }
+})();
 
 document.addEventListener('DOMContentLoaded', () => {
 
@@ -771,6 +786,35 @@ document.addEventListener('DOMContentLoaded', () => {
   function renderAccount() {
     const profile = getSignedInProfile();
     const signedIn = Boolean(profile);
+
+    // Glassmorphic lock screen handling
+    if (signedIn) {
+      document.body.classList.remove('aqua-locked-blur');
+      const accountModalEl = document.getElementById('aquaAccountModal');
+      if (accountModalEl) {
+        const closeBtn = accountModalEl.querySelector('.btn-close');
+        if (closeBtn) closeBtn.style.display = '';
+      }
+    } else {
+      document.body.classList.add('aqua-locked-blur');
+      const accountModalEl = document.getElementById('aquaAccountModal');
+      if (accountModalEl) {
+        const closeBtn = accountModalEl.querySelector('.btn-close');
+        if (closeBtn) closeBtn.style.display = 'none';
+
+        // Auto open modal with static backdrop
+        setTimeout(() => {
+          if (window.bootstrap) {
+            const modal = bootstrap.Modal.getOrCreateInstance(accountModalEl, {
+              backdrop: 'static',
+              keyboard: false
+            });
+            modal.show();
+          }
+        }, 150);
+      }
+    }
+
     document.getElementById('aquaAccountGuest').hidden = signedIn;
     const profileView = document.getElementById('aquaAccountProfile');
     profileView.hidden = !signedIn;

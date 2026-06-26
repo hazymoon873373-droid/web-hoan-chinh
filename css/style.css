@@ -1559,7 +1559,13 @@ p { margin: 0; }
     justify-content: flex-start;
   }
 
-  .hero { padding-bottom: 12rem; text-align: left; }
+  .hero {
+    padding-bottom: 12rem;
+    text-align: left;
+    flex-direction: column;
+    justify-content: center;
+    align-items: stretch;
+  }
 
   .hero-trust {
     position: static;
@@ -2341,4 +2347,12 @@ p { margin: 0; }
   60% { opacity: 1; }
   100% { transform: translateY(140px) translateX(var(--drift, 30px)) rotate(540deg); opacity: 0; }
 }
+
+/* Glassmorphic login gate blur */
+body.aqua-locked-blur > :not(#aquaHeaderModules):not(#nemoHelper):not(#aquaChatWidget):not(.modal):not(.modal-backdrop) {
+  filter: blur(8px);
+  pointer-events: none;
+  transition: filter 0.3s ease;
+}
+
 
