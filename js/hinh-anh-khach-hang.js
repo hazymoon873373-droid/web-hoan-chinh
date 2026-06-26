@@ -1,12 +1,14 @@
-﻿
+
 // Navbar + back to top
     const nav = document.getElementById('mainNav');
     const btt = document.getElementById('backToTop');
-    window.addEventListener('scroll', () => {
-      nav.classList.toggle('scrolled', window.scrollY > 40);
-      btt.classList.toggle('visible', window.scrollY > 400);
-    }, { passive: true });
-    btt.addEventListener('click', () => window.scrollTo({ top: 0, behavior: 'smooth' }));
+    if (nav && btt) {
+      window.addEventListener('scroll', () => {
+        nav.classList.toggle('scrolled', window.scrollY > 40);
+        btt.classList.toggle('visible', window.scrollY > 400);
+      }, { passive: true });
+      btt.addEventListener('click', () => window.scrollTo({ top: 0, behavior: 'smooth' }));
+    }
 
     // Scroll reveal
     const cards = document.querySelectorAll('.gal-cust-card');
