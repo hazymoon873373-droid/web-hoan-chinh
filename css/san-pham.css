@@ -443,5 +443,32 @@
     .chat-send { background:var(--color-primary,#1a9dd0); border:none; border-radius:10px; padding:8px 14px; color:white; cursor:pointer; transition:background 0.2s; }
     .chat-send:hover { background:#0d85b6; }
 
+    /* Mobile Category and Filter Tabs */
+    .sp-mobile-cats-scroll, .sp-mobile-filters-scroll {
+      display: flex; gap: 8px; overflow-x: auto; padding: 4px 2px 8px;
+      -webkit-overflow-scrolling: touch;
+    }
+    .sp-mobile-cats-scroll::-webkit-scrollbar, .sp-mobile-filters-scroll::-webkit-scrollbar {
+      display: none;
+    }
+    .sp-mobile-cat-btn {
+      padding: 6px 14px; background: white; border: 1.5px solid #d0e8f5;
+      border-radius: 20px; font-size: 0.78rem; font-weight: 600;
+      color: var(--color-text-dark); white-space: nowrap; transition: all 0.2s; cursor: pointer;
+    }
+    .sp-mobile-cat-btn.active {
+      background: var(--color-blue-light); border-color: var(--color-primary); color: var(--color-primary);
+    }
+    .sp-mobile-filter-badge {
+      display: inline-flex; align-items: center; gap: 6px; padding: 6px 12px;
+      background: white; border: 1.5px solid #d0e8f5; border-radius: 20px;
+      font-size: 0.76rem; font-weight: 600; color: var(--color-text-dark);
+      white-space: nowrap; cursor: pointer; transition: all 0.2s;
+    }
+    .sp-mobile-filter-badge:has(input:checked) {
+      background: #eefbee; border-color: var(--color-green, #5fb86a); color: var(--color-green, #2e7d32);
+    }
+    .sp-mobile-filter-badge input { accent-color: var(--color-green, #5fb86a); }
+
 
 

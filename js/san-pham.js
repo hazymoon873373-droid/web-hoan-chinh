@@ -670,6 +670,13 @@
         if(cat==='all' && onclick.includes("'all'")) a.classList.add('active');
         else if(cat!=='all' && onclick.includes("'"+cat+"'")) a.classList.add('active');
       });
+      // Update mobile tabs active state
+      document.querySelectorAll('.sp-mobile-cat-btn').forEach(function(btn){
+        btn.classList.remove('active');
+        var onclick = btn.getAttribute('onclick')||'';
+        if(cat==='all' && onclick.includes("'all'")) btn.classList.add('active');
+        else if(cat!=='all' && onclick.includes("'"+cat+"'")) btn.classList.add('active');
+      });
       renderProductGrid();
       // Update breadcrumb
       var names={all:'Tất cả sản phẩm','he-thong-loc':'Hệ thống lọc','thuc-an':'Thức ăn & dinh dưỡng','thuoc-vi-sinh':'Thuốc & vi sinh','vat-lieu-loc':'Vật liệu lọc','cay-thuy-sinh':'Cây thủy sinh','thiet-bi':'Thiết bị & phụ kiện'};
@@ -691,6 +698,13 @@
       var filterSale = document.getElementById('filter-on-sale');
       var filterRating = document.getElementById('filter-high-rating');
 
+      // Synchronize desktop states to mobile checkboxes
+      ['filter-best-seller', 'filter-new-arrival', 'filter-on-sale', 'filter-high-rating'].forEach(function(id){
+        var cb = document.getElementById(id);
+        var mCb = document.getElementById('m-' + id);
+        if (cb && mCb) mCb.checked = cb.checked;
+      });
+
       if (filterBest && filterBest.checked) {
         filtered = filtered.filter(function(p) { return p.badge === 'ban-chay'; });
       }
@@ -702,6 +716,20 @@
       }
       if (filterRating && filterRating.checked) {
         filtered = filtered.filter(function(p) { return p.rating >= 4.5; });
+      }
+
+      // Sort dynamically without mutating the main products array
+      var sortVal = document.getElementById('sortSelect').value;
+      if (sortVal === 'price-asc') {
+        filtered.sort(function(a,b){return a.priceRaw-b.priceRaw;});
+      } else if (sortVal === 'price-desc') {
+        filtered.sort(function(a,b){return b.priceRaw-a.priceRaw;});
+      } else if (sortVal === 'rating') {
+        filtered.sort(function(a,b){return b.rating-a.rating;});
+      } else if (sortVal === 'popular') {
+        filtered.sort(function(a,b){return (b.popular?1:0)-(a.popular?1:0);});
+      } else {
+        filtered.sort(function(a,b){return a.id-b.id;}); // default sorting restores original order by ID ascending
       }
 
       document.getElementById('resultCount').textContent = filtered.length;
@@ -1573,13 +1601,16 @@
 
     
     document.getElementById('sortSelect').addEventListener('change', function(){
-      var v = this.value;
-      if(v==='price-asc') products.sort(function(a,b){return a.priceRaw-b.priceRaw;});
-      else if(v==='price-desc') products.sort(function(a,b){return b.priceRaw-a.priceRaw;});
-      else if(v==='rating') products.sort(function(a,b){return b.rating-a.rating;});
-      else if(v==='popular') products.sort(function(a,b){return (b.popular?1:0)-(a.popular?1:0);});
       renderProductGrid();
     });
+
+    window.syncFilter = function(mCb, dId) {
+      var dCb = document.getElementById(dId);
+      if (dCb) {
+        dCb.checked = mCb.checked;
+        renderProductGrid();
+      }
+    };
 
     
     var urlParams = new URLSearchParams(window.location.search);

@@ -31,8 +31,8 @@
           <li class="nav-item"><a class="nav-link" href="index.html">Trang chủ</a></li>
           <li class="nav-item dropdown">
             <a class="nav-link dropdown-toggle active" href="#" id="productsDropdown" role="button" data-bs-toggle="dropdown">Sản phẩm</a>
-            <ul class="dropdown-menu" aria-labelledby="productsDropdown">
-              <li><a class="dropdown-item" href="index.html#san-pham"><i class="bi bi-house-door me-1"></i>Trang chủ</a></li>
+            <ul class="dropdown-menu">
+              <li><a class="dropdown-item" href="#" onclick="filterCat('all');return false;"><i class="bi bi-grid-fill me-1"></i>Tất cả sản phẩm</a></li>
               <li><hr class="dropdown-divider"></li>
               <li><a class="dropdown-item" href="#" onclick="filterCat('he-thong-loc');return false;">Hệ thống lọc</a></li>
               <li><a class="dropdown-item" href="#" onclick="filterCat('thuc-an');return false;">Thức ăn & dinh dưỡng</a></li>
@@ -147,6 +147,29 @@
         <div class="col-lg-9">
           <!-- PRODUCT LIST VIEW -->
           <div class="product-list-view" id="productListView">
+            <!-- Mobile Categories (Visible only on mobile/tablet) -->
+            <div class="sp-mobile-cats d-lg-none mb-3">
+              <div class="sp-mobile-cats-scroll" id="mobileCatList">
+                <button class="sp-mobile-cat-btn active" onclick="filterCat('all');return false;">Tất cả</button>
+                <button class="sp-mobile-cat-btn" onclick="filterCat('he-thong-loc');return false;">Hệ thống lọc</button>
+                <button class="sp-mobile-cat-btn" onclick="filterCat('thuc-an');return false;">Thức ăn</button>
+                <button class="sp-mobile-cat-btn" onclick="filterCat('thuoc-vi-sinh');return false;">Thuốc & vi sinh</button>
+                <button class="sp-mobile-cat-btn" onclick="filterCat('vat-lieu-loc');return false;">Vật liệu lọc</button>
+                <button class="sp-mobile-cat-btn" onclick="filterCat('cay-thuy-sinh');return false;">Cây thủy sinh</button>
+                <button class="sp-mobile-cat-btn" onclick="filterCat('thiet-bi');return false;">Thiết bị & phụ kiện</button>
+              </div>
+            </div>
+            
+            <!-- Mobile Quick Filters (Visible only on mobile/tablet) -->
+            <div class="sp-mobile-filters d-lg-none mb-3">
+              <div class="sp-mobile-filters-scroll">
+                <label class="sp-mobile-filter-badge"><input type="checkbox" id="m-filter-best-seller" onchange="syncFilter(this, 'filter-best-seller')"> Bán chạy</label>
+                <label class="sp-mobile-filter-badge"><input type="checkbox" id="m-filter-new-arrival" onchange="syncFilter(this, 'filter-new-arrival')"> Mới về</label>
+                <label class="sp-mobile-filter-badge"><input type="checkbox" id="m-filter-on-sale" onchange="syncFilter(this, 'filter-on-sale')"> Giảm giá</label>
+                <label class="sp-mobile-filter-badge"><input type="checkbox" id="m-filter-high-rating" onchange="syncFilter(this, 'filter-high-rating')"> Đánh giá 4.5+</label>
+              </div>
+            </div>
+
             <!-- Search + sort -->
             <div class="sp-search-wrap">
               <i class="bi bi-search"></i>
