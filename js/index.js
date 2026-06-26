@@ -641,5 +641,201 @@
     })();
 
 
+// ==========================================
+// DẤU ẤN 1: BỘ CHẨN ĐOÁN SỨC KHỎE HỒ CÁ TRỰC TUYẾN
+// ==========================================
+document.addEventListener('DOMContentLoaded', () => {
+  const hpPh = document.getElementById('hp-ph');
+  const valHpPh = document.getElementById('val-hp-ph');
+  if (hpPh && valHpPh) {
+    hpPh.addEventListener('input', () => {
+      valHpPh.textContent = parseFloat(hpPh.value).toFixed(1);
+    });
+  }
+});
+
+window.addDiagProductToCart = function(productId) {
+  if (typeof products !== 'undefined') {
+    const p = products.find(item => item.id === productId);
+    if (p && typeof window.addToCart === 'function') {
+      window.addToCart(p);
+    }
+  }
+};
+
+window.runHpDiagnostic = function(event) {
+  if (event) event.preventDefault();
+
+  const ph = parseFloat(document.getElementById('hp-ph').value);
+  const nh3 = parseFloat(document.getElementById('hp-nh3').value);
+  const no2 = parseFloat(document.getElementById('hp-no2').value);
+  const color = document.querySelector('input[name="hpColor"]:checked').value;
+  
+  const sluggish = document.getElementById('hp-symp-sluggish').checked;
+  const scratch = document.getElementById('hp-symp-scratch').checked;
+  const gasping = document.getElementById('hp-symp-gasping').checked;
+  const spots = document.getElementById('hp-symp-spots').checked;
+
+  const diagEmpty = document.getElementById('hp-diag-empty');
+  const diagLoading = document.getElementById('hp-diag-loading');
+  const diagResults = document.getElementById('hp-diag-results');
+
+  if (!diagEmpty || !diagLoading || !diagResults) return;
+
+  diagEmpty.classList.add('d-none');
+  diagResults.classList.add('d-none');
+  diagLoading.classList.remove('d-none');
+
+  setTimeout(() => {
+    diagLoading.classList.add('d-none');
+    diagResults.classList.remove('d-none');
+
+    let score = 100;
+    let issues = [];
+    let steps = [];
+    let recProducts = [];
+
+    // Check pH
+    if (ph < 6.5) {
+      score -= 20;
+      issues.push(`Độ pH thấp (${ph}) - Nước bị axit hóa, có hại cho cá.`);
+      steps.push("Bổ sung san hô lọc để kiềm hóa nguồn nước.");
+      recProducts.push(4);
+    } else if (ph > 8.5) {
+      score -= 20;
+      issues.push(`Độ pH cao (${ph}) - Nước bị kiềm hóa, cản trở hô hấp.`);
+      steps.push("Thêm gỗ lũa tự nhiên để giảm độ pH xuống.");
+      recProducts.push(4);
+    }
+
+    // Check NH3/NH4
+    if (nh3 > 0) {
+      score -= (nh3 === 0.25 ? 25 : nh3 === 1.0 ? 50 : 75);
+      issues.push(`Độc tố Ammonia cao (${nh3} mg/L) - Nguy cơ ngộ độc vảy cá.`);
+      steps.push("Thay 30% nước ngay lập tức và châm thêm vi sinh.");
+      recProducts.push(3);
+    }
+
+    // Check NO2
+    if (no2 > 0) {
+      score -= (no2 === 0.5 ? 30 : 60);
+      issues.push(`Nitrite (NO2) cao vượt ngưỡng - Cá có thể thiếu oxy.`);
+      steps.push("Tăng sủi khí oxy mạnh và ngưng cho cá ăn 1 ngày.");
+      if (!recProducts.includes(3)) recProducts.push(3);
+    }
+
+    // Check color
+    if (color === 'yellow') {
+      score -= 10;
+      issues.push("Nước vàng tanh - Hữu cơ nhiều hoặc hệ lọc bị bẩn.");
+      steps.push("Vệ sinh cơ học màng bông ngăn lắng, châm vi sinh xử lý.");
+      if (!recProducts.includes(3)) recProducts.push(3);
+    } else if (color === 'green') {
+      score -= 20;
+      issues.push("Nước xanh lục bùng tảo - Dư thừa ánh sáng và dinh dưỡng.");
+      steps.push("Tắt bớt đèn chiếu sáng và bật đèn UV diệt tảo.");
+      recProducts.push(3);
+    } else if (color === 'white') {
+      score -= 15;
+      issues.push("Nước đục trắng - Hệ sinh thái vi sinh chưa hoàn thiện.");
+      steps.push("Châm chế phẩm vi sinh để ổn định nước nhanh chóng.");
+      recProducts.push(3);
+    }
+
+    // Check symptoms
+    if (sluggish) {
+      score -= 10;
+      steps.push("Cho cá ăn cám có dinh dưỡng dễ tiêu để nâng sức khỏe.");
+      recProducts.push(5);
+    }
+    if (scratch) {
+      score -= 15;
+      issues.push("Cá cọ mình vào đá cảnh - Có dấu hiệu ký sinh ngứa da.");
+      steps.push("Cách ly cá bệnh, dùng muối hột liều lượng phù hợp.");
+      recProducts.push(10);
+    }
+    if (gasping) {
+      score -= 15;
+      steps.push("Tăng cường lưu lượng oxy hòa tan từ máy sủi khí.");
+    }
+    if (spots) {
+      score -= 20;
+      issues.push("Đốm trắng bám vây - Cá bị nhiễm bệnh nấm trắng.");
+      steps.push("Sưởi ấm nước bể và dùng thuốc đặc trị nấm Anti Shep.");
+      recProducts.push(10);
+    }
+
+    score = Math.max(10, score);
+
+    // Update UI
+    const scoreValEl = document.getElementById('hp-res-score');
+    const scoreRingEl = document.getElementById('hp-res-score-ring');
+    const badgeEl = document.getElementById('hp-res-badge');
+    const titleEl = document.getElementById('hp-res-title');
+    const subtitleEl = document.getElementById('hp-res-subtitle');
+    const descEl = document.getElementById('hp-res-desc');
+    const stepsEl = document.getElementById('hp-res-steps');
+    const prodGrid = document.getElementById('hp-res-products-grid');
+
+    scoreValEl.textContent = score;
+    scoreRingEl.style.borderColor = score >= 85 ? '#4caf50' : score >= 60 ? '#ff9800' : '#f44336';
+    scoreRingEl.style.color = score >= 85 ? '#2e7d32' : score >= 60 ? '#e65100' : '#b71c1c';
+
+    if (score >= 85) {
+      badgeEl.textContent = "An Toàn";
+      badgeEl.className = "badge bg-success";
+      titleEl.textContent = "Môi trường nước ổn định";
+      subtitleEl.textContent = "Hệ vi sinh làm việc hiệu quả";
+    } else if (score >= 60) {
+      badgeEl.textContent = "Cảnh Báo";
+      badgeEl.className = "badge bg-warning text-dark";
+      titleEl.textContent = "Hệ sinh thái mất cân bằng";
+      subtitleEl.textContent = "Cần cải tiến và bổ sung vi sinh";
+    } else {
+      badgeEl.textContent = "Nguy Hiểm";
+      badgeEl.className = "badge bg-danger";
+      titleEl.textContent = "Hồ cá đang bị nhiễm độc!";
+      subtitleEl.textContent = "Yêu cầu thay nước cấp bách";
+    }
+
+    if (issues.length) {
+      descEl.innerHTML = issues.map(iss => `<div class="mb-1 text-danger" style="font-size:0.75rem;"><i class="bi bi-exclamation-triangle-fill me-1 text-warning"></i>${iss}</div>`).join('');
+    } else {
+      descEl.textContent = "Chỉ số nước tuyệt vời. Môi trường trong sạch giúp cá phát triển toàn diện.";
+    }
+
+    if (!steps.length) steps.push("Duy trì chế độ thay nước định kỳ hàng tuần.");
+    stepsEl.innerHTML = steps.map(st => `<li>${st}</li>`).join('');
+
+    if (!recProducts.length) {
+      recProducts = [5, 11];
+    }
+
+    prodGrid.innerHTML = recProducts.slice(0, 2).map(id => {
+      if (typeof products !== 'undefined') {
+        const p = products.find(item => item.id === id);
+        if (p) {
+          return `
+            <div class="col-sm-6">
+              <div class="lab-prod-card" style="display:flex; align-items:center; background:#fff; border:1px solid #e8f4fc; border-radius:10px; padding:8px; box-shadow:0 2px 6px rgba(10,37,64,0.03);">
+                <img src="${p.image}" class="lab-prod-img" alt="${p.name}" style="width:40px; height:40px; object-fit:cover; border-radius:6px; margin-right:10px;">
+                <div class="lab-prod-info" style="flex:1;">
+                  <div class="lab-prod-title" style="font-size:0.75rem; font-weight:700; color:var(--color-text-dark); line-height:1.25; overflow:hidden; text-overflow:ellipsis; display:-webkit-box; -webkit-line-clamp:1; -webkit-box-orient:vertical;">${p.name}</div>
+                  <div class="lab-prod-price" style="font-size:0.72rem; font-weight:600; color:var(--color-primary);">${p.price}</div>
+                </div>
+                <button class="lab-prod-btn" onclick="addDiagProductToCart(${p.id})" type="button" style="background:var(--color-primary); border:none; color:white; width:24px; height:24px; border-radius:50%; display:flex; align-items:center; justify-content:center; cursor:pointer;"><i class="bi bi-plus-lg"></i></button>
+              </div>
+            </div>
+          `;
+        }
+      }
+      return '';
+    }).join('');
+
+  }, 1000);
+};
+
+
+
 
 

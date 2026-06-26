@@ -244,4 +244,77 @@ function ktSend() {
   i.value = '';
 }
 
+// ==========================================
+// DẤU ẤN 3: BẢN ĐỒ TƯƠNG TÁC BỆNH CÁ KOI
+// ==========================================
+var activeHotspotProduct = null;
+var activeHotspotArticleId = null;
+
+window.selectDiseaseHotspot = function(location) {
+  var def = document.getElementById('disease-info-default');
+  var disp = document.getElementById('disease-info-display');
+  
+  if (def) def.classList.add('d-none');
+  if (disp) disp.classList.remove('d-none');
+  
+  var nameEl = document.getElementById('disease-name');
+  var badgeEl = document.getElementById('disease-location-badge');
+  var descEl = document.getElementById('disease-desc');
+  var prodImg = document.getElementById('disease-product-img');
+  var prodName = document.getElementById('disease-product-name');
+  var prodPrice = document.getElementById('disease-product-price');
+  
+  if (location === 'head') {
+    nameEl.textContent = 'Bệnh Trùng Mỏ Neo / Ngộ độc Mang';
+    badgeEl.textContent = 'Bộ phận: Đầu & Mang';
+    descEl.textContent = 'Mang cá sưng đỏ, cá khó thở, thường nổi đầu trên mặt nước hoặc tụ ở thác nước. Có ký sinh trùng trùng mỏ neo bám ở vùng quanh miệng.';
+    prodImg.src = 'assets/images/products/thuoc-vi-sinh/thuoc-tri-nam-anti-shep.jpg';
+    prodName.textContent = 'Thuốc trị nấm & ký sinh trùng Anti Shep 100ml';
+    prodPrice.textContent = '85.000đ';
+    activeHotspotProduct = { id: 10, name: 'Thuốc trị nấm Anti Shep', priceRaw: 85000, price: '85.000đ', image: 'assets/images/products/thuoc-vi-sinh/thuoc-tri-nam-anti-shep.jpg' };
+    activeHotspotArticleId = 4; // Nhận biết và điều trị bệnh nấm ở cá cảnh
+  } else if (location === 'body') {
+    nameEl.textContent = 'Bệnh Đốm Đỏ / Xuất Huyết Da (Aeromonas)';
+    badgeEl.textContent = 'Bộ phận: Thân & Vảy';
+    descEl.textContent = 'Thân cá có vết xuất huyết đỏ rực, vảy sần sùi hoặc loét da nghiêm trọng do vi khuẩn tấn công khi nước bẩn hoặc nhiệt độ đột ngột dao động.';
+    prodImg.src = 'assets/images/products/thuoc-vi-sinh/vi-sinh-koika-em-perfect.jpeg';
+    prodName.textContent = 'Vi Sinh Aqua Bacteria 1000ml (Xử lý nước phòng bệnh)';
+    prodPrice.textContent = '280.000đ';
+    activeHotspotProduct = { id: 3, name: 'Vi Sinh Aqua Bacteria 1000ml', priceRaw: 280000, price: '280.000đ', image: 'assets/images/products/thuoc-vi-sinh/vi-sinh-koika-em-perfect.jpeg' };
+    activeHotspotArticleId = 14; // Hướng dẫn phòng và điều trị bệnh đốm đỏ ở cá Koi
+  } else if (location === 'tail') {
+    nameEl.textContent = 'Bệnh Thối Vây & Đuôi / Nấm Trắng Vây';
+    badgeEl.textContent = 'Bộ phận: Vây & Đuôi';
+    descEl.textContent = 'Vây đuôi cá bị thối rách, có các sợi nấm tơ màu trắng xám bao phủ. Cá bơi lờ đờ, cọ xát mình vào đáy hoặc thành hồ.';
+    prodImg.src = 'assets/images/products/thuoc-vi-sinh/thuoc-tri-nam-anti-shep.jpg';
+    prodName.textContent = 'Thuốc trị nấm Anti Shep 100ml (Trị nấm vây đuôi)';
+    prodPrice.textContent = '85.000đ';
+    activeHotspotProduct = { id: 10, name: 'Thuốc trị nấm Anti Shep', priceRaw: 85000, price: '85.000đ', image: 'assets/images/products/thuoc-vi-sinh/thuoc-tri-nam-anti-shep.jpg' };
+    activeHotspotArticleId = 8; // Phòng bệnh đốm trắng cho cá cảnh khi thời tiết thay đổi
+  }
+};
+
+window.buyDiseaseMed = function() {
+  if (!activeHotspotProduct) return;
+  if (window.AquaCare && window.AquaCare.cart) {
+    if (!window.AquaCare.account.isSignedIn()) {
+      if (typeof window.AquaCare.openAccount === 'function') {
+        window.AquaCare.openAccount('login');
+      }
+      alert('Vui lòng đăng nhập để thêm sản phẩm thuốc/vi sinh vào giỏ hàng!');
+      return;
+    }
+    window.AquaCare.cart.add(activeHotspotProduct, 1);
+    alert('✓ Đã thêm vào giỏ hàng: ' + activeHotspotProduct.name);
+  } else {
+    alert('✓ Hệ thống đang đồng bộ. Đã lưu thuốc đề xuất vào phiên mua sắm.');
+  }
+};
+
+window.viewDiseaseArticle = function() {
+  if (activeHotspotArticleId !== null) {
+    openArticle(activeHotspotArticleId);
+  }
+};
+
 

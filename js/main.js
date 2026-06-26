@@ -203,56 +203,146 @@ document.addEventListener('DOMContentLoaded', () => {
     const q = text.toLowerCase();
     const prefix = '🤖 <strong>[AI Nemo]</strong>: ';
     
+    // 1. Trích xuất & ghi nhớ tên người dùng
+    const nameMatch = text.match(/(?:tên tôi là|tên mình là|mình tên là|mình là)\s+([\p{L}\s]{2,30})/ui);
+    if (nameMatch) {
+      const username = nameMatch[1].trim();
+      sessionStorage.setItem('nemo_username', username);
+      return prefix + `Chào <strong>${username}</strong> nhé! Nemo đã ghi nhớ tên của bạn rồi. Rất vui được trò chuyện cùng bạn! Bạn cần Nemo giúp gì hôm nay? 🐠`;
+    }
+    
+    const username = sessionStorage.getItem('nemo_username') || '';
+    const personalGreeting = username ? `<strong>${username}</strong> ơi, ` : '';
+
+    // 2. Xử lý Trạng thái đang đợi thông số kích thước hồ (awaiting dimensions)
+    if (sessionStorage.getItem('nemo_awaiting_dim') === 'true') {
+      const dimMatch = text.match(/(\d+(?:\.\d+)?)\s+(\d+(?:\.\d+)?)\s+(\d+(?:\.\d+)?)/);
+      if (dimMatch) {
+        sessionStorage.removeItem('nemo_awaiting_dim');
+        const l = parseFloat(dimMatch[1]);
+        const w = parseFloat(dimMatch[2]);
+        const h = parseFloat(dimMatch[3]);
+        const volume = (l * w * h) / 1000;
+        const pumpMin = Math.round(volume * 3);
+        const pumpMax = Math.round(volume * 5);
+        
+        return prefix + `${personalGreeting}Nemo đã tính toán thông số hồ của bạn:<br>` +
+          `\\(Kích\\ thước: L \\times W \\times H = ${l} \\times ${w} \\times ${h}\\) cm.<br>` +
+          `\\(Thể\\ tích\\ nước: V = \\frac{${l} \\times ${w} \\times ${h}}{1.000} = ${volume.toFixed(1)}\\) Lít.<br>` +
+          `\\(Lưu\\ lượng\\ bơm\\ khuyến\\ nghị: từ\\ ${pumpMin}\\ đến\\ ${pumpMax}\\) L/h.<br>` +
+          `Nemo đề xuất sản phẩm máy bơm Hsbao FP-1500 phù hợp nhất với hồ này:` +
+          `<div class="mt-2 p-2 border rounded bg-white text-center" style="max-width:220px; margin:8px auto 0;">` +
+            `<img src="assets/images/products/thiet-bi/may-bom-day-hsbao-fp.webp" style="height:60px; object-fit:contain;" class="mb-1" onerror="this.src='assets/images/categories/phu-kien.png'">` +
+            `<h6 class="m-0 text-dark text-truncate" style="font-size:0.75rem; font-weight:600;">Máy bơm Hsbao FP-1500</h6>` +
+            `<span class="text-danger fw-bold d-block" style="font-size:0.72rem; margin-bottom:4px;">450.000đ</span>` +
+            `<button class="btn btn-sm btn-primary w-100 py-1" style="font-size:0.68rem; font-weight:bold; border-radius:8px;" onclick="window.AquaCare.cart.add({id:6, name:'Máy bơm Hsbao FP-1500', priceRaw:450000}, 1); alert('✓ Đã thêm Máy bơm Hsbao FP-1500 vào giỏ hàng!');">Thêm vào giỏ</button>` +
+          `</div>`;
+      }
+    }
+
+    // 3. Xử lý Trạng thái đang đợi thông số pH (awaiting pH)
+    if (sessionStorage.getItem('nemo_awaiting_ph') === 'true') {
+      const phMatch = text.match(/(\d+(?:\.\d+)?)/);
+      if (phMatch) {
+        sessionStorage.removeItem('nemo_awaiting_ph');
+        const ph = parseFloat(phMatch[1]);
+        if (ph < 6.5) {
+          return prefix + `${personalGreeting}Độ pH nước hồ của bạn thấp (pH = ${ph}) - nước đang bị axit hóa! Điều này rất có hại cho lớp chất nhớt bảo vệ da cá. Nemo đề xuất dùng San hô lọc để kiềm hóa, tăng pH tự nhiên:` +
+            `<div class="mt-2 p-2 border rounded bg-white text-center" style="max-width:220px; margin:8px auto 0;">` +
+              `<img src="assets/images/products/vat-lieu-loc/san-ho.webp" style="height:60px; object-fit:contain;" class="mb-1" onerror="this.src='assets/images/categories/phu-kien.png'">` +
+              `<h6 class="m-0 text-dark text-truncate" style="font-size:0.75rem; font-weight:600;">San hô lọc</h6>` +
+              `<span class="text-danger fw-bold d-block" style="font-size:0.72rem; margin-bottom:4px;">88.000đ</span>` +
+              `<button class="btn btn-sm btn-primary w-100 py-1" style="font-size:0.68rem; font-weight:bold; border-radius:8px;" onclick="window.AquaCare.cart.add({id:39, name:'San hô lọc', priceRaw:88000}, 1); alert('✓ Đã thêm San hô lọc vào giỏ hàng!');">Thêm vào giỏ</button>` +
+            `</div>`;
+        } else if (ph > 8.0) {
+          return prefix + `${personalGreeting}Độ pH nước hồ của bạn cao (pH = ${ph}) - nước có tính kiềm mạnh! Khí độc NH3 sẽ độc hơn gấp nhiều lần ở pH cao. Nemo khuyên bạn thay 20% nước và châm vi sinh Aqua Bacteria định kỳ để ổn định:` +
+            `<div class="mt-2 p-2 border rounded bg-white text-center" style="max-width:220px; margin:8px auto 0;">` +
+              `<img src="assets/images/products/thuoc-vi-sinh/vi-sinh-koika-em-perfect.jpeg" style="height:60px; object-fit:contain;" class="mb-1" onerror="this.src='assets/images/categories/phu-kien.png'">` +
+              `<h6 class="m-0 text-dark text-truncate" style="font-size:0.75rem; font-weight:600;">Vi Sinh Aqua Bacteria 1000ml</h6>` +
+              `<span class="text-danger fw-bold d-block" style="font-size:0.72rem; margin-bottom:4px;">280.000đ</span>` +
+              `<button class="btn btn-sm btn-primary w-100 py-1" style="font-size:0.68rem; font-weight:bold; border-radius:8px;" onclick="window.AquaCare.cart.add({id:3, name:'Vi Sinh Aqua Bacteria 1000ml', priceRaw:280000}, 1); alert('✓ Đã thêm Vi sinh Aqua Bacteria vào giỏ hàng!');">Thêm vào giỏ</button>` +
+            `</div>`;
+        } else {
+          return prefix + `${personalGreeting}Độ pH nước hồ cá của bạn rất đẹp (pH = ${ph})! Hãy duy trì bằng cách bổ sung sứ thanh Hoa Mai trong ngăn lọc để làm nhà trú ẩn lý tưởng cho vi sinh vật có lợi:` +
+            `<div class="mt-2 p-2 border rounded bg-white text-center" style="max-width:220px; margin:8px auto 0;">` +
+              `<img src="assets/images/products/vat-lieu-loc/su-thanh-hoa-mai.jpg" style="height:60px; object-fit:contain;" class="mb-1" onerror="this.src='assets/images/categories/phu-kien.png'">` +
+              `<h6 class="m-0 text-dark text-truncate" style="font-size:0.75rem; font-weight:600;">Sứ thanh Hoa Mai 500g</h6>` +
+              `<span class="text-danger fw-bold d-block" style="font-size:0.72rem; margin-bottom:4px;">65.000đ</span>` +
+              `<button class="btn btn-sm btn-primary w-100 py-1" style="font-size:0.68rem; font-weight:bold; border-radius:8px;" onclick="window.AquaCare.cart.add({id:20, name:'Sứ thanh Hoa Mai 500g', priceRaw:65000}, 1); alert('✓ Đã thêm Sứ thanh Hoa Mai vào giỏ hàng!');">Thêm vào giỏ</button>` +
+            `</div>`;
+        }
+      }
+    }
+
+    // 4. Kích hoạt tính thể tích hồ
+    if (q.includes('tính thể tích') || q.includes('tính thể tích hồ') || q.includes('thể tích bể') || q.includes('tính bơm')) {
+      sessionStorage.setItem('nemo_awaiting_dim', 'true');
+      return prefix + `${personalGreeting}Hãy gõ 3 kích thước <strong>Dài Rộng Cao</strong> của hồ cá (ví dụ: <code>100 50 60</code>, cách nhau bằng khoảng trắng) để Nemo tính toán giúp nhé! 📐`;
+    }
+
+    // 5. Kích hoạt đo pH nước
+    if (q.includes('ph nước') || q.includes('độ ph') || q.includes('chẩn đoán nước') || q.includes('nước hồ')) {
+      sessionStorage.setItem('nemo_awaiting_ph', 'true');
+      return prefix + `${personalGreeting}Hãy nhập chỉ số độ pH hiện tại của hồ cá (ví dụ: <code>6.5</code>) để Nemo đưa ra phân tích và giải pháp phù hợp nhé! 🧪`;
+    }
+
     // Giao tiếp xã giao
     if (q.includes('chào') || q.includes('hello') || q.includes('hi') || q.includes('tên là gì') || q.includes('nemo') || q.includes('ai')) {
-      return prefix + 'Xin chào! Mình là Nemo - Trợ lý AI chăm sóc khách hàng của Aqua Care. Mình có thể hỗ trợ bạn chọn sản phẩm lọc, giải quyết nước đục hồ cá, tư vấn dinh dưỡng cá cảnh và hướng dẫn đặt mua hàng nhanh chóng. Bạn cần mình giúp gì nào? 😊';
+      return prefix + `Xin chào ${username || 'bạn'}! Nemo là Trợ lý AI chăm sóc khách hàng của Aqua Care. Nemo hỗ trợ tính thể tích hồ, kiểm tra pH nước và giới thiệu sản phẩm lọc, cám cá cảnh. Bạn cần Nemo giúp gì? 😊`;
     }
     
     if (q.includes('cảm ơn') || q.includes('cám ơn') || q.includes('thank')) {
-      return prefix + 'Nemo rất vui được hỗ trợ bạn! Chúc bạn có một hồ cá luôn trong sạch và những chú cá Koi thật khỏe mạnh. Nếu cần tư vấn thêm, cứ gọi Nemo nhé! 🐟✨';
+      return prefix + `Nemo rất vui được hỗ trợ ${username || 'bạn'}! Chúc bạn có một hồ cá luôn sạch trong và đàn cá khỏe mạnh. Nếu cần thêm gì cứ gọi Nemo nhé! 🐟✨`;
     }
 
     // Các câu hỏi về hồ Koi & lọc nước
     if (q.includes('koi') || q.includes('hồ') || q.includes('bể cá') || q.includes('thiết kế')) {
-      return prefix + 'Để hồ cá Koi luôn khỏe mạnh, hệ thống lọc nước là trái tim quyết định. Nemo khuyên bạn nên kết hợp lọc cơ học (chổi lọc, jmat) và lọc sinh học (sứ lọc, hạt lọc kaldnes) kết hợp đèn UV diệt tảo. Hãy xem ngay các thiết bị chính hãng tại <a href="san-pham.html?category=he-thong-loc" style="color:#1a9dd0;font-weight:700;">Hệ thống lọc nước</a> hoặc xem cẩm nang kỹ thuật của mình tại <a href="kien-thuc.html" style="color:#1a9dd0;font-weight:700;">Trang kiến thức</a> nha!';
+      return prefix + `${personalGreeting}Hồ Koi cần bộ lọc hiệu quả. Nemo khuyên bạn dùng lọc thùng lớn hoặc lọc đa ngăn có Sứ lọc thanh Hoa Mai, hạt Kaldnes, chổi lọc và máy bơm tuần hoàn Hsbao. Xem ngay tại mục <a href="san-pham.html?category=he-thong-loc" style="color:#1a9dd0;font-weight:700;">Hệ thống lọc nước</a> hoặc xem bài viết cẩm nang ở <a href="kien-thuc.html" style="color:#1a9dd0;font-weight:700;">Trang kiến thức</a> nha!`;
     }
     
     // Nước đục, rêu hại, pH
-    if (q.includes('đục') || q.includes('vàng') || q.includes('mùi') || q.includes('ph') || q.includes('rêu') || q.includes('nước bẩn') || q.includes('tảo')) {
-      return prefix + 'Nước bị đục, xanh hay có mùi tanh thường do hệ vi sinh chưa thiết lập hoặc bộ lọc bị quá tải. Bạn nên thay 20-30% nước, châm thêm vi sinh chuyên dụng và kiểm tra độ pH (mức lý tưởng là 7.0 - 7.5). Hãy xem ngay các chế phẩm sinh học xử lý nước cấp tốc tại mục <a href="san-pham.html?category=thuoc-vi-sinh" style="color:#1a9dd0;font-weight:700;">Thuốc & Vi sinh</a>.';
-    }
-    
-    // Cây thủy sinh
-    if (q.includes('cây') || q.includes('thủy sinh') || q.includes('rêu thủy sinh') || q.includes('phân nền')) {
-      return prefix + 'Với hồ thủy sinh, cây xanh phát triển tốt nhờ sự cân bằng giữa ánh sáng (8-10 tiếng/ngày), khí CO2 và dinh dưỡng cốt nền. Bạn có thể chọn các dòng cây dễ chăm tại danh mục <a href="san-pham.html?category=cay-thuy-sinh" style="color:#1a9dd0;font-weight:700;">Cây thủy sinh</a> và bổ sung phân nước dinh dưỡng nhé!';
+    if (q.includes('đục') || q.includes('vàng') || q.includes('mùi') || q.includes('rêu') || q.includes('nước bẩn') || q.includes('tảo')) {
+      return prefix + `${personalGreeting}Hồ cá bị đục hoặc xanh tảo thường do thiếu vi sinh hoặc lọc chưa ổn. Bạn nên thay 20% nước, vệ sinh bông lọc và châm Vi Sinh Aqua Bacteria cấp tốc. Xem sản phẩm vi sinh tại mục <a href="san-pham.html?category=thuoc-vi-sinh" style="color:#1a9dd0;font-weight:700;">Thuốc & Vi sinh</a> nha!`;
     }
     
     // Thức ăn & cám cá
     if (q.includes('thức ăn') || q.includes('cám') || q.includes('cho ăn') || q.includes('dinh dưỡng')) {
-      return prefix + 'Cá Koi cần chế độ ăn hợp lý: cho ăn 1-2 lần/ngày với lượng vừa đủ trong 5 phút. Nên chọn cám đạm cao (>40%) để tăng trưởng tốt và bổ sung cám tăng màu giúp da cá sáng đẹp. Xem các dòng thức ăn chuyên dụng tại mục <a href="san-pham.html?category=thuc-an" style="color:#1a9dd0;font-weight:700;">Thức ăn & Dinh dưỡng</a> nhé!';
+      return prefix + `${personalGreeting}Nemo khuyên cho cá ăn 1-2 lần/ngày, ăn hết trong 5 phút. Cám dinh dưỡng Koi Growth đạm cao 38% và sắc tố Astaxanthin hỗ trợ tăng màu đỏ rất tốt. Đặt mua nhanh tại đây:` +
+        `<div class="mt-2 p-2 border rounded bg-white text-center" style="max-width:220px; margin:8px auto 0;">` +
+          `<img src="assets/images/products/thuc-an/cam-ca-koi-kibakoi.jpeg" style="height:60px; object-fit:contain;" class="mb-1" onerror="this.src='assets/images/categories/phu-kien.png'">` +
+          `<h6 class="m-0 text-dark text-truncate" style="font-size:0.75rem; font-weight:600;">Thức Ăn Koi Growth 1.5kg</h6>` +
+          `<span class="text-danger fw-bold d-block" style="font-size:0.72rem; margin-bottom:4px;">320.000đ</span>` +
+          `<button class="btn btn-sm btn-primary w-100 py-1" style="font-size:0.68rem; font-weight:bold; border-radius:8px;" onclick="window.AquaCare.cart.add({id:2, name:'Thức Ăn Koi Growth 1.5kg', priceRaw:320000}, 1); alert('✓ Đã thêm Thức Ăn Koi Growth vào giỏ hàng!');">Thêm vào giỏ</button>` +
+        `</div>`;
     }
     
     // Bệnh cá
     if (q.includes('bệnh') || q.includes('nấm') || q.includes('đốm trắng') || q.includes('đỏ mình') || q.includes('cá cọ mình') || q.includes('cọ bể')) {
-      return prefix + 'Cá cọ bể, lờ đờ hay nổi đốm trắng là dấu hiệu bị nhiễm nấm hoặc ký sinh trùng. Bạn cần cách ly cá bệnh sang hồ riêng, tăng nhiệt độ sưởi lên 30 độ C, thêm muối hột tỉ lệ 3/1000 và sử dụng thuốc trị nấm đặc hiệu. Đọc ngay cẩm nang phòng bệnh của mình tại <a href="kien-thuc.html" style="color:#1a9dd0;font-weight:700;">Trang kiến thức phòng bệnh</a>.';
+      return prefix + `${personalGreeting}Cá cọ bể hoặc nổi nốt trắng là biểu hiện của nấm trắng. Hãy cách ly cá, tăng nhiệt độ sưởi lên 30°C và đánh Thuốc trị nấm Anti Shep chuyên dụng để chữa trị hiệu quả:` +
+        `<div class="mt-2 p-2 border rounded bg-white text-center" style="max-width:220px; margin:8px auto 0;">` +
+          `<img src="assets/images/products/thuoc-vi-sinh/thuoc-tri-nam-anti-shep.jpg" style="height:60px; object-fit:contain;" class="mb-1" onerror="this.src='assets/images/categories/phu-kien.png'">` +
+          `<h6 class="m-0 text-dark text-truncate" style="font-size:0.75rem; font-weight:600;">Thuốc trị nấm Anti Shep</h6>` +
+          `<span class="text-danger fw-bold d-block" style="font-size:0.72rem; margin-bottom:4px;">85.000đ</span>` +
+          `<button class="btn btn-sm btn-primary w-100 py-1" style="font-size:0.68rem; font-weight:bold; border-radius:8px;" onclick="window.AquaCare.cart.add({id:10, name:'Thuốc trị nấm Anti Shep', priceRaw:85000}, 1); alert('✓ Đã thêm Thuốc trị nấm Anti Shep vào giỏ hàng!');">Thêm vào giỏ</button>` +
+        `</div>`;
     }
     
     // Giá cả, mua sỉ
-    if (q.includes('giá') || q.includes('bao nhiêu') || q.includes('báo giá') || q.includes('chi phí') || q.includes('tiền') || q.includes('giá sỉ') || q.includes('đại lý')) {
-      return prefix + 'Aqua Care cam kết giá bán tốt nhất đi kèm chất lượng chuẩn 5 sao. Để nhận báo giá sỉ cho công trình thiết kế hoặc mua sỉ số lượng lớn, bạn hãy để lại Số điện thoại/Zalo tại đây hoặc gửi tin nhắn ở <a href="lien-he.html" style="color:#1a9dd0;font-weight:700;">Trang liên hệ</a>, bộ phận kinh doanh sẽ liên lạc ngay sau 5 phút!';
+    if (q.includes('giá') || q.includes('bao nhiêu') || q.includes('báo giá') || q.includes('chi phí') || q.includes('đại lý')) {
+      return prefix + `${personalGreeting}Để nhận báo giá chi tiết sỉ hoặc chi phí lắp đặt thiết kế hồ Koi thi công, bạn vui lòng để lại Số điện thoại/Zalo ở đây hoặc qua <a href="lien-he.html" style="color:#1a9dd0;font-weight:700;">Trang liên hệ</a> nhé!`;
     }
     
     // Hướng dẫn đặt hàng & thanh toán
-    if (q.includes('đặt hàng') || q.includes('mua hàng') || q.includes('thanh toán') || q.includes('vận chuyển') || q.includes('ship') || q.includes('giao hàng')) {
-      return prefix + 'Mua sắm tại Aqua Care cực kỳ nhanh gọn! Bạn chỉ cần chọn sản phẩm, nhấn "Mua ngay", điền thông tin và chọn phương thức thanh toán: COD (tiền mặt), Chuyển khoản VietQR, Ví MoMo, hoặc thẻ Visa/Master. Đơn hàng sẽ được đóng gói và giao hỏa tốc đến tay bạn! 🚚💳';
+    if (q.includes('đặt hàng') || q.includes('mua hàng') || q.includes('thanh toán') || q.includes('vận chuyển') || q.includes('giao hàng')) {
+      return prefix + `Mua sắm tại Aqua Care cực kì tiện lợi! Bạn chỉ cần thêm sản phẩm vào giỏ, điền thông tin giao hàng và chọn VietQR, Ví MoMo, Thẻ Visa hoặc COD. Hỗ trợ giao hỏa tốc tận nhà! 🚚💳`;
     }
     
     // Liên hệ kỹ thuật
-    if (q.includes('liên hệ') || q.includes('hotline') || q.includes('sđt') || q.includes('zalo') || q.includes('cửa hàng') || q.includes('địa chỉ') || q.includes('đâu')) {
-      return prefix + 'Bạn có thể gọi trực tiếp Hotline/Zalo kỹ thuật 24/7 của Aqua Care để được tư vấn thiết kế hồ cá miễn phí. Chi tiết số điện thoại và bản đồ chỉ đường có sẵn tại <a href="lien-he.html" style="color:#1a9dd0;font-weight:700;">Trang liên hệ</a> đó bạn!';
+    if (q.includes('liên hệ') || q.includes('hotline') || q.includes('sđt') || q.includes('zalo') || q.includes('cửa hàng') || q.includes('địa chỉ')) {
+      return prefix + `Bạn có thể xem Hotline 24/7, email hỗ trợ và bản đồ địa điểm chỉ đường cụ thể của Aqua Care tại <a href="lien-he.html" style="color:#1a9dd0;font-weight:700;">Trang liên hệ</a> nhé!`;
     }
 
-    return prefix + 'Cảm ơn câu hỏi của bạn! Là một AI trợ lý, Nemo khuyên bạn nên tham khảo các chuyên mục sản phẩm ở thanh điều hướng hoặc truy cập nhanh <a href="kien-thuc.html" style="color:#1a9dd0;font-weight:700;">Cẩm nang chăm cá</a>. Nếu cần hỗ trợ khẩn cấp, bạn cứ nhập số điện thoại của mình vào đây nha! 🐠';
+    return prefix + `Cảm ơn câu hỏi của bạn. Nemo khuyên bạn ghé xem <a href="kien-thuc.html" style="color:#1a9dd0;font-weight:700;">Cẩm nang chăm cá</a> hoặc nhập số điện thoại để tư vấn viên gọi lại tư vấn trực tiếp nha! 🐠`;
   }
 
   function handleUserMessage(text) {
@@ -1120,19 +1210,29 @@ document.addEventListener('DOMContentLoaded', () => {
 
   function updateNemo() {
     if (nemoState === 'swimming') {
-      nemoX += nemoSpeed * nemoDirection;
-      if (nemoX > window.innerWidth - 90) {
-        nemoDirection = -1;
-        nemoFlipWrap.classList.add('flipped');
-      } else if (nemoX < 10) {
-        nemoDirection = 1;
+      if (window.innerWidth < 768) {
+        // On mobile, keep Nemo at a fixed bottom-right position so it doesn't block interactions
+        nemo.style.left = 'auto';
+        nemo.style.right = '16px';
+        nemo.style.bottom = '76px';
+        nemo.style.top = 'auto';
+        nemo.style.transform = 'scale(0.85)';
         nemoFlipWrap.classList.remove('flipped');
+      } else {
+        nemoX += nemoSpeed * nemoDirection;
+        if (nemoX > window.innerWidth - 90) {
+          nemoDirection = -1;
+          nemoFlipWrap.classList.add('flipped');
+        } else if (nemoX < 10) {
+          nemoDirection = 1;
+          nemoFlipWrap.classList.remove('flipped');
+        }
+        nemo.style.left = nemoX + 'px';
+        nemo.style.bottom = '30px';
+        nemo.style.top = 'auto';
+        nemo.style.right = 'auto';
+        nemo.style.transform = 'none';
       }
-      nemo.style.left = nemoX + 'px';
-      nemo.style.bottom = '30px';
-      nemo.style.top = 'auto';
-      nemo.style.right = 'auto';
-      nemo.style.transform = 'none';
     }
     requestAnimationFrame(updateNemo);
   }

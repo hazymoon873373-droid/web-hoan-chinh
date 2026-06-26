@@ -2086,7 +2086,9 @@ p { margin: 0; }
   .nemo-helper {
     width: 48px !important;
     height: 30px !important;
-    bottom: 12px !important;
+    bottom: 76px !important;
+    right: 16px !important;
+    left: auto !important;
   }
   .nemo-bubble {
     width: 130px !important;

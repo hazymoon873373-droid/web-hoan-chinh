@@ -107,4 +107,57 @@
       toast.show();
     }
 
+    // ==========================================
+    // DẤU ẤN 4: BẢNG DỰ TOÁN THI CÔNG HỒ KOI
+    // ==========================================
+    window.calculateEstimates = function() {
+      const area = parseFloat(document.getElementById('estArea').value) || 0;
+      const depth = parseFloat(document.getElementById('estDepth').value) || 0;
+      const style = document.getElementById('estStyle').value;
+
+      if (area <= 0) return;
+
+      const volume = area * depth; // m3
+      const pumpFlow = volume * 3; // m3/h
+      const excavation = volume * 1.2; // m3
+      const concrete = area * 0.15; // m3
+
+      document.getElementById('resEstVolume').innerHTML = volume.toFixed(1) + ' m³ <small style="font-size:0.75rem;font-weight:normal;">(' + Math.round(volume * 1000).toLocaleString('vi-VN') + ' L)</small>';
+      document.getElementById('resEstPumpFlow').textContent = Math.round(pumpFlow) + ' m³/h';
+      document.getElementById('resEstExcavation').textContent = excavation.toFixed(1) + ' m³';
+      document.getElementById('resEstConcrete').textContent = concrete.toFixed(2) + ' m³';
+
+      // Costs
+      const costExc = Math.round(excavation * 250000);
+      const costConc = Math.round(area * 1200000);
+      const costWater = Math.round(area * 350000);
+      
+      let styleMult = 2500000;
+      if (style === 'modern') styleMult = 2000000;
+      else if (style === 'natural') styleMult = 3000000;
+      const costFilt = Math.round(volume * styleMult);
+
+      const total = costExc + costConc + costWater + costFilt;
+
+      document.getElementById('costExcavation').textContent = costExc.toLocaleString('vi-VN') + 'đ';
+      document.getElementById('costConcrete').textContent = costConc.toLocaleString('vi-VN') + 'đ';
+      document.getElementById('costWaterproof').textContent = costWater.toLocaleString('vi-VN') + 'đ';
+      document.getElementById('costFiltration').textContent = costFilt.toLocaleString('vi-VN') + 'đ';
+      document.getElementById('costTotal').textContent = total.toLocaleString('vi-VN') + 'đ';
+    };
+
+    window.redirectToContactWithEst = function() {
+      const area = document.getElementById('estArea').value;
+      const depth = document.getElementById('estDepth').value;
+      const style = document.getElementById('estStyle').value;
+      window.location.href = 'lien-he.html?area=' + area + '&depth=' + depth + '&style=' + style;
+    };
+
+    // Run calculation once on page load
+    document.addEventListener('DOMContentLoaded', () => {
+      if (document.getElementById('estArea')) {
+        calculateEstimates();
+      }
+    });
+
 

@@ -89,6 +89,117 @@
       <div class="row g-4">
         <!-- Articles -->
         <div class="col-lg-9">
+          <!-- DẤU ẤN 3: BẢN ĐỒ TƯƠNG TÁC BỆNH CÁ KOI (KOI DISEASE HOTSPOTS MAP) -->
+          <div class="koi-disease-card p-3 mb-4" style="background: linear-gradient(135deg, #fffbf7 0%, #fff3e0 100%); border: 1.5px solid #ffe0b2; border-radius: 16px; box-shadow: 0 4px 15px rgba(245, 149, 46, 0.05);">
+            <div class="d-flex justify-content-between align-items-center mb-3">
+              <h6 class="m-0 fw-bold text-dark" style="font-size:0.88rem;"><i class="bi bi-geo-fill me-2 text-warning"></i>Bản Đồ Bệnh Cá Koi Trực Quan (Click vị trí trên cá)</h6>
+              <span class="badge bg-warning text-dark" style="font-size:0.68rem; font-weight:600; border-radius:12px;">Độc quyền Aqua Care</span>
+            </div>
+            
+            <div class="row align-items-center">
+              <!-- SVG Interactive Koi Fish -->
+              <div class="col-md-6 text-center mb-3 mb-md-0 position-relative">
+                <div style="max-width:320px; margin:0 auto; position:relative;">
+                  <svg viewBox="0 0 300 150" width="100%" height="auto" style="overflow:visible;">
+                    <!-- Nền ao cá bóng bẩy -->
+                    <ellipse cx="150" cy="75" rx="140" ry="65" fill="#e0f7fa" opacity="0.3" stroke="#b2ebf2" stroke-width="1.5"/>
+                    
+                    <!-- Chú cá Koi dễ thương -->
+                    <!-- Đuôi vẫy nhẹ -->
+                    <path d="M 60 75 Q 40 45, 20 50 Q 30 75, 20 100 Q 40 105, 60 75 Z" fill="#ff5722"/>
+                    <path d="M 40 65 Q 25 55, 15 60 Q 25 70, 15 80" fill="none" stroke="#ffffff" stroke-width="1.5"/>
+                    
+                    <!-- Vây ngực cá -->
+                    <path d="M 170 105 Q 150 135, 130 115 Z" fill="#ffffff" opacity="0.9"/>
+                    <path d="M 170 45 Q 150 15, 130 35 Z" fill="#ffffff" opacity="0.9"/>
+                    
+                    <!-- Thân cá chép trắng với đốm đỏ (Kohaku) -->
+                    <path d="M 60 75 C 90 40, 200 40, 230 75 C 200 110, 90 110, 60 75 Z" fill="#ffffff" stroke="#ffcc80" stroke-width="1"/>
+                    <!-- Đuôi đốm đỏ nghệ thuật (Hi spots) -->
+                    <path d="M 180 60 C 195 50, 210 65, 200 75 C 190 85, 175 75, 180 60 Z" fill="#d84315"/>
+                    <path d="M 110 65 C 130 50, 150 65, 140 78 C 120 90, 100 80, 110 65 Z" fill="#d84315"/>
+                    <path d="M 80 72 C 85 68, 95 72, 90 78 C 85 82, 78 78, 80 72 Z" fill="#d84315"/>
+                    
+                    <!-- Đầu cá Koi -->
+                    <path d="M 230 75 C 240 75, 255 70, 255 75 C 255 80, 240 75, 230 75 Z" fill="#ffffff"/>
+                    <circle cx="242" cy="65" r="3" fill="#000000"/>
+                    <circle cx="242" cy="85" r="3" fill="#000000"/>
+                    
+                    <!-- Râu cá chép dễ thương -->
+                    <path d="M 252 70 Q 258 68, 260 72" fill="none" stroke="#ffffff" stroke-width="1.5"/>
+                    <path d="M 252 80 Q 258 82, 260 78" fill="none" stroke="#ffffff" stroke-width="1.5"/>
+                    
+                    <!-- Hotspots nhấp nháy phát sáng -->
+                    <!-- Hotspot 1: Đầu / Mang (235, 75) -->
+                    <g class="koi-hotspot" style="cursor:pointer;" onclick="selectDiseaseHotspot('head')">
+                      <circle cx="235" cy="75" r="14" fill="#ff9100" opacity="0.25" class="pulse-ring"/>
+                      <circle cx="235" cy="75" r="7" fill="#ff9100"/>
+                    </g>
+                    
+                    <!-- Hotspot 2: Thân / Vảy (140, 75) -->
+                    <g class="koi-hotspot" style="cursor:pointer;" onclick="selectDiseaseHotspot('body')">
+                      <circle cx="140" cy="75" r="14" fill="#ff3d00" opacity="0.25" class="pulse-ring"/>
+                      <circle cx="140" cy="75" r="7" fill="#ff3d00"/>
+                    </g>
+                    
+                    <!-- Hotspot 3: Đuôi / Vây (50, 75) -->
+                    <g class="koi-hotspot" style="cursor:pointer;" onclick="selectDiseaseHotspot('tail')">
+                      <circle cx="50" cy="75" r="14" fill="#2979ff" opacity="0.25" class="pulse-ring"/>
+                      <circle cx="50" cy="75" r="7" fill="#2979ff"/>
+                    </g>
+                  </svg>
+                  
+                  <style>
+                    @keyframes hotspotPulse {
+                      0% { transform: scale(0.9); opacity: 0.8; }
+                      50% { transform: scale(1.5); opacity: 0.1; }
+                      100% { transform: scale(0.9); opacity: 0.8; }
+                    }
+                    .pulse-ring {
+                      transform-origin: center;
+                      animation: hotspotPulse 2s infinite ease-in-out;
+                    }
+                    .koi-hotspot:hover circle:first-child {
+                      fill: #4caf50;
+                      opacity: 0.5;
+                    }
+                    .koi-hotspot:hover circle:last-child {
+                      fill: #4caf50;
+                    }
+                  </style>
+                </div>
+              </div>
+              
+              <!-- Info Display -->
+              <div class="col-md-6">
+                <div id="disease-info-default" class="text-center py-4 text-muted">
+                  <i class="bi bi-hand-index-thumb" style="font-size:2.2rem; color:#ffb74d;"></i>
+                  <p class="m-0 mt-2" style="font-size:0.78rem; font-weight:600;">Vui lòng nhấn vào một nút tròn nhấp nháy trên chú cá Koi để xem chẩn đoán bệnh lý nhanh và cách xử lý tương ứng.</p>
+                </div>
+                
+                <div id="disease-info-display" class="d-none">
+                  <div class="p-2.5 rounded bg-white" style="border: 1px solid #ffe0b2;">
+                    <h6 class="fw-bold mb-1" id="disease-name" style="font-size:0.85rem; color:#e65100;">Bệnh nấm trắng ở vảy (Ich)</h6>
+                    <span class="badge mb-2" id="disease-location-badge" style="font-size:0.65rem; background:#fff3e0; color:#e65100; border: 1px solid #ffe0b2;">Bộ phận: Thân & Vảy</span>
+                    <p class="mb-2 text-muted" id="disease-desc" style="font-size:0.75rem; line-height:1.4;">Các chấm trắng li ti xuất hiện đầy trên mình cá, cá có triệu chứng ngứa cọ mình vào thành bể lọc.</p>
+                    
+                    <!-- Treatment block -->
+                    <div class="d-flex align-items-center gap-2 p-2 rounded mb-2" style="background:#f7f9fa; border:0.5px solid #e0e0e0;">
+                      <img id="disease-product-img" src="assets/images/products/thuoc-vi-sinh/thuoc-tri-nam-anti-shep.jpg" style="width:40px; height:40px; object-fit:contain; border-radius:6px; background:white;">
+                      <div style="flex:1; min-width:0;">
+                        <h7 class="fw-bold text-dark text-truncate d-block" id="disease-product-name" style="font-size:0.72rem;">Thuốc trị nấm Anti Shep 100ml</h7>
+                        <span class="text-danger fw-bold" id="disease-product-price" style="font-size:0.7rem;">85.000đ</span>
+                      </div>
+                      <button type="button" class="btn btn-sm btn-primary py-1" style="font-size:0.65rem; font-weight:bold;" id="btn-disease-buy" onclick="buyDiseaseMed()">Mua thuốc</button>
+                    </div>
+                    
+                    <a href="#" class="fw-bold" id="disease-article-link" onclick="viewDiseaseArticle(); return false;" style="font-size:0.72rem; color:#1a9dd0; text-decoration:none;"><i class="bi bi-book me-1"></i>Đọc bài viết hướng dẫn điều trị đầy đủ ›</a>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+
           <!-- List view -->
           <div id="ktListView">
             <!-- Featured -->

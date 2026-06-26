@@ -61,7 +61,6 @@
           </li>
           <li class="nav-item"><a class="nav-link" href="kien-thuc.html">Kiến thức</a></li>
           <li class="nav-item"><a class="nav-link" href="du-an.html">Dự án</a></li>
-          <li class="nav-item"><a class="nav-link" href="cong-cu.html">Aqua Lab</a></li>
           <li class="nav-item"><a class="nav-link" href="lien-he.html">Liên hệ</a></li>
         </ul>
 
@@ -213,7 +212,179 @@
     </div>
   </section>
 
-    <section class="categories" id="categories">
+  <!-- DẤU ẤN 1: BỘ CHẨN ĐOÁN SỨC KHỎE HỒ CÁ TRỰC TUYẾN -->
+  <section class="diagnostics-section" id="aquarium-diagnostics" style="padding: 80px 0; background: #ffffff; position: relative;">
+    <div class="container">
+      <div class="text-center mb-5">
+        <span class="eyebrow-script">🔬 Chẩn đoán thông minh</span>
+        <h2 class="section-title text-dark">Trình Đánh Giá Sức Khỏe Bể Cá 🧪</h2>
+        <div class="section-divider mx-auto"><span class="divider-line"></span></div>
+        <p class="text-muted mx-auto" style="max-width: 600px;">Bóc tách chỉ số sinh học của bể cá chỉ sau 30 giây để tìm giải pháp xử lý nước tối ưu nhất.</p>
+      </div>
+
+      <div class="row g-4 align-items-stretch">
+        <!-- Cột nhập thông số -->
+        <div class="col-lg-6">
+          <div class="diag-card p-4 h-100" style="background:#f4fbff; border: 1.5px solid #d0e8f5; border-radius: 20px; box-shadow: 0 8px 30px rgba(10,37,64,0.03);">
+            <h5 class="fw-bold mb-4 text-dark"><i class="bi bi-sliders me-2 text-primary"></i>Nhập Thông Số Hồ Hiện Tại</h5>
+            
+            <form id="hpDiagForm" onsubmit="runHpDiagnostic(event)">
+              <!-- pH -->
+              <div class="mb-4">
+                <div class="d-flex justify-content-between mb-1">
+                  <label for="hp-ph" class="form-label fw-bold text-dark" style="font-size:0.88rem;">Chỉ số độ pH</label>
+                  <span class="badge bg-primary px-3 py-1.5 font-monospace" id="val-hp-ph">7.0</span>
+                </div>
+                <input type="range" class="form-range" id="hp-ph" min="4.0" max="10.0" step="0.1" value="7.0">
+                <div class="d-flex justify-content-between text-muted" style="font-size: 0.72rem;">
+                  <span>Axit (4.0)</span>
+                  <span>Trung tính (7.0)</span>
+                  <span>Kiềm (10.0)</span>
+                </div>
+              </div>
+
+              <!-- NH3/NO2 -->
+              <div class="row g-3 mb-4">
+                <div class="col-6">
+                  <label for="hp-nh3" class="form-label fw-bold text-dark" style="font-size:0.88rem;">Ammonia (NH3/NH4)</label>
+                  <select class="form-select form-select-sm" id="hp-nh3">
+                    <option value="0" selected>An toàn (0 mg/L)</option>
+                    <option value="0.25">Cảnh báo nhẹ (0.25 - 0.5)</option>
+                    <option value="1.0">Nguy hiểm (1.0 - 2.0)</option>
+                    <option value="3.0">Nguy kịch (> 2.0)</option>
+                  </select>
+                </div>
+                <div class="col-6">
+                  <label for="hp-no2" class="form-label fw-bold text-dark" style="font-size:0.88rem;">Nitrite (NO2)</label>
+                  <select class="form-select form-select-sm" id="hp-no2">
+                    <option value="0" selected>An toàn (0 mg/L)</option>
+                    <option value="0.5">Cảnh báo (> 0.25)</option>
+                    <option value="2.0">Nguy kịch (> 1.0)</option>
+                  </select>
+                </div>
+              </div>
+
+              <!-- Màu nước -->
+              <div class="mb-4">
+                <label class="form-label fw-bold text-dark d-block" style="font-size:0.88rem;">Cảm quan màu sắc nước</label>
+                <div class="row g-2">
+                  <div class="col-6">
+                    <input type="radio" class="btn-check" name="hpColor" id="hp-wc-clear" value="clear" checked>
+                    <label class="btn btn-outline-primary btn-sm w-100 py-2" for="hp-wc-clear">Trong suốt / Đẹp</label>
+                  </div>
+                  <div class="col-6">
+                    <input type="radio" class="btn-check" name="hpColor" id="hp-wc-yellow" value="yellow">
+                    <label class="btn btn-outline-primary btn-sm w-100 py-2" for="hp-wc-yellow">Vàng nhạt / Tanh</label>
+                  </div>
+                  <div class="col-6">
+                    <input type="radio" class="btn-check" name="hpColor" id="hp-wc-green" value="green">
+                    <label class="btn btn-outline-primary btn-sm w-100 py-2" for="hp-wc-green">Xanh tảo / Đục rêu</label>
+                  </div>
+                  <div class="col-6">
+                    <input type="radio" class="btn-check" name="hpColor" id="hp-wc-white" value="white">
+                    <label class="btn btn-outline-primary btn-sm w-100 py-2" for="hp-wc-white">Đục trắng / Bụi nền</label>
+                  </div>
+                </div>
+              </div>
+
+              <!-- Triệu chứng -->
+              <div class="mb-4">
+                <label class="form-label fw-bold text-dark d-block" style="font-size:0.88rem;">Biểu hiện lạ ở đàn cá (nếu có)</label>
+                <div class="row g-2">
+                  <div class="col-6">
+                    <div class="form-check-custom" style="padding:6px 10px; font-size:0.78rem; display:flex; align-items:center; border:1px solid #d0e8f5; border-radius:8px; background:white;">
+                      <input type="checkbox" id="hp-symp-sluggish" value="sluggish">
+                      <label for="hp-symp-sluggish" class="ms-1 m-0" style="cursor:pointer;">Lờ đờ, bỏ ăn</label>
+                    </div>
+                  </div>
+                  <div class="col-6">
+                    <div class="form-check-custom" style="padding:6px 10px; font-size:0.78rem; display:flex; align-items:center; border:1px solid #d0e8f5; border-radius:8px; background:white;">
+                      <input type="checkbox" id="hp-symp-scratch" value="scratch">
+                      <label for="hp-symp-scratch" class="ms-1 m-0" style="cursor:pointer;">Cọ mình vào đá</label>
+                    </div>
+                  </div>
+                  <div class="col-6">
+                    <div class="form-check-custom" style="padding:6px 10px; font-size:0.78rem; display:flex; align-items:center; border:1px solid #d0e8f5; border-radius:8px; background:white;">
+                      <input type="checkbox" id="hp-symp-gasping" value="gasping">
+                      <label for="hp-symp-gasping" class="ms-1 m-0" style="cursor:pointer;">Nổi đầu đớp khí</label>
+                    </div>
+                  </div>
+                  <div class="col-6">
+                    <div class="form-check-custom" style="padding:6px 10px; font-size:0.78rem; display:flex; align-items:center; border:1px solid #d0e8f5; border-radius:8px; background:white;">
+                      <input type="checkbox" id="hp-symp-spots" value="spots">
+                      <label for="hp-symp-spots" class="ms-1 m-0" style="cursor:pointer;">Nấm đốm trắng</label>
+                    </div>
+                  </div>
+                </div>
+              </div>
+
+              <button class="btn btn-primary-gradient w-100 py-2.5 fw-bold" type="submit"><i class="bi bi-activity me-2"></i>Đánh Giá Sức Khỏe Bể Cá</button>
+            </form>
+          </div>
+        </div>
+
+        <!-- Cột kết quả -->
+        <div class="col-lg-6">
+          <!-- Trạng thái chờ -->
+          <div id="hp-diag-empty" class="diag-card p-4 h-100 text-center d-flex flex-column justify-content-center align-items-center" style="background:white; border: 1.5px dashed #d0e8f5; border-radius: 20px; min-height: 380px;">
+            <i class="bi bi-heart-pulse text-primary" style="font-size:3.5rem;"></i>
+            <h5 class="fw-bold text-dark mt-3">Trình Báo Cáo Chờ Đánh Giá</h5>
+            <p class="text-muted mx-auto" style="max-width:320px; font-size:0.83rem;">Hãy điền các biểu hiện nước hồ bên trái và ấn nút để xem dự thảo phân tích chất lượng nước.</p>
+          </div>
+
+          <!-- Loading -->
+          <div id="hp-diag-loading" class="diag-card p-4 h-100 text-center d-flex flex-column justify-content-center align-items-center d-none" style="background:white; border: 1.5px solid #d0e8f5; border-radius: 20px; min-height: 380px;">
+            <div class="spinner-border text-primary mb-3" style="width: 2.5rem; height: 2.5rem;" role="status"></div>
+            <h6 class="fw-bold">Nemo AI đang chấm điểm hệ nước sinh học...</h6>
+            <p class="text-muted" style="font-size:0.8rem;">Đang quy chiếu nồng độ độc tố amoniac và nitrite...</p>
+          </div>
+
+          <!-- Kết quả thật -->
+          <div id="hp-diag-results" class="diag-card p-4 h-100 d-none" style="background:white; border: 1.5px solid #d0e8f5; border-radius: 20px; box-shadow: 0 8px 30px rgba(10,37,64,0.03);">
+            <div class="d-flex justify-content-between align-items-center mb-3">
+              <h5 class="fw-bold m-0 text-dark" style="font-size:1.05rem;"><i class="bi bi-file-earmark-medical me-2 text-primary"></i>Kết Quả Phân Tích</h5>
+              <span class="badge" id="hp-res-badge">An toàn</span>
+            </div>
+
+            <!-- Health Score Ring -->
+            <div class="d-flex align-items-center gap-3 mb-4">
+              <div class="health-score-ring" id="hp-res-score-ring" style="width: 64px; height: 64px; font-size: 1.15rem; border-width: 5px; display:flex; flex-direction:column; align-items:center; justify-content:center; font-weight:800; border-radius:50%;">
+                <span id="hp-res-score">100</span>
+                <small style="font-size:0.5rem; text-transform:uppercase;">Điểm</small>
+              </div>
+              <div>
+                <h6 class="m-0 fw-bold text-dark" id="hp-res-title">Môi trường nước ổn định</h6>
+                <p class="text-muted m-0" style="font-size:0.75rem;" id="hp-res-subtitle">Chất lượng nước lý tưởng</p>
+              </div>
+            </div>
+
+            <!-- Detail report -->
+            <div class="diagnosis-desc mb-3" id="hp-res-desc" style="font-size:0.8rem; padding:10px 14px; border-left:4px solid var(--color-primary); background:#fcfdff;">
+              Không ghi nhận nồng độ độc tố trong nước. Độ pH trung tính phù hợp nuôi cá Koi và cá cảnh nước ngọt.
+            </div>
+
+            <!-- Recommended steps -->
+            <div class="mb-4">
+              <h6 class="fw-bold text-dark" style="font-size:0.85rem;">📌 Hành động khuyên dùng:</h6>
+              <ul class="ps-3 text-muted m-0" style="font-size:0.78rem; line-height:1.55;" id="hp-res-steps">
+                <li>Duy trì thay nước 15-20% định kỳ hàng tuần.</li>
+              </ul>
+            </div>
+
+            <!-- Match products -->
+            <div>
+              <h6 class="fw-bold text-dark" style="font-size:0.85rem; margin-bottom:10px;">🛒 Chế phẩm xử lý khuyên dùng từ Aqua Care:</h6>
+              <div class="row g-2" id="hp-res-products-grid">
+                <!-- Dynamic products card will be loaded here -->
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="categories" id="categories">
     <div class="wave-divider wave-light wave-divider-top" aria-hidden="true">
       <svg viewBox="0 0 1440 120" preserveAspectRatio="none" xmlns="http://www.w3.org/2000/svg">
         <path d="M0,60 C240,10 480,110 720,64 C960,18 1200,90 1440,50 L1440,0 L0,0 Z" fill="currentColor"/>

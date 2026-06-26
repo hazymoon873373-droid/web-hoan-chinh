@@ -110,5 +110,126 @@
       if(!isOpen){ answer.classList.add('open'); el.classList.add('open'); }
     };
 
+    // ==========================================
+    // DẤU ẤN 5: BỘ ĐẶT LỊCH DỊCH VỤ & TÍNH PHÍ NƯỚC
+    // ==========================================
+    var isPromoApplied = false;
+
+    window.calculateBookingFee = function() {
+      var svcSelect = document.getElementById('bookService');
+      if (!svcSelect) return;
+      var selectedOpt = svcSelect.options[svcSelect.selectedIndex];
+      var baseFee = parseInt(selectedOpt.getAttribute('data-fee')) || 0;
+      
+      document.getElementById('bookBaseFee').textContent = baseFee.toLocaleString('vi-VN') + 'đ';
+      
+      var discount = 0;
+      if (isPromoApplied) {
+        discount = Math.round(baseFee * 0.15); // 15% discount
+      }
+      document.getElementById('bookDiscountFee').textContent = '-' + discount.toLocaleString('vi-VN') + 'đ';
+      
+      var totalFee = baseFee - discount;
+      document.getElementById('bookTotalFee').textContent = totalFee.toLocaleString('vi-VN') + 'đ';
+    };
+
+    window.applyPromoCode = function() {
+      var code = document.getElementById('bookPromo').value.trim().toUpperCase();
+      var promoMsg = document.getElementById('promoMsg');
+      
+      if (code === 'NEMO2026') {
+        isPromoApplied = true;
+        promoMsg.textContent = '✓ Áp dụng mã NEMO2026 thành công! Giảm giá 15% dịch vụ.';
+        promoMsg.style.color = '#2e7d32';
+      } else if (code === '') {
+        isPromoApplied = false;
+        promoMsg.textContent = '';
+      } else {
+        isPromoApplied = false;
+        promoMsg.textContent = '✗ Mã giảm giá không tồn tại hoặc đã hết hạn.';
+        promoMsg.style.color = '#c62828';
+      }
+      calculateBookingFee();
+    };
+
+    window.confirmBooking = function() {
+      var dateVal = document.getElementById('bookDate').value;
+      if (!dateVal) {
+        alert('Vui lòng chọn ngày hẹn dịch vụ!');
+        return;
+      }
+      
+      var randomCode = 'AQ-' + Math.random().toString(36).substring(2, 8).toUpperCase();
+      document.getElementById('bookingCode').textContent = randomCode;
+      
+      var successBox = document.getElementById('booking-success-box');
+      successBox.classList.remove('d-none');
+      
+      setTimeout(function() {
+        successBox.style.transform = 'scale(1.0)';
+      }, 50);
+      
+      alert('✓ Đã đặt lịch thành công! Mã cuộc hẹn của bạn là: ' + randomCode);
+    };
+
+    window.copyBookingCode = function() {
+      var code = document.getElementById('bookingCode').textContent;
+      navigator.clipboard.writeText(code).then(function() {
+        alert('✓ Đã sao chép mã đặt lịch ' + code + ' vào khay nhớ tạm!');
+      }).catch(function() {
+        alert('Không thể tự động sao chép. Vui lòng chọn và sao chép thủ công.');
+      });
+    };
+
+    // Read query parameters for estimator redirect
+    document.addEventListener('DOMContentLoaded', function() {
+      var tomorrow = new Date();
+      tomorrow.setDate(tomorrow.getDate() + 1);
+      var tomorrowStr = tomorrow.toISOString().split('T')[0];
+      var dateInput = document.getElementById('bookDate');
+      if (dateInput) {
+        dateInput.value = tomorrowStr;
+        dateInput.min = tomorrowStr;
+      }
+
+      var urlParams = new URLSearchParams(window.location.search);
+      var area = urlParams.get('area');
+      var depth = urlParams.get('depth');
+      var style = urlParams.get('style');
+      
+      if (area && depth && style) {
+        var koiRadio = document.querySelector('input[name="interest"][value="ho-ca-koi"]');
+        if (koiRadio) koiRadio.checked = true;
+
+        var fArea = document.getElementById('fArea');
+        if (fArea) {
+          var vol = parseFloat(area) * parseFloat(depth);
+          if (vol < 0.5) fArea.value = 'Nhỏ (< 500L)';
+          else if (vol < 3) fArea.value = 'Vừa (500L – 3.000L)';
+          else if (vol < 10) fArea.value = 'Lớn (3.000L – 10.000L)';
+          else fArea.value = 'Rất lớn (> 10.000L)';
+        }
+
+        var fMsg = document.getElementById('fMessage');
+        if (fMsg) {
+          var styleLabel = style === 'zen' ? 'Zen Nhật Bản' : (style === 'modern' ? 'Hiện đại' : 'Thác đá tự nhiên');
+          fMsg.value = 'Tôi muốn thi công hồ cá Koi. Thông số đã tính từ bảng dự toán: Diện tích: ' + area + ' m², Độ sâu: ' + depth + ' m, Phong cách: ' + styleLabel + '.';
+        }
+
+        var bookSvc = document.getElementById('bookService');
+        if (bookSvc) {
+          bookSvc.value = 'khao-sat';
+          calculateBookingFee();
+        }
+
+        var bookingSec = document.getElementById('dat-lich-dich-vu');
+        if (bookingSec) {
+          setTimeout(function() {
+            bookingSec.scrollIntoView({ behavior: 'smooth', block: 'start' });
+          }, 600);
+        }
+      }
+    });
+
 
 

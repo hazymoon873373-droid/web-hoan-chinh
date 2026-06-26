@@ -687,7 +687,7 @@
 
     
     function renderProductGrid(){
-      var filtered = currentCat==='all' ? products : products.filter(function(p){return p.cat===currentCat;});
+      var filtered = currentCat==='all' ? products.slice() : products.filter(function(p){return p.cat===currentCat;});
       // search
       var q = document.getElementById('searchInput').value.toLowerCase();
       if(q) filtered = filtered.filter(function(p){return p.name.toLowerCase().includes(q)||p.desc.toLowerCase().includes(q);});
@@ -1695,6 +1695,146 @@
         typingDiv.remove();
         addMessage(repText, 'bot');
       }, delay);
+    }
+
+    // ==========================================
+    // DẤU ẤN 2: BỘ TRẮC NGHIỆM FIND MY SETUP QUIZ
+    // ==========================================
+    var quizAnswers = { type: null, size: null, budget: null };
+
+    window.selectQuizVal = function(prop, val) {
+      quizAnswers[prop] = val;
+      if (prop === 'type') {
+        document.getElementById('quiz-step-1').classList.add('d-none');
+        document.getElementById('quiz-step-2').classList.remove('d-none');
+      } else if (prop === 'size') {
+        document.getElementById('quiz-step-2').classList.add('d-none');
+        document.getElementById('quiz-step-3').classList.remove('d-none');
+      } else if (prop === 'budget') {
+        document.getElementById('quiz-step-3').classList.add('d-none');
+        document.getElementById('quiz-results-box').classList.remove('d-none');
+        showQuizRecommendations();
+      }
+    };
+
+    window.resetQuiz = function() {
+      quizAnswers = { type: null, size: null, budget: null };
+      document.getElementById('quiz-step-1').classList.remove('d-none');
+      document.getElementById('quiz-step-2').classList.add('d-none');
+      document.getElementById('quiz-step-3').classList.add('d-none');
+      document.getElementById('quiz-results-box').classList.add('d-none');
+      document.getElementById('quiz-products-recs').innerHTML = '';
+      
+      // Restore original products rendering
+      currentCat = 'all';
+      document.getElementById('searchInput').value = '';
+      // Uncheck quick filters
+      ['filter-best-seller', 'filter-new-arrival', 'filter-on-sale', 'filter-high-rating'].forEach(function(id){
+        var cb = document.getElementById(id);
+        if(cb) cb.checked = false;
+        var mCb = document.getElementById('m-' + id);
+        if(mCb) mCb.checked = false;
+      });
+      // Reset sorting select
+      document.getElementById('sortSelect').value = '';
+      renderProductGrid();
+    };
+
+    function showQuizRecommendations() {
+      var recIds = [];
+      var title = "Bộ sản phẩm đề xuất";
+      var desc = "Dựa trên hồ của bạn, Nemo gợi ý cấu hình tối ưu:";
+
+      var t = quizAnswers.type;
+      var s = quizAnswers.size;
+      var b = quizAnswers.budget;
+
+      if (t === 'koi') {
+        title = "Hồ cá Koi Nhật Bản";
+        if (s === 'large') {
+          recIds = [1, 6];
+          desc = "Cấu hình Cao Cấp cho Hồ Koi trên 500L: Hệ thống lọc công suất lớn + Máy bơm đẩy luồng tuần hoàn nước mạnh mẽ.";
+        } else if (s === 'medium') {
+          recIds = [6, 20];
+          desc = "Cấu hình Tiêu Chuẩn cho Hồ Koi 100L-500L: Máy bơm Hsbao + Sứ lọc thanh Hoa Mai tăng vi sinh.";
+        } else {
+          recIds = [3, 20];
+          desc = "Cấu hình Tiết Kiệm cho Hồ Koi dưới 100L: Men vi sinh xử lý nước nhanh + Sứ thanh lọc sinh học.";
+        }
+      } else if (t === 'planted') {
+        title = "Hồ thủy sinh thiên nhiên";
+        if (s === 'large' || s === 'medium') {
+          recIds = [7, 9];
+          desc = "Cấu hình Hồ Thủy Sinh vừa/lớn: Đèn LED RGB 11 màu kích thích quang hợp + Cây Dương Xỉ Java dễ chăm sóc.";
+        } else {
+          recIds = [13, 21];
+          desc = "Cấu hình Hồ Thủy Sinh mini: Cây Sen Tiger tạo điểm nhấn đỏ + Rong tóc tiên tạo oxy tự nhiên.";
+        }
+      } else {
+        title = "Hồ cá cảnh thông thường";
+        if (s === 'large') {
+          recIds = [1, 18];
+          desc = "Cấu hình Hồ cá lớn: Hệ thống lọc AquaPro lọc sạch vượt trội + Dung dịch Detox khử Clo khi thay nước.";
+        } else if (s === 'medium') {
+          recIds = [12, 18];
+          desc = "Cấu hình Hồ cá vừa: Máy lọc chìm Jingye 15W gọn nhẹ + Detox khử độc tố nước máy.";
+        } else {
+          recIds = [12, 4];
+          desc = "Cấu hình Hồ cá nhỏ: Máy lọc chìm Jingye 15W siêu êm + Bi gốm Ceramic lọc sinh học.";
+        }
+      }
+
+      var recsBox = document.getElementById('quiz-products-recs');
+      recsBox.innerHTML = '';
+      
+      recIds.forEach(function(id) {
+        var p = products.find(function(x) { return x.id === id; });
+        if (!p) return;
+        var cardHtml = 
+          '<div class="col-6">' +
+            '<div class="p-2 border rounded bg-white text-center h-100 d-flex flex-column justify-content-between">' +
+              '<div>' +
+                '<img src="' + p.image + '" style="height:55px; object-fit:contain;" class="mb-1" onerror="this.src=\'assets/images/categories/phu-kien.png\'">' +
+                '<h6 class="m-0 text-dark text-truncate" style="font-size:0.75rem; font-weight:600;">' + p.name + '</h6>' +
+                '<span class="text-danger fw-bold" style="font-size:0.72rem;">' + p.price + '</span>' +
+              '</div>' +
+              '<button type="button" class="btn btn-sm btn-primary w-100 py-0.5 mt-1" style="font-size:0.68rem; font-weight:bold; border-radius:8px;" onclick="openBuyModal(' + p.id + ')">Mua nhanh</button>' +
+            '</div>' +
+          '</div>';
+        recsBox.innerHTML += cardHtml;
+      });
+
+      document.getElementById('quiz-res-title').textContent = title + " - Đề xuất từ Nemo";
+      document.getElementById('quiz-res-desc').textContent = desc;
+
+      var filtered = products.filter(function(p) {
+        return recIds.includes(p.id);
+      });
+      
+      document.getElementById('resultCount').textContent = filtered.length;
+      var grid = document.getElementById('productGrid');
+      grid.innerHTML = filtered.map(function(p){
+        return '<div class="col-6 col-md-4">' +
+          '<div class="product-card-new">' +
+            (p.badge?'<span class="product-badge '+p.badge+'">'+p.badgeText+'</span>':'') +
+            '<div class="product-img-wrap"><img src="'+p.image+'" alt="'+p.name+'" loading="lazy" onerror="this.src=\'assets/images/categories/phu-kien.png\'"></div>' +
+            '<div class="product-card-body">' +
+              '<span class="product-cat-label">'+p.catLabel+'</span>' +
+              '<h5 class="product-name">'+p.name+'</h5>' +
+              '<p class="product-meta-info">'+p.desc.substring(0,60)+'...</p>' +
+              '<div class="product-stars"><span class="stars">'+stars(p.rating)+'</span><span class="review-count">('+p.reviewCount+')</span></div>' +
+              '<div class="product-price-row">' +
+                '<span class="product-price">'+p.price+'</span>' +
+                (p.priceOld?'<span class="product-price-old">'+p.priceOld+'</span>':'') +
+                (p.discount?'<span class="product-discount">'+p.discount+'</span>':'') +
+              '</div>' +
+              '<div class="product-actions">' +
+                '<button class="btn-mua-ngay" onclick="openBuyModal('+p.id+')"><i class="bi bi-bag-fill me-1"></i>Mua ngay</button>' +
+                '<button class="btn-xem-chi-tiet" onclick="showDetail('+p.id+')">Chi tiết</button>' +
+              '</div>' +
+            '</div>' +
+          '</div></div>';
+      }).join('');
     }
 
 

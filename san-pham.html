@@ -44,7 +44,6 @@
           </li>
           <li class="nav-item"><a class="nav-link" href="kien-thuc.html">Kiến thức</a></li>
           <li class="nav-item"><a class="nav-link" href="du-an.html">Dự án</a></li>
-          <li class="nav-item"><a class="nav-link" href="cong-cu.html">Aqua Lab</a></li>
           <li class="nav-item"><a class="nav-link" href="lien-he.html">Liên hệ</a></li>
         </ul>
         <div class="navbar-icons d-flex align-items-center gap-2">
@@ -168,6 +167,75 @@
                 <label class="sp-mobile-filter-badge"><input type="checkbox" id="m-filter-new-arrival" onchange="syncFilter(this, 'filter-new-arrival')"> Mới về</label>
                 <label class="sp-mobile-filter-badge"><input type="checkbox" id="m-filter-on-sale" onchange="syncFilter(this, 'filter-on-sale')"> Giảm giá</label>
                 <label class="sp-mobile-filter-badge"><input type="checkbox" id="m-filter-high-rating" onchange="syncFilter(this, 'filter-high-rating')"> Đánh giá 4.5+</label>
+              </div>
+            </div>
+
+            <!-- DẤU ẤN 2: BỘ TỰ ĐỘNG ĐỀ XUẤT THIẾT BỊ (FIND MY SETUP QUIZ) -->
+            <div class="find-setup-card p-3 mb-4" style="background: linear-gradient(135deg, #f0f9ff 0%, #e0f2fe 100%); border: 1.5px solid #bae6fd; border-radius: 16px; box-shadow: 0 4px 15px rgba(14, 165, 233, 0.05);">
+              <div class="d-flex justify-content-between align-items-center mb-3">
+                <h6 class="m-0 fw-bold text-dark" style="font-size:0.88rem;"><i class="bi bi-magic me-2 text-primary"></i>Đề Xuất Thiết Bị Lọc & Bơm Tự Động</h6>
+                <button type="button" class="btn btn-sm btn-outline-primary py-0.5 px-2" style="font-size:0.7rem; font-weight:600; border-radius:12px;" id="btn-reset-quiz" onclick="resetQuiz()">Làm lại</button>
+              </div>
+
+              <!-- Quiz Form -->
+              <div id="quiz-step-1" class="quiz-step">
+                <p class="text-muted mb-2" style="font-size:0.78rem;">Bước 1: Chọn mô hình hồ nuôi thực tế của bạn:</p>
+                <div class="row g-2">
+                  <div class="col-4">
+                    <button type="button" class="btn btn-sm btn-white w-100 py-2 border fw-bold" onclick="selectQuizVal('type', 'koi')" style="font-size:0.75rem; background:white; border-color:#d0e8f5 !important; color:#0a2540;">🐟 Hồ cá Koi</button>
+                  </div>
+                  <div class="col-4">
+                    <button type="button" class="btn btn-sm btn-white w-100 py-2 border fw-bold" onclick="selectQuizVal('type', 'planted')" style="font-size:0.75rem; background:white; border-color:#d0e8f5 !important; color:#0a2540;">🌿 Thủy sinh</button>
+                  </div>
+                  <div class="col-4">
+                    <button type="button" class="btn btn-sm btn-white w-100 py-2 border fw-bold" onclick="selectQuizVal('type', 'fish')" style="font-size:0.75rem; background:white; border-color:#d0e8f5 !important; color:#0a2540;">🐠 Hồ thường</button>
+                  </div>
+                </div>
+              </div>
+
+              <div id="quiz-step-2" class="quiz-step d-none">
+                <p class="text-muted mb-2" style="font-size:0.78rem;">Bước 2: Dự kiến thể tích bể nước hồ:</p>
+                <div class="row g-2">
+                  <div class="col-4">
+                    <button type="button" class="btn btn-sm btn-white w-100 py-2 border fw-bold" onclick="selectQuizVal('size', 'small')" style="font-size:0.75rem; background:white; border-color:#d0e8f5 !important; color:#0a2540;">Dưới 100 Lít</button>
+                  </div>
+                  <div class="col-4">
+                    <button type="button" class="btn btn-sm btn-white w-100 py-2 border fw-bold" onclick="selectQuizVal('size', 'medium')" style="font-size:0.75rem; background:white; border-color:#d0e8f5 !important; color:#0a2540;">100L - 500L</button>
+                  </div>
+                  <div class="col-4">
+                    <button type="button" class="btn btn-sm btn-white w-100 py-2 border fw-bold" onclick="selectQuizVal('size', 'large')" style="font-size:0.75rem; background:white; border-color:#d0e8f5 !important; color:#0a2540;">Trên 500 Lít</button>
+                  </div>
+                </div>
+              </div>
+
+              <div id="quiz-step-3" class="quiz-step d-none">
+                <p class="text-muted mb-2" style="font-size:0.78rem;">Bước 3: Lựa chọn mức ngân sách đầu tư:</p>
+                <div class="row g-2">
+                  <div class="col-4">
+                    <button type="button" class="btn btn-sm btn-white w-100 py-2 border fw-bold" onclick="selectQuizVal('budget', 'low')" style="font-size:0.75rem; background:white; border-color:#d0e8f5 !important; color:#0a2540;">Tiết kiệm</button>
+                  </div>
+                  <div class="col-4">
+                    <button type="button" class="btn btn-sm btn-white w-100 py-2 border fw-bold" onclick="selectQuizVal('budget', 'mid')" style="font-size:0.75rem; background:white; border-color:#d0e8f5 !important; color:#0a2540;">Tiêu chuẩn</button>
+                  </div>
+                  <div class="col-4">
+                    <button type="button" class="btn btn-sm btn-white w-100 py-2 border fw-bold" onclick="selectQuizVal('budget', 'high')" style="font-size:0.75rem; background:white; border-color:#d0e8f5 !important; color:#0a2540;">Cao cấp</button>
+                  </div>
+                </div>
+              </div>
+
+              <!-- Quiz Results -->
+              <div id="quiz-results-box" class="quiz-step d-none">
+                <div class="alert alert-success m-0 p-2.5" style="border:none; border-radius:10px; font-size:0.78rem; line-height:1.45; background:#eafaf1; color:#2e7d32;">
+                  <div class="d-flex align-items-center gap-2 mb-1">
+                    <i class="bi bi-check-circle-fill text-success" style="font-size:1rem;"></i>
+                    <strong class="text-success" id="quiz-res-title" style="color:#1b5e20 !important;">Đề xuất trọn bộ thiết bị hoàn chỉnh</strong>
+                  </div>
+                  <p class="m-0 text-muted" id="quiz-res-desc" style="font-size:0.75rem;">Dựa trên thông số hồ của bạn, chúng tôi đề xuất bộ máy lọc và máy bơm phù hợp.</p>
+                  
+                  <div class="row g-2 mt-2" id="quiz-products-recs">
+                    <!-- Recommended product cards here -->
+                  </div>
+                </div>
               </div>
             </div>
 

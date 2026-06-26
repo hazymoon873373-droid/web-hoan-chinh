@@ -1,4 +1,4 @@
-﻿<!DOCTYPE html>
+<!DOCTYPE html>
 <html lang="vi">
 <head>
   <meta charset="UTF-8">
@@ -41,7 +41,6 @@
           </li>
           <li class="nav-item"><a class="nav-link" href="kien-thuc.html">Kiến thức</a></li>
           <li class="nav-item"><a class="nav-link" href="du-an.html">Dự án</a></li>
-                    <li class="nav-item"><a class="nav-link" href="cong-cu.html">Aqua Lab</a></li>
         <li class="nav-item"><a class="nav-link active" href="lien-he.html">Liên hệ</a></li>
         </ul>
         <div class="navbar-icons d-flex align-items-center gap-2">
@@ -251,6 +250,101 @@
               </div>
             </div>
           </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- DẤU ẤN 5: BỘ ĐẶT LỊCH DỊCH VỤ & TÍNH PHÍ NƯỚC (APPOINTMENT SCHEDULER) -->
+  <section class="lh-booking py-5" id="dat-lich-dich-vu" style="background:#fcfdfd; border-top:1px solid #f0f5fa;">
+    <div class="container">
+      <div class="lh-booking-card p-4 mx-auto" style="max-width:800px; background:white; border: 1.5px solid #d0e8f5; border-radius:20px; box-shadow:0 8px 30px rgba(26, 157, 208, 0.05);">
+        <div class="text-center mb-4">
+          <span class="badge bg-primary px-3 py-1.5 mb-2" style="font-size:0.75rem; border-radius:12px; font-weight:700; background:linear-gradient(135deg, #1a9dd0 0%, #2bb6e8 100%) !important;">Dịch vụ chuyên nghiệp</span>
+          <h4 class="fw-bold text-dark m-0"><i class="bi bi-calendar-check-fill text-primary me-2"></i>Bộ Đặt Lịch Dịch Vụ & Tính Phí Nước</h4>
+          <p class="text-muted mt-1" style="font-size:0.85rem;">Chọn dịch vụ, chọn lịch hẹn phù hợp, hệ thống tự động tính toán phí dịch vụ.</p>
+        </div>
+
+        <div class="row g-4">
+          <!-- Cột bên trái: Lựa chọn dịch vụ & thời gian -->
+          <div class="col-md-6">
+            <div class="mb-3">
+              <label class="form-label fw-bold text-dark" style="font-size:0.82rem;">Lựa chọn dịch vụ:</label>
+              <select id="bookService" class="form-select" onchange="calculateBookingFee()" style="border-radius:10px;">
+                <option value="test-nuoc" data-fee="150000">💧 Đo nước & Cân bằng pH (150k)</option>
+                <option value="ve-sinh" data-fee="500000">🔧 Vệ sinh & Bảo dưỡng hệ lọc (500k)</option>
+                <option value="khao-sat" data-fee="1000000">🏡 Khảo sát & Thiết kế tận nhà (1.000k)</option>
+              </select>
+            </div>
+            
+            <div class="mb-3">
+              <label class="form-label fw-bold text-dark" style="font-size:0.82rem;">Chọn ngày hẹn:</label>
+              <input type="date" id="bookDate" class="form-control" style="border-radius:10px;">
+            </div>
+
+            <div class="mb-3">
+              <label class="form-label fw-bold text-dark" style="font-size:0.82rem;">Chọn khung giờ:</label>
+              <div class="row g-2">
+                <div class="col-4">
+                  <input type="radio" class="btn-check" name="bookTime" id="time-sang" value="Sáng (8:00 - 11:30)" checked>
+                  <label class="btn btn-outline-primary btn-sm w-100 py-2 fw-semibold" for="time-sang" style="font-size:0.75rem; border-radius:8px;">8:00-11:30</label>
+                </div>
+                <div class="col-4">
+                  <input type="radio" class="btn-check" name="bookTime" id="time-chieu" value="Chiều (13:30 - 17:00)">
+                  <label class="btn btn-outline-primary btn-sm w-100 py-2 fw-semibold" for="time-chieu" style="font-size:0.75rem; border-radius:8px;">13:30-17:00</label>
+                </div>
+                <div class="col-4">
+                  <input type="radio" class="btn-check" name="bookTime" id="time-toi" value="Tối (17:30 - 20:00)">
+                  <label class="btn btn-outline-primary btn-sm w-100 py-2 fw-semibold" for="time-toi" style="font-size:0.75rem; border-radius:8px;">17:30-20:00</label>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <!-- Cột bên phải: Tóm tắt chi phí & Xác nhận -->
+          <div class="col-md-6 d-flex flex-column justify-content-between">
+            <div class="p-3 rounded bg-light border" style="font-size:0.8rem; line-height:1.6;">
+              <h6 class="fw-bold text-dark border-bottom pb-2 mb-2" style="font-size:0.85rem;"><i class="bi bi-file-earmark-text-fill text-muted me-1"></i>Tóm tắt lịch hẹn:</h6>
+              <div class="d-flex justify-content-between mb-1">
+                <span>Phí dịch vụ gốc:</span>
+                <strong id="bookBaseFee">150.000đ</strong>
+              </div>
+              <div class="d-flex justify-content-between mb-1 text-success">
+                <span>Mã giảm giá (NEMO2026):</span>
+                <strong id="bookDiscountFee">-0đ</strong>
+              </div>
+              <div class="d-flex justify-content-between border-top pt-2 mt-2 fw-bold text-dark" style="font-size:0.9rem;">
+                <span>TỔNG PHÍ THANH TOÁN:</span>
+                <span id="bookTotalFee" style="color:#b71c1c;">150.000đ</span>
+              </div>
+              
+              <div class="mt-3">
+                <div class="input-group input-group-sm">
+                  <input type="text" class="form-control" id="bookPromo" placeholder="Nhập mã KM (ví dụ: NEMO2026)" style="border-top-left-radius:8px; border-bottom-left-radius:8px;">
+                  <button class="btn btn-outline-secondary text-dark" type="button" onclick="applyPromoCode()" style="border-top-right-radius:8px; border-bottom-right-radius:8px; font-weight:600;">Áp dụng</button>
+                </div>
+                <div id="promoMsg" class="mt-1" style="font-size:0.72rem;"></div>
+              </div>
+            </div>
+
+            <div class="mt-3">
+              <button type="button" class="btn btn-primary-gradient w-100 py-2.5 fw-bold" onclick="confirmBooking()" style="border-radius:12px; font-size:0.85rem;"><i class="bi bi-clock-history me-2"></i>Xác Nhận Đặt Lịch Hẹn</button>
+            </div>
+          </div>
+        </div>
+
+        <!-- Success result with spring/elastic animation -->
+        <div id="booking-success-box" class="d-none mt-4 p-3 text-center alert alert-success" style="border:none; border-radius:16px; background:#eafaf1; color:#2e7d32; position:relative; overflow:hidden; transform: scale(0.5); transition: transform 0.5s cubic-bezier(0.175, 0.885, 0.32, 1.275);">
+          <div class="d-inline-flex align-items-center justify-content-center bg-white rounded-circle mb-2" style="width:50px; height:50px; box-shadow:0 4px 10px rgba(46,125,50,0.15);">
+            <i class="bi bi-calendar2-check-fill text-success" style="font-size:1.6rem;"></i>
+          </div>
+          <h5 class="fw-bold mb-1" style="font-size:0.98rem; color:#1b5e20;">Đặt Lịch Dịch Vụ Thành Công!</h5>
+          <p class="m-0 text-muted" style="font-size:0.78rem;">Mã xác nhận đặt lịch hẹn của bạn:</p>
+          <div class="d-flex align-items-center justify-content-center gap-2 my-2.5">
+            <code class="px-3 py-1.5 bg-white border rounded text-danger fw-bold" id="bookingCode" style="font-size:1.05rem; letter-spacing:1px;">AQ-BOOK-94A2</code>
+            <button class="btn btn-sm btn-outline-secondary py-1 text-dark" onclick="copyBookingCode()" style="font-size:0.7rem; font-weight:600;"><i class="bi bi-copy me-1"></i>Copy</button>
+          </div>
+          <p class="m-0 text-muted" style="font-size:0.72rem; font-style:italic;">Nhân viên chăm sóc khách hàng Aqua Care sẽ liên hệ lại qua điện thoại trước 1 tiếng khi đến thực hiện.</p>
         </div>
       </div>
     </div>
